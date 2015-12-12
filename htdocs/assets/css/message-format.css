@@ -19,12 +19,16 @@ table td {
 .message-format-part-0 {
 	color: blue;
 }
-.message-format-part-1, .ack-message-format .part-1 {
+.message-format-part-1, .ack-message-format .message-format-part-2 {
 	color: orange;
 }
 .error-message-format .message-format-part-1 {
 	color: red;
 }
+.error-message-format .message-format-part-2 {
+	color: darkred;
+}
+
 .ack-message-format .message-format-part-1 {
 	color: green;
 }

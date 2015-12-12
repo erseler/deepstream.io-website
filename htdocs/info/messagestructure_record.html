@@ -81,6 +81,7 @@
 		<a href="messagestructure_record.html">Record</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 			<ul class="overview">
+				<li><a href="#happy_path">happy_path</a></li>
 				<li><a href="#Listen">Listen</a></li>
 				<li><a href="#Unlisten">Unlisten</a></li>
 				<li><a href="#Susbcribe">Susbcribe</a></li>
@@ -108,9 +109,29 @@
 
 			<div id="content">
 				<link rel="stylesheet" type="text/css" href="../assets/css/message-format.css" />
-<h1 class="type">
-    record
+
+<h1>
+    Record
 </h1>
+
+<div class="section">
+    <h2>
+        <a name="happy_path">Happy Path</a>
+    </h2>
+    <ul>
+    	<li>Get record</li>
+    	<li>Recieve read</li>
+    	<li>Subscribe to changes</li>
+    	<li>Change record via update</li>
+    	<li>Other client gets notified of change</li>
+    	<li>Change record via patch</li>
+    	<li>Other client gets notified of change</li>
+    	<li>Listen for record pattern</li>
+    	<li>Get notified when record is called</li>
+    	<li>Unlisten to record pattern</li>
+    </ul>
+</div/>
+
     <div class="section">
         <h2>
             <a name="Listen">Listen</a>
