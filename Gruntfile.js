@@ -69,14 +69,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('buildPages', function() {
-		async.parallel([
+		async.waterfall([
+			require( './build/buildSpecs' ).action,
+			require( './build/buildBlog' ).action,
 			require( './build/build' ).action
-		] , this.async() );
-	});
-
-	grunt.registerTask('buildBlog', function() {
-			async.parallel([
-			require( './build/buildBlog' ).action
 		] , this.async() );
 	});
 
@@ -111,7 +107,7 @@ module.exports = function(grunt) {
 		'build'
 	]);
 
-	grunt.registerTask('build', [ 'clean:htdocs', 'buildBlog', 'buildPages' ] );
+	grunt.registerTask('build', [ 'clean:htdocs', 'buildPages' ] );
 	grunt.registerTask('deploy', [ 'setConfig', 'build', 'copy:toplevelfiles', 'clean:deployDir','copy:htdocs' ]);
 	grunt.registerTask('default', [ 'build', 'watch' ] );
 };

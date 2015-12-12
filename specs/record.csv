@@ -1,0 +1,12 @@
+ID,Action,Message,Ack,Direction,Description
+1,Listen,R|L|recordPrefix\/.*+,R|A|L|recordPrefix\/.*+,Client,
+2,Unlisten,R|UL|recordPrefix\/.*+,R|A|UL|recordPrefix\/.*+,Client,
+3,Susbcribe,R|S|recordName+,R|A|S|recordName+,Client,
+3,Unsubscribe,R|US|recordName+,R|A|US|recordName+,Client,
+4,Read/Create,R|CR|recordName+,R|A|CR|recordName+,Client,
+5,Update Entire Record,R|U|recordName|versionNumber|JSON+,R|A|U|recordName+,Client,
+6,Patch Record,R|P|recordName|2|path|value+,R|A|P|recordName+,Client,
+7,Delete Record,R|D|recordName+,R|A|D|recordName+,Client,
+8,Receive Record Update,R|R|recordName|versionNumber|JSON,,Client,
+E1,Invalid Message,E|E|INVALID_MESSAGE_DATA|invalidMessage+,,Client,
+E2,Unknown Action,E|E|UNKNOWN_ACTION|unknown action actionName+,,Client,

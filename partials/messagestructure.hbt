@@ -1,0 +1,45 @@
+<h1 class="type">
+    {{name}}
+</h1>
+{{#each data}}
+    <div class="section">
+        <h2>
+            <a name="{{Action}}">{{Action}}</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                {{Description}}
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            {{Direction}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            {{message Message}}
+                        </td>
+                    </tr>
+                    {{#if Ack}}
+                    <tr>
+                        <td>
+                            Ack
+                        </td>
+                        <td>
+                            {{message Ack}}
+                        </td>
+                    </tr>
+                    {{/if}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{{/each}}

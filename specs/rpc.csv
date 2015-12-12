@@ -1,0 +1,9 @@
+ID,Action,Message,Ack,Direction,Description
+1,Register as provider,P|S|rpcName+,P|A|S|rpcName+,Client,Sent when client can recieve RPC events
+2,Unregister as provider,P|US|rpcName+,P|A|US|rpcName+,Client,Sent when client no longer wishes to recieve RPC events
+3,Send RPC request,P|REQ|rpcName|rpcID|Arguments+,P|A|REQ|rpcName|rpcID+,Client/Server,Send/Recieve when RPC requested
+4,Reject RPC request,P|REJ|rpcName|rpcID+,,Client,Send if client does not want to execute RPC
+5,Error RPC request,P|E|ErrorMessage|rpcName|123+,,Send if error occurs during execution
+6,Respond to RPC request,P|RES|rpcName|rpcID|Result+,,Send if error occurs when trying to execute rpc
+E1,Invalid Message,E|E|INVALID_MESSAGE_DATA|invalidMessage+,,Server,Sent if message format was incorrect
+E2,Unknown Action,E|E|UNKNOWN_ACTION|unknown action actionName+,,Server,Send if action was unknown

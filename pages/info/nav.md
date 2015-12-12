@@ -8,6 +8,47 @@
 		<a href="performance-single-node-vs-cluster.html">Single Node vs Cluster</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>
+
+	<li class="head first">Message Specification</li>
+	<li {{#if fileIs_messagestructure}}class="active"{{/if}}>
+		<a href="messagestructure.html">Overview</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>	
+	<li {{#if fileIs_messagestructure_record}}class="active"{{/if}}>
+		<a href="messagestructure_record.html">Record</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+		{{#if fileIs_messagestructure_record}}
+			<ul class="overview">
+				{{#each subNav}}
+				<li><a href="#{{this}}">{{this}}</a></li>
+				{{/each}}
+			</ul>
+		{{/if}}
+	</li>
+	<li {{#if fileIs_messagestructure_events}}class="active"{{/if}}>
+		<a href="messagestructure_events.html">Events</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+		{{#if fileIs_messagestructure_events}}
+			<ul class="overview">
+				{{#each subNav}}
+				<li><a href="#{{this}}">{{this}}</a></li>
+				{{/each}}
+			</ul>
+		{{/if}}
+	</li>
+	<li {{#if fileIs_messagestructure_RPC}}class="active"{{/if}}>
+		<a href="messagestructure_rpc.html">RPC</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+		{{#if fileIs_messagestructure_rpc}}
+			<ul class="overview">
+				{{#each subNav}}
+				<li><a href="#{{this}}">{{this}}</a></li>
+				{{/each}}
+			</ul>
+		{{/if}}
+	</li>
+
+
 {{!--
 	<li class="head first">Release Notes</li>
 	<li {{#if fileIs_server-release-notes}}class="active"{{/if}}>

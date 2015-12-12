@@ -65,6 +65,7 @@ hbs.registerHelper( 'downloadItem', function( name, packageName, hasBower, icon 
 	return new hbs.SafeString( html );
 });
 
+
 hbs.registerHelper( 'viewport', function(){
 	if( this.isDocs ) {
 		return '';
@@ -72,6 +73,29 @@ hbs.registerHelper( 'viewport', function(){
 		return new hbs.SafeString( '<meta name="viewport" content="width=device-width, initial-scale=1" />' );
 	}
 });
+
+hbs.registerHelper( 'message', function( message ) {
+	if( !message ) {
+		return '';
+	}
+	
+	var parts = message.split( '|' );
+	var messageClass = 'message-format';
+	messageClass += parts[ 1 ] !== 'A' ? '' : ' ack-message-format';
+	messageClass += parts[ 1 ] !== 'E' ? '' : ' error-message-format';
+
+	var html = '<span class="' + messageClass + '">';
+	for( var i=0; i<parts.length; i++ ) {
+		html+= '<span class="message-format-part-' + i + '">' + parts[ i ] + '</span>';
+		if( i<parts.length-1) {
+			html += '<span class="message-format-pipe">|</span>';
+		}	
+	}
+	html = html.replace( '+', '' );
+	html += '<span class="message-format-end">+</span>';
+	html += '</span>';
+	return new hbs.SafeString( html );
+} );
 
 hbs.registerHelper( 'debug', function(){
 	delete this.blogPosts;

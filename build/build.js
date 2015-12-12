@@ -187,10 +187,16 @@ var buildFile = function( fileExtension, data, fileContent, next ) {
 
 	var blogPosts =  require( './buildBlog' ).blogPosts;
 	if( !blogPosts ) {
-		console.log( 'Skipping blog data since buildBlog was not run as part of build' );
+		console.log( 'Blog data missing' );
 	}
 	data.contextVars.blogPosts = blogPosts;
 	data.contextVars.communityEvents = communityEvents;
+
+	var messageSpecs =  require( './buildSpecs' );
+	if( !messageSpecs ) {
+		console.log( 'Message specs missing' );
+	}
+	data.contextVars.messageSpecs = messageSpecs;
 
 	fileBuilder[ fileExtension ].build( fileContent, data, function( error, innerHtml ){
 		if( data.contextVars.hasNav ) {
