@@ -77,22 +77,29 @@
 		<a href="messagestructure.html">Overview</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>	
+	<li >
+		<a href="messagestructure_auth.html">Auth</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
 	<li class="active">
 		<a href="messagestructure_record.html">Record</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 			<ul class="overview">
-				<li><a href="#happy_path">happy_path</a></li>
-				<li><a href="#Listen">Listen</a></li>
-				<li><a href="#Unlisten">Unlisten</a></li>
-				<li><a href="#Susbcribe">Susbcribe</a></li>
-				<li><a href="#Unsubscribe">Unsubscribe</a></li>
-				<li><a href="#Read/Create">Read/Create</a></li>
-				<li><a href="#Update Entire Record">Update Entire Record</a></li>
-				<li><a href="#Patch Record">Patch Record</a></li>
-				<li><a href="#Delete Record">Delete Record</a></li>
-				<li><a href="#Receive Record Update">Receive Record Update</a></li>
-				<li><a href="#Invalid Message">Invalid Message</a></li>
-				<li><a href="#Unknown Action">Unknown Action</a></li>
+				<li><a href="#Request Record">Request Record</a></li>
+				<li><a href="#Subscribe To Updates">Subscribe To Updates</a></li>
+				<li><a href="#Update A Record">Update A Record</a></li>
+				<li><a href="#Patch A Record">Patch A Record</a></li>
+				<li><a href="#Listen To Record Subscriptions">Listen To Record Subscriptions</a></li>
+				<li><a href="#listen">listen</a></li>
+				<li><a href="#unlisten">unlisten</a></li>
+				<li><a href="#listenmatch">listenmatch</a></li>
+				<li><a href="#subscribe">subscribe</a></li>
+				<li><a href="#unsubscribe">unsubscribe</a></li>
+				<li><a href="#create">create</a></li>
+				<li><a href="#update">update</a></li>
+				<li><a href="#patch">patch</a></li>
+				<li><a href="#delete">delete</a></li>
+				<li><a href="#recieveupdate">recieveupdate</a></li>
 			</ul>
 	</li>
 	<li >
@@ -114,27 +121,169 @@
     Record
 </h1>
 
-<div class="section">
-    <h2>
-        <a name="happy_path">Happy Path</a>
-    </h2>
-    <ul>
-    	<li>Get record</li>
-    	<li>Recieve read</li>
-    	<li>Subscribe to changes</li>
-    	<li>Change record via update</li>
-    	<li>Other client gets notified of change</li>
-    	<li>Change record via patch</li>
-    	<li>Other client gets notified of change</li>
-    	<li>Listen for record pattern</li>
-    	<li>Get notified when record is called</li>
-    	<li>Unlisten to record pattern</li>
-    </ul>
-</div/>
-
     <div class="section">
         <h2>
-            <a name="Listen">Listen</a>
+            <a name="Request Record">Request Record</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <ul>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#create">Read/Create</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#create">Read/Create Ack</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#recieveupdate">Receive Record Update</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="Subscribe To Updates">Subscribe To Updates</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <ul>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#create">Read/Create</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#create">Read/Create Ack</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#subscribe">Susbcribe</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#subscribe">Susbcribe Ack</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 2:</span> 
+                    <a href="#patch">Patch Record</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#recieveupdate">Receive Record Update</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#unsubscribe">Unsubscribe</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#unsubscribe">Unsubscribe Ack</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="Update A Record">Update A Record</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <ul>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#create">Read/Create</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#create">Read/Create Ack</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#update">Update Entire Record</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#update">Update Entire Record Ack</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="Patch A Record">Patch A Record</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <ul>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#create">Read/Create</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#create">Read/Create Ack</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#patch">Patch Record</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#patch">Patch Record Ack</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="Listen To Record Subscriptions">Listen To Record Subscriptions</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <ul>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#listen">Listen</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#listen">Listen Ack</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 2:</span> 
+                    <a href="#create">Read/Create</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#listenmatch">Listen Match</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#unlisten">Unlisten</a>
+                </li>
+                <li>
+                    <span class="path-client">Client 1:</span> 
+                    <a href="#unlisten">Unlisten Ack</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="listen">Listen</a>
         </h2>
         <div class="action-content">
             <p class="description">
@@ -158,21 +307,13 @@
                             <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">L</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordPrefix\/.*</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            Ack
-                        </td>
-                        <td>
-                            <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">L</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordPrefix\/.*</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="section">
         <h2>
-            <a name="Unlisten">Unlisten</a>
+            <a name="unlisten">Unlisten</a>
         </h2>
         <div class="action-content">
             <p class="description">
@@ -196,12 +337,34 @@
                             <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">UL</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordPrefix\/.*</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="listenmatch">Listen Match</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                Recieved when a listened to regex is matched
+            </p>
+            <table>
+                <tbody>
                     <tr>
                         <td>
-                            Ack
+                            Direction
                         </td>
                         <td>
-                            <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">UL</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordPrefix\/.*</span><span class="message-format-end">+</span></span>
+                            Server
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">SP</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordPrefix\/.*</span><span class="message-format-pipe">|</span><span class="message-format-part-3">/A</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
                 </tbody>
@@ -210,7 +373,7 @@
     </div>
     <div class="section">
         <h2>
-            <a name="Susbcribe">Susbcribe</a>
+            <a name="subscribe">Susbcribe</a>
         </h2>
         <div class="action-content">
             <p class="description">
@@ -234,21 +397,13 @@
                             <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            Ack
-                        </td>
-                        <td>
-                            <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">S</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="section">
         <h2>
-            <a name="Unsubscribe">Unsubscribe</a>
+            <a name="unsubscribe">Unsubscribe</a>
         </h2>
         <div class="action-content">
             <p class="description">
@@ -272,21 +427,13 @@
                             <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">US</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            Ack
-                        </td>
-                        <td>
-                            <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">US</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="section">
         <h2>
-            <a name="Read/Create">Read/Create</a>
+            <a name="create">Read/Create</a>
         </h2>
         <div class="action-content">
             <p class="description">
@@ -310,21 +457,13 @@
                             <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            Ack
-                        </td>
-                        <td>
-                            <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="section">
         <h2>
-            <a name="Update Entire Record">Update Entire Record</a>
+            <a name="update">Update Entire Record</a>
         </h2>
         <div class="action-content">
             <p class="description">
@@ -348,21 +487,13 @@
                             <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">U</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">versionNumber</span><span class="message-format-pipe">|</span><span class="message-format-part-4">JSON</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            Ack
-                        </td>
-                        <td>
-                            <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">U</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="section">
         <h2>
-            <a name="Patch Record">Patch Record</a>
+            <a name="patch">Patch Record</a>
         </h2>
         <div class="action-content">
             <p class="description">
@@ -386,21 +517,13 @@
                             <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">P</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">2</span><span class="message-format-pipe">|</span><span class="message-format-part-4">path</span><span class="message-format-pipe">|</span><span class="message-format-part-5">value</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            Ack
-                        </td>
-                        <td>
-                            <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">P</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="section">
         <h2>
-            <a name="Delete Record">Delete Record</a>
+            <a name="delete">Delete Record</a>
         </h2>
         <div class="action-content">
             <p class="description">
@@ -424,21 +547,13 @@
                             <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">D</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            Ack
-                        </td>
-                        <td>
-                            <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">D</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <div class="section">
         <h2>
-            <a name="Receive Record Update">Receive Record Update</a>
+            <a name="recieveupdate">Receive Record Update</a>
         </h2>
         <div class="action-content">
             <p class="description">
@@ -460,66 +575,6 @@
                         </td>
                         <td>
                             <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">R</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">versionNumber</span><span class="message-format-pipe">|</span><span class="message-format-part-4">JSON</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="section">
-        <h2>
-            <a name="Invalid Message">Invalid Message</a>
-        </h2>
-        <div class="action-content">
-            <p class="description">
-                
-            </p>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            Direction
-                        </td>
-                        <td>
-                            Client
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Message
-                        </td>
-                        <td>
-                            <span class="message-format error-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_MESSAGE_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">invalidMessage</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="section">
-        <h2>
-            <a name="Unknown Action">Unknown Action</a>
-        </h2>
-        <div class="action-content">
-            <p class="description">
-                
-            </p>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            Direction
-                        </td>
-                        <td>
-                            Client
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Message
-                        </td>
-                        <td>
-                            <span class="message-format error-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">UNKNOWN_ACTION</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown action actionName</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
                 </tbody>

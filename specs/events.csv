@@ -1,9 +1,0 @@
-ID,Action,Message,Ack,Direction,Description
-1,Listen,E|L|event\/.*+,E|A|L|event\/.*+,Client,Send when listening to event matching regex
-2,Unlisten,E|UL|event\/.*+,E|A|UL|event\/.*+,Client,Send when no longer interested in listening to event
-3,Susbcribe,E|S|eventName+,E|A|S|eventName+,Client,Send to subscribe to event
-3,Unsubscribe,E|US|eventName+,E|A|US|eventName+,Client,Send to unsubscribe to event
-4,Publish,E|EVT|eventName|JSON+,E|EVT|eventName+,Client/Server,Recieved/Sent when an event occurs
-5,Listen Match,E|SP|event\/.*|event/A+,,Server,Recieved when a listened to regex is matched
-E1,Invalid Message,E|E|INVALID_MESSAGE_DATA|invalidMessage+,,Server,Recieved when data format sent to server is incorrect
-E2,Unknown Action,E|E|UNKNOWN_ACTION|unknown action actionName+,,Server,Recieved when action submitted is not supported

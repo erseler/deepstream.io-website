@@ -14,6 +14,17 @@
 		<a href="messagestructure.html">Overview</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>	
+	<li {{#if fileIs_messagestructure_auth}}class="active"{{/if}}>
+		<a href="messagestructure_auth.html">Auth</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+		{{#if fileIs_messagestructure_auth}}
+			<ul class="overview">
+				{{#each subNav}}
+				<li><a href="#{{this}}">{{this}}</a></li>
+				{{/each}}
+			</ul>
+		{{/if}}
+	</li>
 	<li {{#if fileIs_messagestructure_record}}class="active"{{/if}}>
 		<a href="messagestructure_record.html">Record</a>
 		<div class="isActiveIndicator orangeGradient"></div>

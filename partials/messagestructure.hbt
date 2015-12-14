@@ -1,11 +1,11 @@
 {{#each data}}
     <div class="section">
         <h2>
-            <a name="{{Action}}">{{Action}}</a>
+            <a name="{{id}}">{{action}}</a>
         </h2>
         <div class="action-content">
             <p class="description">
-                {{Description}}
+                {{description}}
             </p>
             <table>
                 <tbody>
@@ -14,7 +14,7 @@
                             Direction
                         </td>
                         <td>
-                            {{Direction}}
+                            {{direction}}
                         </td>
                     </tr>
                     <tr>
@@ -22,7 +22,7 @@
                             Message
                         </td>
                         <td>
-                            {{message Message}}
+                            {{message message}}
                         </td>
                     </tr>
                     {{#if Ack}}
@@ -31,7 +31,7 @@
                             Ack
                         </td>
                         <td>
-                            {{message Ack}}
+                            {{message ack}}
                         </td>
                     </tr>
                     {{/if}}

@@ -1,0 +1,20 @@
+{{#each paths}}
+    <div class="section">
+        <h2>
+            <a name="{{@key}}">{{@key}}</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                {{description}}
+            </p>
+            <ul>
+                {{#each this}}
+                <li>
+                    <span class="path-client">Client {{client}}:</span> 
+                    <a href="#{{id}}">{{label}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+{{/each}}

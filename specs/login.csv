@@ -1,3 +1,0 @@
-ID,Action,Message,Ack,Direction,Description
-1,Sending auth paramters,A|REQ|loginData+,,Client,Sent to authenticate user
-E1,Invalid Auth,A|E|INVALID_AUTH_DATA|unknown user+,,Server,Recieved if login fails

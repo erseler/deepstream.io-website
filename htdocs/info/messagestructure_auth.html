@@ -77,9 +77,13 @@
 		<a href="messagestructure.html">Overview</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>	
-	<li >
+	<li class="active">
 		<a href="messagestructure_auth.html">Auth</a>
 		<div class="isActiveIndicator orangeGradient"></div>
+			<ul class="overview">
+				<li><a href="#login">login</a></li>
+				<li><a href="#ivalidlogin">ivalidlogin</a></li>
+			</ul>
 	</li>
 	<li >
 		<a href="messagestructure_record.html">Record</a>
@@ -92,14 +96,6 @@
 	<li >
 		<a href="messagestructure_rpc.html">RPC</a>
 		<div class="isActiveIndicator orangeGradient"></div>
-			<ul class="overview">
-				<li><a href="#register">register</a></li>
-				<li><a href="#unregister">unregister</a></li>
-				<li><a href="#send">send</a></li>
-				<li><a href="#reject">reject</a></li>
-				<li><a href="#error">error</a></li>
-				<li><a href="#success">success</a></li>
-			</ul>
 	</li>
 
 
@@ -107,18 +103,16 @@
 
 			<div id="content">
 				<link rel="stylesheet" type="text/css" href="../assets/css/message-format.css" />
-
 <h1>
-    RPC
+    Auth
 </h1>
-
     <div class="section">
         <h2>
-            <a name="register">Register as provider</a>
+            <a name="login">Sending auth paramters</a>
         </h2>
         <div class="action-content">
             <p class="description">
-                Sent when client can recieve RPC events
+                Sent to authenticate user
             </p>
             <table>
                 <tbody>
@@ -135,7 +129,7 @@
                             Message
                         </td>
                         <td>
-                            <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-end">+</span></span>
+                            <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
                 </tbody>
@@ -144,11 +138,11 @@
     </div>
     <div class="section">
         <h2>
-            <a name="unregister">Unregister as provider</a>
+            <a name="ivalidlogin">Invalid Auth</a>
         </h2>
         <div class="action-content">
             <p class="description">
-                Sent when client no longer wishes to recieve RPC events
+                Recieved if login fails
             </p>
             <table>
                 <tbody>
@@ -157,7 +151,7 @@
                             Direction
                         </td>
                         <td>
-                            Client
+                            Server
                         </td>
                     </tr>
                     <tr>
@@ -165,127 +159,7 @@
                             Message
                         </td>
                         <td>
-                            <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">US</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="section">
-        <h2>
-            <a name="send">Send RPC request</a>
-        </h2>
-        <div class="action-content">
-            <p class="description">
-                Send/Recieve when RPC requested
-            </p>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            Direction
-                        </td>
-                        <td>
-                            Client/Server
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Message
-                        </td>
-                        <td>
-                            <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Arguments</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="section">
-        <h2>
-            <a name="reject">Reject RPC request</a>
-        </h2>
-        <div class="action-content">
-            <p class="description">
-                Send if client does not want to execute RPC
-            </p>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            Direction
-                        </td>
-                        <td>
-                            Client
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Message
-                        </td>
-                        <td>
-                            <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REJ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="section">
-        <h2>
-            <a name="error">Error RPC request</a>
-        </h2>
-        <div class="action-content">
-            <p class="description">
-                
-            </p>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            Direction
-                        </td>
-                        <td>
-                            Send if error occurs during execution
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Message
-                        </td>
-                        <td>
-                            <span class="message-format error-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">ErrorMessage</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-4">123</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="section">
-        <h2>
-            <a name="success">Respond to RPC request</a>
-        </h2>
-        <div class="action-content">
-            <p class="description">
-                
-            </p>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            Direction
-                        </td>
-                        <td>
-                            Send if error occurs when trying to execute rpc
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Message
-                        </td>
-                        <td>
-                            <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">RES</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Result</span><span class="message-format-end">+</span></span>
+                            <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_AUTH_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown user</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
                 </tbody>

@@ -1,0 +1,10 @@
+{
+	"record": {
+		"Request Record" : [ "1_create", "1_create_ack", "1_recieveupdate" ],
+		"Subscribe To Updates": [ "1_create", "1_create_ack", "1_subscribe", "1_subscribe_ack", "2_patch", "1_recieveupdate", "1_unsubscribe", "1_unsubscribe_ack" ],
+		"Update A Record": ["1_create","1_create_ack","1_update","1_update_ack"],
+		"Patch A Record": ["1_create","1_create_ack","1_patch","1_patch_ack"],
+		"Listen To Record Subscriptions": ["1_listen","1_listen_ack","2_create","1_listenmatch","1_unlisten","1_unlisten_ack"]
+	}
+}
+

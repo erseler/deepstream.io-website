@@ -4,22 +4,5 @@
     Record
 </h1>
 
-<div class="section">
-    <h2>
-        <a name="happy_path">Happy Path</a>
-    </h2>
-    <ul>
-    	<li>Get record</li>
-    	<li>Recieve read</li>
-    	<li>Subscribe to changes</li>
-    	<li>Change record via update</li>
-    	<li>Other client gets notified of change</li>
-    	<li>Change record via patch</li>
-    	<li>Other client gets notified of change</li>
-    	<li>Listen for record pattern</li>
-    	<li>Get notified when record is called</li>
-    	<li>Unlisten to record pattern</li>
-    </ul>
-</div/>
-
+{{> messagepaths messageSpecs.record }}
 {{> messagestructure messageSpecs.record }}
