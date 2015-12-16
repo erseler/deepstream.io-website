@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>deepstream.io | Events and RPCs</title>
 
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="deepstream, deepstream.io, streaming, realtime, server, socket" />
@@ -14,8 +14,6 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="../assets/css/navigation.css" />
 	<link rel="stylesheet" type="text/css" href="../assets/css/screen.css" />
-	<link rel="stylesheet" type="text/css" href="../assets/css/api.css" />
-	<link rel="stylesheet" type="text/css" href="../assets/css/syntaxhighlighter.css" />
 	<script type="text/javascript">
 	document.createElement( 'header' );
 	document.createElement( 'nav' );
@@ -29,13 +27,13 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
-<body class="category_tutorials ">
+<body class="category_D:\git\deepstream.io-website\pages\tutorials ">
 	<div class="mobile-menu">
 		<div class="nav mobile-nav">
 			<ul>
 				<li ><a href="..">Home</a></li>
 				<li ><a href="../download/">Downloads</a></li>
-				<li class="active"><a href="../tutorials/getting-started.html">Tutorials</a></li>
+				<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
 				<li ><a href="../docs/deepstream.html">Documentation</a></li>
 				<li ><a href="../blog/">Blog</a></li>
 				<li ><a href="../info/">Info</a></li>				
@@ -51,7 +49,7 @@
 				<ul>
 					<li ><a href="..">Home</a></li>
 					<li ><a href="../download/">Downloads</a></li>
-					<li class="active"><a href="../tutorials/getting-started.html">Tutorials</a></li>
+					<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
 					<li ><a href="../docs/deepstream.html">Documentation</a></li>
 					<li ><a href="../blog/">Blog</a></li>
 					<li ><a href="../info/">Info</a></li>				
@@ -60,97 +58,9 @@
 				<i class="fa fa-bars"></i>
 			</span>
 		</div>
-		<div id="wrapper" class="main">
-			<ul id="subnav">
-	<li class="head first">General</li>
-	<li >
-		<a href="getting-started.html">Getting started</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="authentication.html">Authentication</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="permissioning.html">Permissioning</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li class="head">Server</li>
-	<li >
-		<a href="connectors-and-deployment.html">Connectors and Deployment</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="data-provider.html">Building a data-provider</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="searching-and-querying.html">Searching & Querying</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="transforming-data.html">Transforming Data</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="writing-storage-cache-connector.html">Writing storage and cache connectors</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="writing-messaging-connector.html">Writing a messaging connector</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li class="head">Client</li>
-	<li >
-		<a href="node-js-client.html">Using the client in NodeJS</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="records.html">Records</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="lists.html">Lists</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li class="active">
-		<a href="events-and-rpcs.html">Events & RPCs</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="simple-app-using-ko.html">Simple App using Knockout</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="simple-app-using-react.html">Simple App using React</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="simple-app-using-angular.html">Simple App using Angular</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="webrtc.html">WebRTC</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="webrtc-tips.html">WebRTC Tips</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-</ul>
-
-			<div id="content">
-				<h1>Events &amp; RPCs</h1><p>In addition to records, deepstream provides means of messaging and request-response communication: events and rpcs.</p><h3>Events</h3><p>Events work just like a common event-emitter, but distributed across all connected clients</p><pre><code><span class="token comment" spellcheck="true">//subscribe to an event
+			<div class="content main">
+				<h1>Events &amp; RPCs</h1><p>In addition to records, deepstream provides means of messaging and request-response communication: events and rpcs.</p><p>###Events
+Events work just like a common event-emitter, but distributed across all connected clients</p><pre><code><span class="token comment" spellcheck="true">//subscribe to an event
 </span>ds<span class="token punctuation" >.</span>event<span class="token punctuation" >.</span><span class="token function" >subscribe<span class="token punctuation" >(</span></span> <span class="token string" >'someEvent'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> data <span class="token punctuation" >)</span><span class="token punctuation" >{</span> <span class="token comment" spellcheck="true">/****/</span> <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token comment" spellcheck="true">
 //emit an event
@@ -158,7 +68,8 @@
 <span class="token comment" spellcheck="true">
 //unsubscribe from an event
 </span>ds<span class="token punctuation" >.</span>event<span class="token punctuation" >.</span><span class="token function" >unsubscribe<span class="token punctuation" >(</span></span> <span class="token string" >'someEvent'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-</code></pre><h3>RPCs</h3><p>Remote Procedure Calls allow for Request-Reponse communication. If multiple clients are able to provide the same
+</code></pre><p>###RPCs
+Remote Procedure Calls allow for Request-Reponse communication. If multiple clients are able to provide the same
 rpc, deepstream will distribute requests evenly between them.</p><pre><code><span class="token comment" spellcheck="true">//register as a provider for a rpc
 </span>ds<span class="token punctuation" >.</span>rpc<span class="token punctuation" >.</span><span class="token function" >provide<span class="token punctuation" >(</span></span> <span class="token string" >'addTwoNumbers'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> data<span class="token punctuation" >,</span> response <span class="token punctuation" >)</span><span class="token punctuation" >{</span>
 
@@ -182,8 +93,6 @@ rpc, deepstream will distribute requests evenly between them.</p><pre><code><spa
 </span>ds<span class="token punctuation" >.</span>rpc<span class="token punctuation" >.</span><span class="token function" >unprovide<span class="token punctuation" >(</span></span> <span class="token string" >'addTwoNumbers'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 </code></pre>
 			</div>
-		</div>
-		<script type="text/javascript" src="../assets/js/docs.js"></script>
 	</div>
 	<div id="footer">
 		<ul class="footer-items">

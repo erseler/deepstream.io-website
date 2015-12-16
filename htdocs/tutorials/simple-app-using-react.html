@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>deepstream.io | Simple app using React</title>
 
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="deepstream, deepstream.io, streaming, realtime, server, socket" />
@@ -14,8 +14,6 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="../assets/css/navigation.css" />
 	<link rel="stylesheet" type="text/css" href="../assets/css/screen.css" />
-	<link rel="stylesheet" type="text/css" href="../assets/css/api.css" />
-	<link rel="stylesheet" type="text/css" href="../assets/css/syntaxhighlighter.css" />
 	<script type="text/javascript">
 	document.createElement( 'header' );
 	document.createElement( 'nav' );
@@ -29,13 +27,13 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
-<body class="category_tutorials ">
+<body class="category_D:\git\deepstream.io-website\pages\tutorials ">
 	<div class="mobile-menu">
 		<div class="nav mobile-nav">
 			<ul>
 				<li ><a href="..">Home</a></li>
 				<li ><a href="../download/">Downloads</a></li>
-				<li class="active"><a href="../tutorials/getting-started.html">Tutorials</a></li>
+				<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
 				<li ><a href="../docs/deepstream.html">Documentation</a></li>
 				<li ><a href="../blog/">Blog</a></li>
 				<li ><a href="../info/">Info</a></li>				
@@ -51,7 +49,7 @@
 				<ul>
 					<li ><a href="..">Home</a></li>
 					<li ><a href="../download/">Downloads</a></li>
-					<li class="active"><a href="../tutorials/getting-started.html">Tutorials</a></li>
+					<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
 					<li ><a href="../docs/deepstream.html">Documentation</a></li>
 					<li ><a href="../blog/">Blog</a></li>
 					<li ><a href="../info/">Info</a></li>				
@@ -60,96 +58,7 @@
 				<i class="fa fa-bars"></i>
 			</span>
 		</div>
-		<div id="wrapper" class="main">
-			<ul id="subnav">
-	<li class="head first">General</li>
-	<li >
-		<a href="getting-started.html">Getting started</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="authentication.html">Authentication</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="permissioning.html">Permissioning</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li class="head">Server</li>
-	<li >
-		<a href="connectors-and-deployment.html">Connectors and Deployment</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="data-provider.html">Building a data-provider</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="searching-and-querying.html">Searching & Querying</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="transforming-data.html">Transforming Data</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="writing-storage-cache-connector.html">Writing storage and cache connectors</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="writing-messaging-connector.html">Writing a messaging connector</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li class="head">Client</li>
-	<li >
-		<a href="node-js-client.html">Using the client in NodeJS</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="records.html">Records</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="lists.html">Lists</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="events-and-rpcs.html">Events & RPCs</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="simple-app-using-ko.html">Simple App using Knockout</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li class="active">
-		<a href="simple-app-using-react.html">Simple App using React</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="simple-app-using-angular.html">Simple App using Angular</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="webrtc.html">WebRTC</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li >
-		<a href="webrtc-tips.html">WebRTC Tips</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-</ul>
-
-			<div id="content">
+			<div class="content main">
 				<h1>Building a simple app with deepstream and react</h1><p>Integration with react is done within the <strong><em>componentDidMount</em></strong> and
 <strong><em>componentWillUnmount</em></strong> methods.</p><p>Example:</p><pre><code>componentDidMount<span class="token punctuation" >:</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
     <span class="token keyword" >this</span><span class="token punctuation" >.</span>record <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord<span class="token punctuation" >(</span></span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>props<span class="token punctuation" >.</span>recordName <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
@@ -162,14 +71,12 @@ update is received.</p><pre><code>componentWillUnmount<span class="token punctua
     <span class="token keyword" >this</span><span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >discard<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token punctuation" >}</span>
 </code></pre><p>This allows the subscription to be terminated to avoid any memory leaks after
-the object is no longer in the dom.</p><h3>Example App</h3><div class="img-container">
+the object is no longer in the dom.</p><p>###Example App</p><div class="img-container">
     <img class="tutorial" width="602" height="302" src="../assets/images/simple-app.png" alt="Simple App Screenshot" />
 </div>
 
 <p>An example application using <a href="https://facebook.github.io/react/">React</a> can be found at here:</p><p><a class="mega" href="https://github.com/hoxton-one/ds-demo-simple-app-react"><i class="fa fa-github"></i>https://github.com/hoxton-one/ds-demo-simple-app-react</a></p>
 			</div>
-		</div>
-		<script type="text/javascript" src="../assets/js/docs.js"></script>
 	</div>
 	<div id="footer">
 		<ul class="footer-items">

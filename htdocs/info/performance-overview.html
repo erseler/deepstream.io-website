@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>deepstream.io | Performance testing overview</title>
 
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="deepstream, deepstream.io, streaming, realtime, server, socket" />
@@ -14,8 +14,6 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="../assets/css/navigation.css" />
 	<link rel="stylesheet" type="text/css" href="../assets/css/screen.css" />
-	<link rel="stylesheet" type="text/css" href="../assets/css/api.css" />
-	<link rel="stylesheet" type="text/css" href="../assets/css/syntaxhighlighter.css" />
 	<script type="text/javascript">
 	document.createElement( 'header' );
 	document.createElement( 'nav' );
@@ -29,7 +27,7 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
-<body class="category_info ">
+<body class="category_D:\git\deepstream.io-website\pages\info ">
 	<div class="mobile-menu">
 		<div class="nav mobile-nav">
 			<ul>
@@ -38,7 +36,7 @@
 				<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
 				<li ><a href="../docs/deepstream.html">Documentation</a></li>
 				<li ><a href="../blog/">Blog</a></li>
-				<li class="active"><a href="../info/">Info</a></li>				
+				<li ><a href="../info/">Info</a></li>				
 			</ul>		</div>
 	</div>
 
@@ -54,82 +52,25 @@
 					<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
 					<li ><a href="../docs/deepstream.html">Documentation</a></li>
 					<li ><a href="../blog/">Blog</a></li>
-					<li class="active"><a href="../info/">Info</a></li>				
+					<li ><a href="../info/">Info</a></li>				
 				</ul>			</div>
 			<span class="menu-button menu-icon">
 				<i class="fa fa-bars"></i>
 			</span>
 		</div>
-		<div id="wrapper" class="main">
-			<ul id="subnav">
-	<li class="head first">Performance</li>
-	<li class="active">
-		<a href="performance-overview.html">Overview</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>	
-	<li >
-		<a href="performance-single-node-vs-cluster.html">Single Node vs Cluster</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-	<li class="head first">Message Specification</li>
-	<li >
-		<a href="messagestructure/index.html">Overview</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>	
-	<li class="de-emphasized">Auth</li>
-	<li >
-		<a href="messagestructure/auth/paths.html">Paths</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="messagestructure/auth/structure.html">Spec</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li class="de-emphasized">Record</li>
-	<li >
-		<a href="messagestructure/record/paths.html">Paths</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="messagestructure/record/structure.html">Spec</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li class="de-emphasized">Event</li>
-	<li >
-		<a href="messagestructure/event/paths.html">Paths</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="messagestructure/event/structure.html">Spec</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li class="de-emphasized">RPC</li>
-	<li >
-		<a href="messagestructure/rpc/paths.html">Paths</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="messagestructure/rpc/structure.html">Spec</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-
-
-</ul>
-
-			<div id="content">
+			<div class="content main">
 				<h1>Performance Overview</h1><p>Realtime web applications have a wide range of performance requirements. Apps with a focus on collaboration need to be able to sync changes between large numbers of clients, financial platforms must fan out prices with ultra-low latency and apps with a focus on communication require comparable up- and down-stream times.</p><p>To ensure deepstream can cater for all these use cases, we are regularly conducting performance tests and benchmarks.</p><p>In doing so, we have three main goals. We want to:</p><ul>
 <li>quantify deepstream’s performance to help choose the right hardware and deployment strategy</li>
 <li>develop a suite of benchmarks that create reproducible results to help detect any decline in performance early on</li>
 <li>make it easier to compare deepstream against other realtime servers to help you choose the right tool for your performance requirements</li>
 </ul>
-<p>Please note: The following tests are non-conclusive and will be improved and extended as development progresses. If you have a particular performance test scenario in mind or noticed a bottleneck within deepstream, please write to us at <a href="mailto:info@hoxton-one.com">info@hoxton-one.com</a>.</p><h3>Performance tests reduces risk by:</h3><ul>
+<p>Please note: The following tests are non-conclusive and will be improved and extended as development progresses. If you have a particular performance test scenario in mind or noticed a bottleneck within deepstream, please write to us at <a href="mailto:info@hoxton-one.com">info@hoxton-one.com</a>.</p><p>###Performance tests reduces risk by:</p><ul>
 <li>understanding how the system reacts under an expected load </li>
 <li>ensuring the system can sustain the expected load for long periods of time</li>
 <li>understanding how the system will react when reaching its full capacity</li>
 <li>understanding how the system will react  when put under extreme load for a short period of time</li>
 </ul>
-<h3>What type of tests can take these into account?</h3><ul>
+<p>###What type of tests can take these into account?</p><ul>
 <li>load tests<br />
   Make sure that the system works as expected under a set conditions. This covers <em>CPU</em> and <em>message latency</em> and its output can be used to determine what kind of deployment structure would suit you best. </li>
 <li>soak tests<br />
@@ -139,8 +80,8 @@
 <li>spike tests<br />
   Generating large amounts of clients or traffic in a very small amount of time and ensuring that the system does not fail.</li>
 </ul>
-<h3>How can you improve results?</h3><p>About deepstream’s performance
-Deepstream is designed as a distributed system. Individual nodes can multiplex updates amongst each other. This means that it’s possible to keep message latency and throughput rates steady whilst catering for an ever increasing number of simultaneously connected clients – simply by spinning up additional deepstream nodes as needed.</p><p>To put this statement into numbers, please see the performance test results for <a href="./performance-single-node-vs-cluster.html">a single node in comparison to a three instance cluster</a>.</p><h3>How to run the tests yourself</h3><p>When running these tests, we&#39;re using a <a href="https://github.com/hoxton-one/deepstream.io-performance">performance test harness that&#39;s available on github</a>. It makes it easy to quickly spin up large numbers of deepstream servers and clients.</p><p>Clients are created in pairs that send messages back and forth on a unique record in order to calculate latency and keep track of updates.
+<p>###How can you improve results?</p><p>About deepstream’s performance
+Deepstream is designed as a distributed system. Individual nodes can multiplex updates amongst each other. This means that it’s possible to keep message latency and throughput rates steady whilst catering for an ever increasing number of simultaneously connected clients – simply by spinning up additional deepstream nodes as needed.</p><p>To put this statement into numbers, please see the performance test results for <a href="./performance-single-node-vs-cluster.html">a single node in comparison to a three instance cluster</a>.</p><p>###How to run the tests yourself</p><p>When running these tests, we&#39;re using a <a href="https://github.com/hoxton-one/deepstream.io-performance">performance test harness that&#39;s available on github</a>. It makes it easy to quickly spin up large numbers of deepstream servers and clients.</p><p>Clients are created in pairs that send messages back and forth on a unique record in order to calculate latency and keep track of updates.
 Each client increments the same field of a record in turns ( even and odd ) until the configured number of messages for the test case is reached.</p><p>Using a combination of the following environment variables you can adjust the test harness to either run high throughput, high concurrency or long duration tests.</p><table class="mini">
     <thead>
         <tr>
@@ -206,8 +147,6 @@ Each client increments the same field of a record in turns ( even and odd ) unti
 
 <p></div></p>
 			</div>
-		</div>
-		<script type="text/javascript" src="../assets/js/docs.js"></script>
 	</div>
 	<div id="footer">
 		<ul class="footer-items">
