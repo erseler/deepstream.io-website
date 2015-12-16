@@ -32,3 +32,57 @@ table td {
 .ack-message-format .message-format-part-1 {
 	color: green;
 }
+
+/***
+* Tabbed
+**/
+#wrapper > #content h2 {
+	margin-top: 0;
+}
+
+.client-header.client-2 {
+    margin-left: 50%;
+    position: relative;
+    left: -80px;
+}
+
+.section-with-tabs {
+	position: relative;
+}
+
+.section-with-tabs .nav {
+	text-align: right;
+	position: relative;
+	top: 2px;
+}
+
+.section-with-tabs .tab {
+	padding: 5px;
+	margin: 0;
+	box-shadow: 0 0 1px rgba(0,0,0,0.3);
+	display: inline-block;
+}
+
+.section-with-tabs .tab.active {
+	border-top: 2px solid orange;
+}
+
+.section-with-tabs .tab:hover {
+	cursor: pointer;
+}
+
+.panel {
+	display: none;
+}
+
+.panel table {
+	padding-top: 25px;
+}
+
+.action .action-panel, .structure .structure-panel {
+	display: block;
+}
+
+.client-2 {
+	margin-left: 50%;
+}

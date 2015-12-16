@@ -3,6 +3,7 @@ var rimraf = require( 'rimraf' );
 var path = require( 'path' );
 var async = require( 'async' );
 var fs = require( 'fs' );
+var fse = require( 'fs-extra' );
 var hbs = require( './getHbs.js' );
 var fileOptions = { encoding: 'utf8' };
 var inputDir =  path.join( __dirname, '../pages' );
@@ -61,14 +62,8 @@ var walkTree = function( done ) {
   		filters: [ 'blog' ]
 	};
 	var walker = walk.walk( inputDir, options );
-	walker.on( 'directory', createTargetDirectory );
 	walker.on( 'file', createTargetFile );
 	walker.on( 'end', done );
-};
-
-var createTargetDirectory = function( root, stats, next ) {
-	var targetDir = path.join( outputDir, stats.name );
-	fs.mkdir( targetDir, next );
 };
 
 var createTargetFile = function( root, stats, next ) {
@@ -89,6 +84,7 @@ var createTargetFile = function( root, stats, next ) {
 		folder = '';
 	} else {
 		folder = root.replace( inputDir + '/', '' );
+		folder = folder.split( '/' )[ 0 ];
 	}
 
 	if( fileBuilder[ fileExtension ] === undefined ) {
@@ -211,5 +207,5 @@ var buildFile = function( fileExtension, data, fileContent, next ) {
 };
 
 var writeFile = function( targetFilePath, content, next ) {
-	fs.writeFile( targetFilePath, content, fileOptions, next );
+	fse.outputFile( targetFilePath, content, fileOptions, next );
 };

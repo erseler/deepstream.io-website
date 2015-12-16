@@ -1,20 +1,85 @@
+<link rel="stylesheet" type="text/css" href="{{link 'asset' 'css/message-format.css'}}" />
+
 {{#each paths}}
-    <div class="section">
-        <h2>
-            <a name="{{@key}}">{{@key}}</a>
-        </h2>
-        <div class="action-content">
-            <p class="description">
-                {{description}}
-            </p>
-            <ul>
-                {{#each this}}
-                <li>
-                    <span class="path-client">Client {{client}}:</span> 
-                    <a href="#{{id}}">{{label}}</a>
-                </li>
-                {{/each}}
-            </ul>
+        <div class="section with-nav">    
+            <h2>
+                <a name="{{@key}}">{{@key}}</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    {{description}}
+                </p>
+
+
+            <div class="section-with-tabs action">
+                <div class="nav nav-tabs">
+                    <div class="tab active" data-type="action">Actions</div>
+                    <div class="tab" data-type="structure">Messages</div>
+                </div>
+                
+                <div class="panel action-panel">
+                    <table>
+                        <thead>
+                            <th>First Client</th>
+                            <th>Second Client</th>
+                        <thead/>
+                        <tbody>
+                            {{#each this}}
+                            <tr>
+                                <td class="client-1">
+                                    {{#if firstClient}}
+                                        <a href="./structure.html#{{id}}">{{label}}<a>
+                                    {{/if}}
+                                </td>
+
+                                <td class="client-2">
+                                    {{#unless firstClient}}
+                                        <a href="./structure.html#{{id}}">{{label}}<a>
+                                    {{/unless}}
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="panel structure-panel">
+                   <table>
+                        <thead>
+                             <th>First Client</th>
+                             <th>Second Client</th>
+                        <thead/>
+                        <tbody>
+                            {{#each this}}
+                            <tr>
+                                <td class="client-1">
+                                    {{#if firstClient}}
+                                        {{message message}}
+                                    {{/if}}
+                                </td>
+                                <td class="client-2">
+                                    {{#unless firstClient}}
+                                        {{message message}}
+                                    {{/unless}}
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 {{/each}}
+
+<script type="text/javascript">
+    $( '.tab' ).click( function( e ) {
+        $( e.target )
+            .addClass( 'active' )
+            .siblings( '.active' )
+                .removeClass( 'active' )
+            .parents( '.section-with-tabs' )
+                .removeClass( 'action structure' )
+                .addClass( $( e.target ).data( 'type' ) );
+    } );
+</script>

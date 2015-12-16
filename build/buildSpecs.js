@@ -25,41 +25,60 @@ function readMessageStructures( next ) {
 }
 
 function readMessagePaths( loadedSpec, next ) {
-	var paths = require( '../data/paths.json' );
-	var result = loadedSpec;
-	for( var type in paths ) {
-		var typePaths = paths[ type ];
-		for( var pathName in typePaths ) {
-			if( !typePaths[ pathName ].map ) {
-				continue;
-			}; 
-			if( !result[ type ].paths ) {
-				result[ type ].paths = {};
+	var content = fs.readFileSync( 'data/paths.csv' ).toString('utf8');
+	
+	parse(content, { 
+		columns: true,
+		skip_empty_lines: true,
+		trim: true
+	}, function( err, output ) {
+		output.forEach( function( path ) {
+			var pathParts = path.path.split( '|' );
+			var parts;
+			var temp = [];
+
+			if( !loadedSpec[ path.type ].paths ) {
+				loadedSpec[ path.type ].paths = {};
 			}
-			result[ type ].paths[ pathName ] = 
-				typePaths[ pathName ].map( function( value ) {
-					var parts = value.split( '_' );				
-					return {
+			
+			for( var i=0; i < pathParts.length; i++ ) {
+				parts = pathParts[ i ].split( '_' );
+				var spec = getSpec( loadedSpec[ path.type ].data, parts[ 1 ] );
+				
+				temp.push( {
+					firstClient: parts[ 0 ] == 1,
+					client: parts[ 0 ],
+					id: parts[ 1 ],
+					label: spec.action,
+					message: spec.message
+				} );
+
+				if( spec.ack ) {
+					temp.push( {
+						firstClient: parts[ 0 ] == 1,
 						client: parts[ 0 ],
 						id: parts[ 1 ],
-						label: getName( loadedSpec[ type ].data, parts[ 1 ], parts.length > 2 )
-					}
-				} );
-		}
-	}
+						label: 'Recieve ' + spec.action + ' Ack',
+						message: spec.ack
+					} );
+				}
+			}
 
-	next();
+			loadedSpec[ path.type ].paths[ path.name ] = temp;
+			loadedSpec[ path.type ].data.push( path );
+		} )
+		module.exports = loadedSpec;
+		next();
+	});
 }
 
-function getName( types, id, isAck ) {
+function getSpec( types, id, isAck ) {
 	for( var i=0; i< types.length; i++ ) {
 		if( types[ i ].id === id ) {
-			if( isAck ) {
-				return types[ i ].action + ' Ack';	
-			} else 
-				return types[ i ].action;			
+			return types[ i ];		
 		}
 	}
+	console.log( 'Error! Missing SPEC ' + id );
 }
 
 exports.action = readMessageStructures;

@@ -1,6 +1,6 @@
 type,id,action,message,ack,direction,description
 ,,,,,,
-auth,login,Sending auth paramters,A|REQ|loginData+,,Client,Sent to authenticate user
+auth,login,Sending auth paramters,A|REQ|loginData+,A|A,Client,Sent to authenticate user
 auth,invalidlogin,Invalid Auth,A|E|INVALID_AUTH_DATA|unknown user+,,Server,Recieved if login fails
 ,,,,,,
 event,listen,Listen,E|L|event\/.*+,E|A|L|event\/.*+,Client,Send when listening to event matching regex

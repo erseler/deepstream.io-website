@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="{{link 'asset' 'css/message-format.css'}}" />
+
 {{#each data}}
     <div class="section">
         <h2>
@@ -25,7 +27,7 @@
                             {{message message}}
                         </td>
                     </tr>
-                    {{#if Ack}}
+                    {{#if ack}}
                     <tr>
                         <td>
                             Ack

@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			tasks: ['build'],
-			files: [ './index.hbs', './pages/**', './partials/*', './htdocs/assets/**' ],
+			files: [ './index.hbs', './pages/**', './partials/*', './htdocs/assets/**', './data/**' ],
 			options: { livereload: 5051 },
 		},
 

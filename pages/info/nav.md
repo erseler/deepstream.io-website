@@ -14,8 +14,9 @@
 		<a href="messagestructure.html">Overview</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>	
+	<li class="de-emphasized">Auth</li>
 	<li {{#if fileIs_messagestructure_auth}}class="active"{{/if}}>
-		<a href="messagestructure_auth.html">Auth</a>
+		<a href="messagestructure/auth/paths.html">Paths</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 		{{#if fileIs_messagestructure_auth}}
 			<ul class="overview">
@@ -25,10 +26,10 @@
 			</ul>
 		{{/if}}
 	</li>
-	<li {{#if fileIs_messagestructure_record}}class="active"{{/if}}>
-		<a href="messagestructure_record.html">Record</a>
+	<li {{#if fileIs_messagestructure_auth}}class="active"{{/if}}>
+		<a href="messagestructure/auth/structure.html">Spec</a>
 		<div class="isActiveIndicator orangeGradient"></div>
-		{{#if fileIs_messagestructure_record}}
+		{{#if fileIs_messagestructure_auth}}
 			<ul class="overview">
 				{{#each subNav}}
 				<li><a href="#{{this}}">{{this}}</a></li>
@@ -36,10 +37,11 @@
 			</ul>
 		{{/if}}
 	</li>
-	<li {{#if fileIs_messagestructure_events}}class="active"{{/if}}>
-		<a href="messagestructure_events.html">Events</a>
+	<li class="de-emphasized">Record</li>
+	<li {{#if fileIs_messagestructure_auth}}class="active"{{/if}}>
+		<a href="messagestructure/record/paths.html">Paths</a>
 		<div class="isActiveIndicator orangeGradient"></div>
-		{{#if fileIs_messagestructure_events}}
+		{{#if fileIs_messagestructure_auth}}
 			<ul class="overview">
 				{{#each subNav}}
 				<li><a href="#{{this}}">{{this}}</a></li>
@@ -47,10 +49,56 @@
 			</ul>
 		{{/if}}
 	</li>
-	<li {{#if fileIs_messagestructure_RPC}}class="active"{{/if}}>
-		<a href="messagestructure_rpc.html">RPC</a>
+	<li {{#if fileIs_messagestructure_auth}}class="active"{{/if}}>
+		<a href="messagestructure/record/structure.html">Spec</a>
 		<div class="isActiveIndicator orangeGradient"></div>
-		{{#if fileIs_messagestructure_rpc}}
+		{{#if fileIs_messagestructure_auth}}
+			<ul class="overview">
+				{{#each subNav}}
+				<li><a href="#{{this}}">{{this}}</a></li>
+				{{/each}}
+			</ul>
+		{{/if}}
+	</li>
+	<li class="de-emphasized">Event</li>
+	<li {{#if fileIs_messagestructure_auth}}class="active"{{/if}}>
+		<a href="messagestructure/event/paths.html">Paths</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+		{{#if fileIs_messagestructure_auth}}
+			<ul class="overview">
+				{{#each subNav}}
+				<li><a href="#{{this}}">{{this}}</a></li>
+				{{/each}}
+			</ul>
+		{{/if}}
+	</li>
+	<li {{#if fileIs_messagestructure_auth}}class="active"{{/if}}>
+		<a href="messagestructure/event/structure.html">Spec</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+		{{#if fileIs_messagestructure_auth}}
+			<ul class="overview">
+				{{#each subNav}}
+				<li><a href="#{{this}}">{{this}}</a></li>
+				{{/each}}
+			</ul>
+		{{/if}}
+	</li>
+	<li class="de-emphasized">RPC</li>
+	<li {{#if fileIs_messagestructure_rpc}}class="active"{{/if}}>
+		<a href="messagestructure/rpc/paths.html">Paths</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+		{{#if fileIs_messagestructure_auth}}
+			<ul class="overview">
+				{{#each subNav}}
+				<li><a href="#{{this}}">{{this}}</a></li>
+				{{/each}}
+			</ul>
+		{{/if}}
+	</li>
+	<li {{#if fileIs_messagestructure_auth}}class="active"{{/if}}>
+		<a href="messagestructure/rpc/structure.html">Spec</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+		{{#if fileIs_messagestructure_auth}}
 			<ul class="overview">
 				{{#each subNav}}
 				<li><a href="#{{this}}">{{this}}</a></li>
