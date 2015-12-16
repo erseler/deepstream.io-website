@@ -3,5 +3,10 @@
 		"name": "Yasser Fadl",
 		"bio": "Yasser enjoys playing with electronics ( usualy ending up soldering new cup holders )",
 		"gravatar": "https://s.gravatar.com/avatar/47342a117d8faf101cc6022488958ca1?s=80"
-	}
+	},
+	"wolframhempel" : {
+        "name": "Wolfram Hempel",
+        "bio": "Wolfram worked all over the world before settling in Berlin and becoming a co-founder of deepstream.io. He also once studied art-history, but that's a different story and shall be told another time.",
+        "gravatar": "http://www.gravatar.com/avatar/f831162b79d84f85f589a1a76b4975db"
+    }
 }
