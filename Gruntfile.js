@@ -59,14 +59,28 @@ module.exports = function(grunt) {
 					{expand: true, src: ['**'], cwd: versionPath, dest: './htdocs/files/latest' }
 				]
 			}
-		}
+		},
+
+		 browserSync: {
+            dev: {
+                bsFiles: {
+                    src : [
+                        './htdocs/assets/css/*.css'
+                    ]
+                },
+                options: {
+                    watchTask: true,
+                    server: './htdocs'
+                }
+            }
+        }
 
 	});
-
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-browser-sync');
 
 	grunt.registerTask('buildPages', function() {
 		async.waterfall([
@@ -109,5 +123,5 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('build', [ 'clean:htdocs', 'buildPages' ] );
 	grunt.registerTask('deploy', [ 'setConfig', 'build', 'copy:toplevelfiles', 'clean:deployDir','copy:htdocs' ]);
-	grunt.registerTask('default', [ 'build', 'watch' ] );
+	grunt.registerTask('default', [ 'build', 'browserSync', 'watch' ] );
 };
