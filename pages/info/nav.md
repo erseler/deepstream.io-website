@@ -11,7 +11,7 @@
 
 	<li class="head first">Message Specification</li>
 	<li {{#if fileIs_messagestructure}}class="active"{{/if}}>
-		<a href="messagestructure.html">Overview</a>
+		<a href="messagestructure/index.html">Overview</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>	
 	<li class="de-emphasized">Auth</li>
