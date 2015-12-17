@@ -124,6 +124,226 @@
 
 <link rel="stylesheet" type="text/css" href="../../../assets/css/message-format.css" />
 
+    <div class="section">
+        <h2>
+            <a name="listen">Listen</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                Send when listening to event matching regex
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            Client
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">L</span><span class="message-format-pipe">|</span><span class="message-format-part-2">event\/.*</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ack
+                        </td>
+                        <td>
+                            <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">L</span><span class="message-format-pipe">|</span><span class="message-format-part-3">event\/.*</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="unlisten">Unlisten</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                Send when no longer interested in listening to event
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            Client
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">UL</span><span class="message-format-pipe">|</span><span class="message-format-part-2">event\/.*</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ack
+                        </td>
+                        <td>
+                            <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">UL</span><span class="message-format-pipe">|</span><span class="message-format-part-3">event\/.*</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="subscribe">Susbcribe</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                Send to subscribe to event
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            Client
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ack
+                        </td>
+                        <td>
+                            <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">S</span><span class="message-format-pipe">|</span><span class="message-format-part-3">eventName</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="unsubscribe">Unsubscribe</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                Send to unsubscribe to event
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            Client
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">US</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ack
+                        </td>
+                        <td>
+                            <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">US</span><span class="message-format-pipe">|</span><span class="message-format-part-3">eventName</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="publish">Publish</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                Recieved/Sent when an event occurs
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            Client/Server
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">JSON</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ack
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="listenmatch">Listen Match</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                Recieved when a listened to regex is matched
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            Server
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">SP</span><span class="message-format-pipe">|</span><span class="message-format-part-2">event\/.*</span><span class="message-format-pipe">|</span><span class="message-format-part-3">event/A</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 			</div>
 		</div>
