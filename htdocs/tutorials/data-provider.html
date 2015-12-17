@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>deepstream.io | Data-Provider tutorial</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="deepstream, deepstream.io, streaming, realtime, server, socket" />
@@ -14,6 +14,8 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="../assets/css/navigation.css" />
 	<link rel="stylesheet" type="text/css" href="../assets/css/screen.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/syntaxhighlighter.css" />
 	<script type="text/javascript">
 	document.createElement( 'header' );
 	document.createElement( 'nav' );
@@ -27,13 +29,13 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
-<body class="category_D:\git\deepstream.io-website\pages\tutorials ">
+<body class="category_tutorials ">
 	<div class="mobile-menu">
 		<div class="nav mobile-nav">
 			<ul>
 				<li ><a href="..">Home</a></li>
 				<li ><a href="../download/">Downloads</a></li>
-				<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
+				<li class="active"><a href="../tutorials/getting-started.html">Tutorials</a></li>
 				<li ><a href="../docs/deepstream.html">Documentation</a></li>
 				<li ><a href="../blog/">Blog</a></li>
 				<li ><a href="../info/">Info</a></li>				
@@ -49,7 +51,7 @@
 				<ul>
 					<li ><a href="..">Home</a></li>
 					<li ><a href="../download/">Downloads</a></li>
-					<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
+					<li class="active"><a href="../tutorials/getting-started.html">Tutorials</a></li>
 					<li ><a href="../docs/deepstream.html">Documentation</a></li>
 					<li ><a href="../blog/">Blog</a></li>
 					<li ><a href="../info/">Info</a></li>				
@@ -58,11 +60,100 @@
 				<i class="fa fa-bars"></i>
 			</span>
 		</div>
-			<div class="content main">
+		<div id="wrapper" class="main">
+			<ul id="subnav">
+	<li class="head first">General</li>
+	<li >
+		<a href="getting-started.html">Getting started</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="authentication.html">Authentication</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="permissioning.html">Permissioning</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li class="head">Server</li>
+	<li >
+		<a href="connectors-and-deployment.html">Connectors and Deployment</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li class="active">
+		<a href="data-provider.html">Building a data-provider</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="searching-and-querying.html">Searching & Querying</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="transforming-data.html">Transforming Data</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="writing-storage-cache-connector.html">Writing storage and cache connectors</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="writing-messaging-connector.html">Writing a messaging connector</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li class="head">Client</li>
+	<li >
+		<a href="node-js-client.html">Using the client in NodeJS</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="records.html">Records</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="lists.html">Lists</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="events-and-rpcs.html">Events & RPCs</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="simple-app-using-ko.html">Simple App using Knockout</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="simple-app-using-react.html">Simple App using React</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="simple-app-using-angular.html">Simple App using Angular</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="webrtc.html">WebRTC</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="webrtc-tips.html">WebRTC Tips</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+</ul>
+
+			<div id="content">
 				<h1>Building a Data-Provider</h1><p>A provider is a client that listens to subscriptions created by other clients on
 the system and provides data to them.</p><p>This provides an entry point to providers to minimize resources, since a provider
 can cater for data that a client is currently interested in rather than providing
-all possible updates at all times.</p><p><a class="mega" href="https://github.com/hoxton-one/ds-demo-provider"><i class="fa fa-github"></i>Checkout the provider tutorial code</a></p><p>###Brief tutorial introduction</p><p>We&#39;re going to build a simple data provider for foreign exchange (FX) rates.</p><div class="hint-box fa fa-lightbulb-o">
+all possible updates at all times.</p><p><a class="mega" href="https://github.com/hoxton-one/ds-demo-provider"><i class="fa fa-github"></i>Checkout the provider tutorial code</a></p><h3>Brief tutorial introduction</h3><p>We&#39;re going to build a simple data provider for foreign exchange (FX) rates.</p><div class="hint-box fa fa-lightbulb-o">
 
     <h3>Why FX?</h3>
     <ul>
@@ -80,7 +171,7 @@ all possible updates at all times.</p><p><a class="mega" href="https://github.co
 <li>A client that listens to requests and sends prices.</li>
 <li>Deepstream to provide permissions that ensure only providers can update records that match the &#39;FX/XXXYYY&#39;.</li>
 </ul>
-<p>###Creating a Provider</p><p>A provider works by using <strong>record.listen</strong>. This works by providing a regex of a record name that a
+<h3>Creating a Provider</h3><p>A provider works by using <strong>record.listen</strong>. This works by providing a regex of a record name that a
 provider is interested in and a callback for when the a subscription is requested or when the record is
 no longer requested. The following code will allow all matching subjects to be notified.</p><pre><code>ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >listen<span class="token punctuation" >(</span></span> <span class="token string" >'FX/.\*'</span><span class="token punctuation" >,</span> onSubscription <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 </code></pre><p>Once we are notified a subscription is received we will need to update the record whenever the price changes.
@@ -118,7 +209,7 @@ We have supplied a <strong><em>fx-price-generator</em></strong> class that reque
         <span class="token punctuation" >}</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
     <span class="token punctuation" >}</span>
 <span class="token punctuation" >}</span>
-</code></pre><p>###Authenticate provider to make them the only source of prices</p><p>Visit the <a href="authentication.html">authentication tutorial</a> and <a href="permissioning.html">permissioning tutorial</a> for in depth description on this section.</p><p>We would need to:</p><ul>
+</code></pre><h3>Authenticate provider to make them the only source of prices</h3><p>Visit the <a href="authentication.html">authentication tutorial</a> and <a href="permissioning.html">permissioning tutorial</a> for in depth description on this section.</p><p>We would need to:</p><ul>
 <li>Ensure that providers login to avoid any other client trying to
 masquerade as one</li>
 <li>Limit price modifications to the server to avoid any logged in client updating
@@ -173,7 +264,7 @@ PermissionHandler<span class="token punctuation" >.</span>prototype<span class="
         <span class="token function" >callback<span class="token punctuation" >(</span></span> errorMessage<span class="token punctuation" >,</span> isAllowed <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
     <span class="token punctuation" >}</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >;</span>
-</code></pre><p>###Create a user to request the data</p><p>Now that we have both a permissioned price provider we can request the record from a client
+</code></pre><h3>Create a user to request the data</h3><p>Now that we have both a permissioned price provider we can request the record from a client
 and view streaming prices!</p><pre><code><span class="token comment" spellcheck="true">/**
 * Login to deepstream as Frank
 */</span>
@@ -223,6 +314,8 @@ currencyPair<span class="token punctuation" >.</span><span class="token function
       </ul>
 </div>
 			</div>
+		</div>
+		<script type="text/javascript" src="../assets/js/docs.js"></script>
 	</div>
 	<div id="footer">
 		<ul class="footer-items">

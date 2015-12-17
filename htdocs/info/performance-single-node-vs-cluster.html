@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>deepstream.io | Performance: Single Node vs Three Instance Cluster</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="deepstream, deepstream.io, streaming, realtime, server, socket" />
@@ -14,6 +14,8 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="../assets/css/navigation.css" />
 	<link rel="stylesheet" type="text/css" href="../assets/css/screen.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/syntaxhighlighter.css" />
 	<script type="text/javascript">
 	document.createElement( 'header' );
 	document.createElement( 'nav' );
@@ -27,7 +29,7 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
-<body class="category_D:\git\deepstream.io-website\pages\info ">
+<body class="category_info ">
 	<div class="mobile-menu">
 		<div class="nav mobile-nav">
 			<ul>
@@ -36,7 +38,7 @@
 				<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
 				<li ><a href="../docs/deepstream.html">Documentation</a></li>
 				<li ><a href="../blog/">Blog</a></li>
-				<li ><a href="../info/">Info</a></li>				
+				<li class="active"><a href="../info/">Info</a></li>				
 			</ul>		</div>
 	</div>
 
@@ -52,15 +54,71 @@
 					<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
 					<li ><a href="../docs/deepstream.html">Documentation</a></li>
 					<li ><a href="../blog/">Blog</a></li>
-					<li ><a href="../info/">Info</a></li>				
+					<li class="active"><a href="../info/">Info</a></li>				
 				</ul>			</div>
 			<span class="menu-button menu-icon">
 				<i class="fa fa-bars"></i>
 			</span>
 		</div>
-			<div class="content main">
-				<h1>Performance: Single Node vs Three Instance Cluster</h1><p>This test aims to verify horizontal scalability by establishing message latency and cpu consumption under high traffic for a single deepstream node in comparison to a cluster of three nodes.</p><p>###Test Setup
-All tests were run on Amazon Web Services EC2 instances within the same region, running AWS Linux. For the cluster tests, Redis was used as a message bus.</p><table class="mini">
+		<div id="wrapper" class="main">
+			<ul id="subnav">
+	<li class="head first">Performance</li>
+	<li >
+		<a href="performance-overview.html">Overview</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>	
+	<li class="active">
+		<a href="performance-single-node-vs-cluster.html">Single Node vs Cluster</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li class="head first">Message Specification</li>
+	<li >
+		<a href="messagestructure/index.html">Overview</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>	
+	<li class="de-emphasized">Auth</li>
+	<li >
+		<a href="messagestructure/auth/paths.html">Paths</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="messagestructure/auth/structure.html">Spec</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li class="de-emphasized">Record</li>
+	<li >
+		<a href="messagestructure/record/paths.html">Paths</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="messagestructure/record/structure.html">Spec</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li class="de-emphasized">Event</li>
+	<li >
+		<a href="messagestructure/event/paths.html">Paths</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="messagestructure/event/structure.html">Spec</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li class="de-emphasized">RPC</li>
+	<li >
+		<a href="messagestructure/rpc/paths.html">Paths</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="messagestructure/rpc/structure.html">Spec</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+
+</ul>
+
+			<div id="content">
+				<h1>Performance: Single Node vs Three Instance Cluster</h1><p>This test aims to verify horizontal scalability by establishing message latency and cpu consumption under high traffic for a single deepstream node in comparison to a cluster of three nodes.</p><h3>Test Setup</h3><p>All tests were run on Amazon Web Services EC2 instances within the same region, running AWS Linux. For the cluster tests, Redis was used as a message bus.</p><table class="mini">
     <thead>
         <tr>
             <th>&nbsp;</th>
@@ -116,7 +174,7 @@ CPU reached an average of 80% with approximately 10,000 messages a second</p><di
     <img class="tutorial" width="602" height="302" src="../assets/images/performance/one-ds-cpu.png" alt="Single deepstream cpu" />
 </div>
 
-<p>###Three deepstream node cluster</p><p><strong>Latency Distribution</strong><br />
+<h3>Three deepstream node cluster</h3><p><strong>Latency Distribution</strong><br />
 Average latency was 0.999ms ( machines being within same data centre )</p><div class="img-container">
     <img class="tutorial" width="602" height="302" src="../assets/images/performance/three-ds-latency.png" alt="Cluster deepstream latency" />
 </div>
@@ -128,6 +186,8 @@ CPU reached an average of 70% on all three processes to deal with approximately 
 
 <p></div></p>
 			</div>
+		</div>
+		<script type="text/javascript" src="../assets/js/docs.js"></script>
 	</div>
 	<div id="footer">
 		<ul class="footer-items">

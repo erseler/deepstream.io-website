@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>deepstream.io | Connectors and Deployment tutorial</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="deepstream, deepstream.io, streaming, realtime, server, socket" />
@@ -14,6 +14,8 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="../assets/css/navigation.css" />
 	<link rel="stylesheet" type="text/css" href="../assets/css/screen.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/syntaxhighlighter.css" />
 	<script type="text/javascript">
 	document.createElement( 'header' );
 	document.createElement( 'nav' );
@@ -27,13 +29,13 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
-<body class="category_D:\git\deepstream.io-website\pages\tutorials ">
+<body class="category_tutorials ">
 	<div class="mobile-menu">
 		<div class="nav mobile-nav">
 			<ul>
 				<li ><a href="..">Home</a></li>
 				<li ><a href="../download/">Downloads</a></li>
-				<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
+				<li class="active"><a href="../tutorials/getting-started.html">Tutorials</a></li>
 				<li ><a href="../docs/deepstream.html">Documentation</a></li>
 				<li ><a href="../blog/">Blog</a></li>
 				<li ><a href="../info/">Info</a></li>				
@@ -49,7 +51,7 @@
 				<ul>
 					<li ><a href="..">Home</a></li>
 					<li ><a href="../download/">Downloads</a></li>
-					<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
+					<li class="active"><a href="../tutorials/getting-started.html">Tutorials</a></li>
 					<li ><a href="../docs/deepstream.html">Documentation</a></li>
 					<li ><a href="../blog/">Blog</a></li>
 					<li ><a href="../info/">Info</a></li>				
@@ -58,7 +60,96 @@
 				<i class="fa fa-bars"></i>
 			</span>
 		</div>
-			<div class="content main">
+		<div id="wrapper" class="main">
+			<ul id="subnav">
+	<li class="head first">General</li>
+	<li >
+		<a href="getting-started.html">Getting started</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="authentication.html">Authentication</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="permissioning.html">Permissioning</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li class="head">Server</li>
+	<li class="active">
+		<a href="connectors-and-deployment.html">Connectors and Deployment</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="data-provider.html">Building a data-provider</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="searching-and-querying.html">Searching & Querying</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="transforming-data.html">Transforming Data</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="writing-storage-cache-connector.html">Writing storage and cache connectors</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="writing-messaging-connector.html">Writing a messaging connector</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li class="head">Client</li>
+	<li >
+		<a href="node-js-client.html">Using the client in NodeJS</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="records.html">Records</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="lists.html">Lists</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="events-and-rpcs.html">Events & RPCs</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="simple-app-using-ko.html">Simple App using Knockout</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="simple-app-using-react.html">Simple App using React</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="simple-app-using-angular.html">Simple App using Angular</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="webrtc.html">WebRTC</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="webrtc-tips.html">WebRTC Tips</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+</ul>
+
+			<div id="content">
 				<h1>Connectors and Deployment</h1><p>Deepstream can connect to three different systems: A (distributed) cache, a database and a messaging system. There are a number of <a href="../download/">pre-build connectors</a> that make integration easy, but it&#39;s also straight forward to write your own <a href="writing-messaging-connector.html">message</a> or <a href="writing-storage-cache-connector.html">storage and cache connector</a>.</p><p>Connectors can be used using deepstream&#39;s <code>set()</code> method.</p><pre><code><span class="token keyword" >var</span> RedisCacheConnector <span class="token operator" >=</span> <span class="token function" >require<span class="token punctuation" >(</span></span> <span class="token string" >'deepstream.io-cache-redis'</span> <span class="token punctuation" >)</span><span class="token punctuation" >,</span>
     AmqpMessageConnector <span class="token operator" >=</span> <span class="token function" >require<span class="token punctuation" >(</span></span> <span class="token string" >'deepstream.io-msg-amqp'</span> <span class="token punctuation" >)</span><span class="token punctuation" >,</span>
     RethinkDbConnector <span class="token operator" >=</span> <span class="token function" >require<span class="token punctuation" >(</span></span> <span class="token string" >'deepstream.io-storage-rethinkdb'</span> <span class="token punctuation" >)</span><span class="token punctuation" >,</span>
@@ -84,12 +175,7 @@ server<span class="token punctuation" >.</span><span class="token keyword" >set<
 <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 
 server<span class="token punctuation" >.</span><span class="token function" >start<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-</code></pre><p>###Cache
-In production, deepstream instances don’t hold any data. Instead they connect to an external, distributed cache (e.g. Redis or Memcached). This makes them stateless, quick to spin up and allows for clustering.</p><p>###Storage
-In addition to a cache, deepstream can store records in a database. This happens outside the performance critical path and has two benefits: It provides a way to store data persistently when used in conjunction with an in-memory only cache (e.g. Memcached) and it allows to utilise the database’s query features to run complex searches against the data. Due to the way deepstream structures its data (JSON blobs, identified by a primary key) it is recommendable to use an Object oriented or schema-less database (e.g. MongoDB or RethinkDB), rather than a relational database like MySQL.</p><p>###Messaging
-deepstream instances can share updates with each other via a message-bus. This enables horizontal scalability and allows to cater for a large number of clients at the same time. Small clusters (e.g. 3-4 instances) can connect directly to each other via TCP using the <a href="../download/">direct connector</a> whereas it makes sense for larger clusters to use a message broker or Pub-Sub system instead (e.g. AMQP, Redis or Apache Kafka.)</p><p>###Performance
-The most performance-critical path of deepstream’s architecture is the connection between it and its cache and messaging system. Both are constantly in use and any millisecond in network latency can lead to a noticeable decline in performance. It’s therefore recommendable to host deepstream and its cache and messaging system in close network proximity, e.g. within the same data centre, server or aws-region.</p><p>###What’s the simplest production-ready setup?
-Good question, simple answer: Redis and 2-3 deepstream instances. Redis provides a fast cache, persists its data to disk and offers a pub-sub mechanism that can be used for messaging. The whole setup would look like this:</p><pre><code><span class="token keyword" >var</span> RedisCacheConnector <span class="token operator" >=</span> <span class="token function" >require<span class="token punctuation" >(</span></span> <span class="token string" >'deepstream.io-cache-redis'</span> <span class="token punctuation" >)</span><span class="token punctuation" >,</span>
+</code></pre><h3>Cache</h3><p>In production, deepstream instances don’t hold any data. Instead they connect to an external, distributed cache (e.g. Redis or Memcached). This makes them stateless, quick to spin up and allows for clustering.</p><h3>Storage</h3><p>In addition to a cache, deepstream can store records in a database. This happens outside the performance critical path and has two benefits: It provides a way to store data persistently when used in conjunction with an in-memory only cache (e.g. Memcached) and it allows to utilise the database’s query features to run complex searches against the data. Due to the way deepstream structures its data (JSON blobs, identified by a primary key) it is recommendable to use an Object oriented or schema-less database (e.g. MongoDB or RethinkDB), rather than a relational database like MySQL.</p><h3>Messaging</h3><p>deepstream instances can share updates with each other via a message-bus. This enables horizontal scalability and allows to cater for a large number of clients at the same time. Small clusters (e.g. 3-4 instances) can connect directly to each other via TCP using the <a href="../download/">direct connector</a> whereas it makes sense for larger clusters to use a message broker or Pub-Sub system instead (e.g. AMQP, Redis or Apache Kafka.)</p><h3>Performance</h3><p>The most performance-critical path of deepstream’s architecture is the connection between it and its cache and messaging system. Both are constantly in use and any millisecond in network latency can lead to a noticeable decline in performance. It’s therefore recommendable to host deepstream and its cache and messaging system in close network proximity, e.g. within the same data centre, server or aws-region.</p><h3>What’s the simplest production-ready setup?</h3><p>Good question, simple answer: Redis and 2-3 deepstream instances. Redis provides a fast cache, persists its data to disk and offers a pub-sub mechanism that can be used for messaging. The whole setup would look like this:</p><pre><code><span class="token keyword" >var</span> RedisCacheConnector <span class="token operator" >=</span> <span class="token function" >require<span class="token punctuation" >(</span></span> <span class="token string" >'deepstream.io-cache-redis'</span> <span class="token punctuation" >)</span><span class="token punctuation" >,</span>
     RedisMessageConnector <span class="token operator" >=</span> <span class="token function" >require<span class="token punctuation" >(</span></span> <span class="token string" >'deepstream.io-msg-redis'</span> <span class="token punctuation" >)</span><span class="token punctuation" >,</span>
     Deepstream <span class="token operator" >=</span> <span class="token function" >require<span class="token punctuation" >(</span></span> <span class="token string" >'deepstream.io'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 
@@ -108,6 +194,8 @@ server<span class="token punctuation" >.</span><span class="token keyword" >set<
 server<span class="token punctuation" >.</span><span class="token function" >start<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 </code></pre>
 			</div>
+		</div>
+		<script type="text/javascript" src="../assets/js/docs.js"></script>
 	</div>
 	<div id="footer">
 		<ul class="footer-items">

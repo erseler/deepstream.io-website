@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>deepstream.io | A Scalable Server for Realtime Web Apps</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="deepstream, deepstream.io, streaming, realtime, server, socket" />
@@ -14,6 +14,8 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="../../../assets/css/navigation.css" />
 	<link rel="stylesheet" type="text/css" href="../../../assets/css/screen.css" />
+	<link rel="stylesheet" type="text/css" href="../../../assets/css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../../../assets/css/syntaxhighlighter.css" />
 	<script type="text/javascript">
 	document.createElement( 'header' );
 	document.createElement( 'nav' );
@@ -27,7 +29,7 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
-<body class="category_D:\git\deepstream.io-website\pages\info\messagestructure\auth ">
+<body class="category_info ">
 	<div class="mobile-menu">
 		<div class="nav mobile-nav">
 			<ul>
@@ -36,7 +38,7 @@
 				<li ><a href="../../../tutorials/getting-started.html">Tutorials</a></li>
 				<li ><a href="../../../docs/deepstream.html">Documentation</a></li>
 				<li ><a href="../../../blog/">Blog</a></li>
-				<li ><a href="../../../info/">Info</a></li>				
+				<li class="active"><a href="../../../info/">Info</a></li>				
 			</ul>		</div>
 	</div>
 
@@ -52,13 +54,70 @@
 					<li ><a href="../../../tutorials/getting-started.html">Tutorials</a></li>
 					<li ><a href="../../../docs/deepstream.html">Documentation</a></li>
 					<li ><a href="../../../blog/">Blog</a></li>
-					<li ><a href="../../../info/">Info</a></li>				
+					<li class="active"><a href="../../../info/">Info</a></li>				
 				</ul>			</div>
 			<span class="menu-button menu-icon">
 				<i class="fa fa-bars"></i>
 			</span>
 		</div>
-			<div class="content main">
+		<div id="wrapper" class="main">
+			<ul id="subnav">
+	<li class="head first">Performance</li>
+	<li >
+		<a href="performance-overview.html">Overview</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>	
+	<li >
+		<a href="performance-single-node-vs-cluster.html">Single Node vs Cluster</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li class="head first">Message Specification</li>
+	<li >
+		<a href="messagestructure/index.html">Overview</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>	
+	<li class="de-emphasized">Auth</li>
+	<li >
+		<a href="messagestructure/auth/paths.html">Paths</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="messagestructure/auth/structure.html">Spec</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li class="de-emphasized">Record</li>
+	<li >
+		<a href="messagestructure/record/paths.html">Paths</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="messagestructure/record/structure.html">Spec</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li class="de-emphasized">Event</li>
+	<li >
+		<a href="messagestructure/event/paths.html">Paths</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="messagestructure/event/structure.html">Spec</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li class="de-emphasized">RPC</li>
+	<li >
+		<a href="messagestructure/rpc/paths.html">Paths</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="messagestructure/rpc/structure.html">Spec</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+
+</ul>
+
+			<div id="content">
 				<h1>
     Auth
 </h1>
@@ -73,80 +132,43 @@
                     
                 </p>
 
-
-            <div class="section-with-tabs action">
-                <div class="nav nav-tabs">
-                    <div class="tab active" data-type="action">Actions</div>
-                    <div class="tab" data-type="structure">Messages</div>
-                </div>
-                
-                <div class="panel action-panel">
-                    <table>
-                        <thead>
-                            <th>First Client</th>
-                            <th>Second Client</th>
-                        <thead/>
-                        <tbody>
-                            <tr>
-                                <td class="client-1">
-                                        <a href="./structure.html#login">Sending auth paramters<a>
-                                </td>
-
-                                <td class="client-2">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="client-1">
-                                        <a href="./structure.html#login">Recieve Sending auth paramters Ack<a>
-                                </td>
-
-                                <td class="client-2">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="panel structure-panel">
-                   <table>
-                        <thead>
-                             <th>First Client</th>
-                             <th>Second Client</th>
-                        <thead/>
-                        <tbody>
-                            <tr>
-                                <td class="client-1">
-                                        <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
-                                </td>
-                                <td class="client-2">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="client-1">
-                                        <span class="message-format ack-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-end">+</span></span>
-                                </td>
-                                <td class="client-2">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <table>
+                    <thead>
+                        <th>Client</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientA">
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#login">Sending auth paramters</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA">
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#login">Sending auth paramters Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
     </div>
 
-<script type="text/javascript">
-    $( '.tab' ).click( function( e ) {
-        $( e.target )
-            .addClass( 'active' )
-            .siblings( '.active' )
-                .removeClass( 'active' )
-            .parents( '.section-with-tabs' )
-                .removeClass( 'action structure' )
-                .addClass( $( e.target ).data( 'type' ) );
-    } );
-</script>
 			</div>
+		</div>
+		<script type="text/javascript" src="../../../assets/js/docs.js"></script>
 	</div>
 	<div id="footer">
 		<ul class="footer-items">

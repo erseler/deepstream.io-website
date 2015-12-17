@@ -10,76 +10,28 @@
                     {{description}}
                 </p>
 
-
-            <div class="section-with-tabs action">
-                <div class="nav nav-tabs">
-                    <div class="tab active" data-type="action">Actions</div>
-                    <div class="tab" data-type="structure">Messages</div>
-                </div>
-                
-                <div class="panel action-panel">
-                    <table>
-                        <thead>
-                            <th>First Client</th>
-                            <th>Second Client</th>
-                        <thead/>
-                        <tbody>
-                            {{#each this}}
-                            <tr>
-                                <td class="client-1">
-                                    {{#if firstClient}}
-                                        <a href="./structure.html#{{id}}">{{label}}<a>
-                                    {{/if}}
-                                </td>
-
-                                <td class="client-2">
-                                    {{#unless firstClient}}
-                                        <a href="./structure.html#{{id}}">{{label}}<a>
-                                    {{/unless}}
-                                </td>
-                            </tr>
-                            {{/each}}
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="panel structure-panel">
-                   <table>
-                        <thead>
-                             <th>First Client</th>
-                             <th>Second Client</th>
-                        <thead/>
-                        <tbody>
-                            {{#each this}}
-                            <tr>
-                                <td class="client-1">
-                                    {{#if firstClient}}
-                                        {{message message}}
-                                    {{/if}}
-                                </td>
-                                <td class="client-2">
-                                    {{#unless firstClient}}
-                                        {{message message}}
-                                    {{/unless}}
-                                </td>
-                            </tr>
-                            {{/each}}
-                        </tbody>
-                    </table>
-                </div>
+                <table>
+                    <thead>
+                        <th>Client</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        {{#each this}}
+                        <tr class="{{clientName}}">
+                            <td>
+                                {{clientName}}
+                            </td>
+                            <td>
+                                 <a href="./structure.html#{{id}}">{{label}}</a>
+                            </td>
+                            <td>
+                                {{message message}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
             </div>
-        </div>
     </div>
 {{/each}}
-
-<script type="text/javascript">
-    $( '.tab' ).click( function( e ) {
-        $( e.target )
-            .addClass( 'active' )
-            .siblings( '.active' )
-                .removeClass( 'active' )
-            .parents( '.section-with-tabs' )
-                .removeClass( 'action structure' )
-                .addClass( $( e.target ).data( 'type' ) );
-    } );
-</script>

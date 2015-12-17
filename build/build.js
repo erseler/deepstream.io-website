@@ -84,7 +84,7 @@ var createTargetFile = function( root, stats, next ) {
 		folder = '';
 	} else {
 		folder = root.replace( inputDir + '\\', '' );
-		folder = folder.split( '/' )[ 0 ];
+		folder = folder.split( '\\' )[ 0 ];
 	}
 
 	if( fileBuilder[ fileExtension ] === undefined ) {

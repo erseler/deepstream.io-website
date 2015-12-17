@@ -45,23 +45,9 @@ function readMessagePaths( loadedSpec, next ) {
 				parts = pathParts[ i ].split( '_' );
 				var spec = getSpec( loadedSpec[ path.type ].data, parts[ 1 ] );
 				
-				temp.push( {
-					firstClient: parts[ 0 ] == 1,
-					client: parts[ 0 ],
-					id: parts[ 1 ],
-					label: spec.action,
-					message: spec.message
-				} );
 
-				if( spec.ack ) {
-					temp.push( {
-						firstClient: parts[ 0 ] == 1,
-						client: parts[ 0 ],
-						id: parts[ 1 ],
-						label: 'Recieve ' + spec.action + ' Ack',
-						message: spec.ack
-					} );
-				}
+				temp.push( createMessage( parts, spec ) );
+				spec.ack && temp.push( createMessage( parts, spec, true ) );
 			}
 
 			loadedSpec[ path.type ].paths[ path.name ] = temp;
@@ -70,6 +56,24 @@ function readMessagePaths( loadedSpec, next ) {
 		module.exports = loadedSpec;
 		next();
 	});
+}
+
+function createMessage( parts, spec, isAck ) {
+	var message = {
+		clientName: parts[ 0 ] == 1 ? 'ClientA' : 'ClientB',
+		client: parts[ 0 ],
+		id: parts[ 1 ]
+	};
+
+	if( isAck ) {
+		message.label = spec.action + ' Ack';
+		message.message = spec.ack;
+	} else {
+		message.label = spec.action;
+		message.message = spec.message;
+	}
+
+	return message
 }
 
 function getSpec( types, id, isAck ) {

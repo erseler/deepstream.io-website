@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>deepstream.io | Records, Events and RPCs</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="deepstream, deepstream.io, streaming, realtime, server, socket" />
@@ -14,6 +14,8 @@
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="../assets/css/navigation.css" />
 	<link rel="stylesheet" type="text/css" href="../assets/css/screen.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../assets/css/syntaxhighlighter.css" />
 	<script type="text/javascript">
 	document.createElement( 'header' );
 	document.createElement( 'nav' );
@@ -27,13 +29,13 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
-<body class="category_D:\git\deepstream.io-website\pages\tutorials ">
+<body class="category_tutorials ">
 	<div class="mobile-menu">
 		<div class="nav mobile-nav">
 			<ul>
 				<li ><a href="..">Home</a></li>
 				<li ><a href="../download/">Downloads</a></li>
-				<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
+				<li class="active"><a href="../tutorials/getting-started.html">Tutorials</a></li>
 				<li ><a href="../docs/deepstream.html">Documentation</a></li>
 				<li ><a href="../blog/">Blog</a></li>
 				<li ><a href="../info/">Info</a></li>				
@@ -49,7 +51,7 @@
 				<ul>
 					<li ><a href="..">Home</a></li>
 					<li ><a href="../download/">Downloads</a></li>
-					<li ><a href="../tutorials/getting-started.html">Tutorials</a></li>
+					<li class="active"><a href="../tutorials/getting-started.html">Tutorials</a></li>
 					<li ><a href="../docs/deepstream.html">Documentation</a></li>
 					<li ><a href="../blog/">Blog</a></li>
 					<li ><a href="../info/">Info</a></li>				
@@ -58,7 +60,96 @@
 				<i class="fa fa-bars"></i>
 			</span>
 		</div>
-			<div class="content main">
+		<div id="wrapper" class="main">
+			<ul id="subnav">
+	<li class="head first">General</li>
+	<li >
+		<a href="getting-started.html">Getting started</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="authentication.html">Authentication</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="permissioning.html">Permissioning</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li class="head">Server</li>
+	<li >
+		<a href="connectors-and-deployment.html">Connectors and Deployment</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="data-provider.html">Building a data-provider</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="searching-and-querying.html">Searching & Querying</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="transforming-data.html">Transforming Data</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="writing-storage-cache-connector.html">Writing storage and cache connectors</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+	<li >
+		<a href="writing-messaging-connector.html">Writing a messaging connector</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li class="head">Client</li>
+	<li >
+		<a href="node-js-client.html">Using the client in NodeJS</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="records.html">Records</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="lists.html">Lists</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="events-and-rpcs.html">Events & RPCs</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="simple-app-using-ko.html">Simple App using Knockout</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="simple-app-using-react.html">Simple App using React</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="simple-app-using-angular.html">Simple App using Angular</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="webrtc.html">WebRTC</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li >
+		<a href="webrtc-tips.html">WebRTC Tips</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+</ul>
+
+			<div id="content">
 				<h1>Records, Events &amp; RPCs</h1><p>Deepstream provides three core concepts: Records, Events and RPCs. Records are arbitrary JSON structures that can be manipulated and subscribed to, Events work like a normal event-emitter, but distributed across connected clients and RPCs(Remote Procedure Calls) allow for request-response communication, comparable to http requests.</p><p>The functionality for each is grouped under a namespace on the client:</p><pre><code><span class="token keyword" >var</span> ds <span class="token operator" >=</span> <span class="token function" >require<span class="token punctuation" >(</span></span> <span class="token string" >'deepstream.io-client-js'</span> <span class="token punctuation" >)</span><span class="token punctuation" >(</span> <span class="token string" >'localhost:6020'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token comment" spellcheck="true">
 //generic methods are on the client itself
@@ -81,9 +172,7 @@ client<span class="token punctuation" >.</span>event<span class="token punctuati
 </span>client<span class="token punctuation" >.</span>rpc<span class="token punctuation" >.</span><span class="token function" >register<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 client<span class="token punctuation" >.</span>rpc<span class="token punctuation" >.</span><span class="token function" >make<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token punctuation" >.</span><span class="token punctuation" >.</span><span class="token punctuation" >.</span>
-</code></pre><h3>Records</h3><p>Records are persistant data-structures. Deepstream can store them in both a distributed cache for quick read-write access and in a database for long-term storage and querying.</p><p>##Choosing a record name
-Every record is identified by a unique name. This name can be any string, but we found that there are some naming conventions that help a lot with larger scale applications:</p><p>####Use unique, randomized ids
-It&#39;s tempting to use a field that could act as primary key as the recordname, e.g. <code>user/johndoe</code>, but using a UID, e.g. <code>user/iam7f3vy-2mgd656jrx3di</code> has some advantages: You don&#39;t need to ensure its uniqueness, the user can change his username later without invalidating the record and ids generated with deepstream&#39;s <code>ds.getUid()</code> method are loosely sequential (the first 8 characters are a base64 encoded) which helps databases to index them more efficiently.</p><!--
+</code></pre><h3>Records</h3><p>Records are persistant data-structures. Deepstream can store them in both a distributed cache for quick read-write access and in a database for long-term storage and querying.</p><div class="section"><h2><a name="Choosing a record name">Choosing a record name</a></h2><p>Every record is identified by a unique name. This name can be any string, but we found that there are some naming conventions that help a lot with larger scale applications:</p><h4>Use unique, randomized ids</h4><p>It&#39;s tempting to use a field that could act as primary key as the recordname, e.g. <code>user/johndoe</code>, but using a UID, e.g. <code>user/iam7f3vy-2mgd656jrx3di</code> has some advantages: You don&#39;t need to ensure its uniqueness, the user can change his username later without invalidating the record and ids generated with deepstream&#39;s <code>ds.getUid()</code> method are loosely sequential (the first 8 characters are a base64 encoded) which helps databases to index them more efficiently.</p><!--
 <div class="hint-box fa fa-lightbulb-o">
     <h3>Won't my UIDs clash?</h3>
     <p>If you're coming from a SQL background, you're probably used to enabling <code>autoincrement</code> and leaving it to the database to work out a unique identifier via sequential numbering. This approach wouldn't work for distributed systems.</p>
@@ -91,13 +180,7 @@ It&#39;s tempting to use a field that could act as primary key as the recordname
     <p>Instead, deepstream provides a <code>ds.getUid()</code> method that provides random strings. These start with a timestamp – which means two identical ids would need to be generated within the same millisecond. This is not impossible, but the likelihood for it to happen is 1: 10 Quadrillion.</p>
 </div>
 -->
-<<<<<<< HEAD
-<p>####Organize your records in groups
-Starting your recordnames with a group, e.g. <code>user/iam7f3vy-2mgd656jrx3di</code> rather than just <code>iam7f3vy-2mgd656jrx3di</code> makes them easier to organize and enables storage-connectors to create individual tables or collections per group.</p><p>####Include a group to help with permissioning
-If your system has to support multiple users or groups that are not allowed to access each others data, it might make sense to include the id of the group into the record name. This allows the permissionHandler to deny access to records straight away, if they don&#39;t belong to the user&#39;s group.</p><pre><code><span class="token comment" spellcheck="true">// Client
-=======
 <h4>Organize your records in groups</h4><p>Starting your recordnames with a group, e.g. <code>user/iam7f3vy-2mgd656jrx3di</code> rather than just <code>iam7f3vy-2mgd656jrx3di</code> makes them easier to organize and enables storage-connectors to create individual tables or collections per group.</p><h4>Include a group to help with permissioning</h4><p>If your system has to support multiple users or groups that are not allowed to access each others data, it might make sense to include the id of the group into the record name. This allows the permissionHandler to deny access to records straight away, if they don&#39;t belong to the user&#39;s group.</p><pre><code><span class="token comment" spellcheck="true">// Client
->>>>>>> origin/master
 </span><span class="token keyword" >var</span> ds <span class="token operator" >=</span> <span class="token function" >deepstream<span class="token punctuation" >(</span></span> <span class="token string" >'143.234.324.234:6020'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 ds<span class="token punctuation" >.</span><span class="token function" >login<span class="token punctuation" >(</span></span><span class="token punctuation" >{</span> user<span class="token punctuation" >:</span> <span class="token string" >'paul'</span><span class="token punctuation" >,</span> pass<span class="token punctuation" >:</span> <span class="token string" >'abc'</span> <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token keyword" >var</span> rec <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord<span class="token punctuation" >(</span></span> <span class="token string" >'beatles-albums'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
@@ -126,8 +209,7 @@ server<span class="token punctuation" >.</span><span class="token keyword" >set<
         <span class="token function" >callback<span class="token punctuation" >(</span></span> <span class="token keyword" >null</span><span class="token punctuation" >,</span> requestedGroup <span class="token operator" >===</span> actualGroup <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
     <span class="token punctuation" >}</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-</code></pre><p>###Record paths
-Most record operations can be performed for the entire record or for a path within it</p><pre><code><span class="token keyword" >var</span> someUser <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord<span class="token punctuation" >(</span></span> <span class="token string" >'someUser'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+</code></pre><h3>Record paths</h3><p>Most record operations can be performed for the entire record or for a path within it</p><pre><code><span class="token keyword" >var</span> someUser <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord<span class="token punctuation" >(</span></span> <span class="token string" >'someUser'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token comment" spellcheck="true">
 //setting the entire record's data
 </span>someRecord<span class="token punctuation" >.</span><span class="token keyword" >set</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span>
@@ -160,14 +242,12 @@ Most record operations can be performed for the entire record or for a path with
 </span>someRecord<span class="token punctuation" >.</span><span class="token function" >subscribe<span class="token punctuation" >(</span></span> <span class="token string" >'lastname'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> lastname <span class="token punctuation" >)</span><span class="token punctuation" >{</span>
    <span class="token comment" spellcheck="true"> //will be called on the next change to lastname
 </span><span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-</code></pre><p>###unsubscribe, discard and delete
-These can be a bit confusing</p><ul>
+</code></pre><h3>unsubscribe, discard and delete</h3><p>These can be a bit confusing</p><ul>
 <li><strong>unsubscribe</strong> removes a subscription that was previously established using <code>subscribe</code></li>
 <li><strong>discard</strong> notifies the server that the client is no longer interested in updates for this record.</li>
 <li><strong>delete</strong> irreversibly deletes the record from storage and cache.</li>
 </ul>
-<p>###listening for record subscriptions made by other clients
-deepstream allows you to register a callback function that will be notified whenever clients subscribe to a record for the first time. This is useful to create dynamic data provider that provide record content only on request.</p><pre><code><span class="token comment" spellcheck="true">//Browser Client
+<h3>listening for record subscriptions made by other clients</h3><p>deepstream allows you to register a callback function that will be notified whenever clients subscribe to a record for the first time. This is useful to create dynamic data provider that provide record content only on request.</p><pre><code><span class="token comment" spellcheck="true">//Browser Client
 </span>ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord<span class="token punctuation" >(</span></span> <span class="token string" >'stock/HXTO'</span> <span class="token punctuation" >)</span>
     <span class="token punctuation" >.</span><span class="token function" >subscribe<span class="token punctuation" >(</span></span><span class="token string" >'ask-price'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> askPrice <span class="token punctuation" >)</span><span class="token punctuation" >{</span>
        <span class="token comment" spellcheck="true"> //Will be called every time the ask-price for HXTO changes
@@ -185,6 +265,8 @@ deepstream allows you to register a callback function that will be notified when
 <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 </code></pre>
 			</div>
+		</div>
+		<script type="text/javascript" src="../assets/js/docs.js"></script>
 	</div>
 	<div id="footer">
 		<ul class="footer-items">
