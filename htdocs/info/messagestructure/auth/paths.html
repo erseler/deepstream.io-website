@@ -123,7 +123,11 @@
 </h1>
 <link rel="stylesheet" type="text/css" href="../../../assets/css/message-format.css" />
 
-        <div class="section with-nav">    
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
             <h2>
                 <a name="Login">Login</a>
             </h2>
@@ -134,12 +138,16 @@
 
                 <table>
                     <thead>
+                        <th>Direction</th>
                         <th>Client</th>
                         <th>Action</th>
                         <th>Message</th>
                     <thead/>
                     <tbody>
-                        <tr class="ClientA">
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -150,7 +158,10 @@
                                 <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -159,6 +170,168 @@
                             </td>
                             <td>
                                 <span class="message-format ack-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+        <div class="section">  
+            <div class="message-type unhappy">
+                unhappy path
+            </div>
+
+            <h2>
+                <a name="Invalid Login">Invalid Login</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th>Direction</th>
+                        <th>Client</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#login">Sending auth paramters</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#invalidlogin">Invalid Auth</a>
+                            </td>
+                            <td>
+                                <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_AUTH_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown user</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+        <div class="section">  
+            <div class="message-type unhappy">
+                unhappy path
+            </div>
+
+            <h2>
+                <a name="Multiple Invalid Logins">Multiple Invalid Logins</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th>Direction</th>
+                        <th>Client</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#login">Sending auth paramters</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#invalidlogin">Invalid Auth</a>
+                            </td>
+                            <td>
+                                <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_AUTH_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown user</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#login">Sending auth paramters</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#invalidlogin">Invalid Auth</a>
+                            </td>
+                            <td>
+                                <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_AUTH_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown user</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#login">Sending auth paramters</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#toomanyauthattempts">Too many auth attempts</a>
+                            </td>
+                            <td>
+                                <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">TOO_MANY_AUTH_ATTEMPTS</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
                     </tbody>

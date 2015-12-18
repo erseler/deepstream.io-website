@@ -1,9 +1,13 @@
 <link rel="stylesheet" type="text/css" href="{{link 'asset' 'css/message-format.css'}}" />
 
-{{#each paths}}
-        <div class="section with-nav">    
+{{#each scenarios}}
+        <div class="section">  
+            <div class="message-type {{#unless happy}}unhappy{{/unless}}{{#if happy}}happy{{/if}}">
+                {{#unless happy}}unhappy path{{/unless}}{{#if happy}}happy path{{/if}}
+            </div>
+
             <h2>
-                <a name="{{@key}}">{{@key}}</a>
+                <a name="{{name}}">{{name}}</a>
             </h2>
             <div class="action-content">
                 <p class="description">
@@ -12,13 +16,17 @@
 
                 <table>
                     <thead>
+                        <th>Direction</th>
                         <th>Client</th>
                         <th>Action</th>
                         <th>Message</th>
                     <thead/>
                     <tbody>
-                        {{#each this}}
-                        <tr class="{{clientName}}">
+                        {{#each paths}}
+                        <tr class="{{clientName}} {{direction}}">
+                            <td>
+                                {{direction}}
+                            </td>
                             <td>
                                 {{clientName}}
                             </td>

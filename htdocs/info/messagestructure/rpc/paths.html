@@ -124,6 +124,414 @@
 
 <link rel="stylesheet" type="text/css" href="../../../assets/css/message-format.css" />
 
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
+            <h2>
+                <a name="Registers and unregisters an RPC">Registers and unregisters an RPC</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th>Direction</th>
+                        <th>Client</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#register">Register as provider</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#register">Register as provider Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">S</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#unregister">Unregister as provider</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">US</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#unregister">Unregister as provider Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">US</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
+            <h2>
+                <a name="Gets a request and processes it succesfully">Gets a request and processes it succesfully</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th>Direction</th>
+                        <th>Client</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientB Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#send">Send RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Arguments</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#send">Send RPC request Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-4">rpcID</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#send">Send RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Arguments</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#send">Send RPC request Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-4">rpcID</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#success">Respond to RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">RES</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Result</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#success">Respond to RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">RES</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Result</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+        <div class="section">  
+            <div class="message-type unhappy">
+                unhappy path
+            </div>
+
+            <h2>
+                <a name="Rejects an RPC">Rejects an RPC</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th>Direction</th>
+                        <th>Client</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientB Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#send">Send RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Arguments</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#send">Send RPC request Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-4">rpcID</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#send">Send RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Arguments</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#reject">Reject RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REJ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#send">Send RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Arguments</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#success">Respond to RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">RES</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Result</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#success">Respond to RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">RES</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Result</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+        <div class="section">  
+            <div class="message-type unhappy">
+                unhappy path
+            </div>
+
+            <h2>
+                <a name="Notifies client RPC errored during execution">Notifies client RPC errored during execution</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th>Direction</th>
+                        <th>Client</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientB Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#send">Send RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Arguments</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#send">Send RPC request Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-4">rpcID</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#send">Send RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Arguments</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#error">Error RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format error-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">ErrorMessage</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-4">123</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#error">Error RPC request</a>
+                            </td>
+                            <td>
+                                <span class="message-format error-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">ErrorMessage</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-4">123</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
 
 			</div>
 		</div>

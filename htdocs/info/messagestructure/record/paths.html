@@ -124,7 +124,11 @@
 
 <link rel="stylesheet" type="text/css" href="../../../assets/css/message-format.css" />
 
-        <div class="section with-nav">    
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
             <h2>
                 <a name="Request Record">Request Record</a>
             </h2>
@@ -135,12 +139,16 @@
 
                 <table>
                     <thead>
+                        <th>Direction</th>
                         <th>Client</th>
                         <th>Action</th>
                         <th>Message</th>
                     <thead/>
                     <tbody>
-                        <tr class="ClientA">
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -151,7 +159,10 @@
                                 <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -162,29 +173,10 @@
                                 <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA In">
                             <td>
-                                ClientA
+                                In
                             </td>
-                            <td>
-                                 <a href="./structure.html#create">Read/Create</a>
-                            </td>
-                            <td>
-                                <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA">
-                            <td>
-                                ClientA
-                            </td>
-                            <td>
-                                 <a href="./structure.html#create">Read/Create Ack</a>
-                            </td>
-                            <td>
-                                <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA">
                             <td>
                                 ClientA
                             </td>
@@ -199,9 +191,13 @@
                 </table>
             </div>
     </div>
-        <div class="section with-nav">    
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
             <h2>
-                <a name="Subscribe To Updates">Subscribe To Updates</a>
+                <a name="Patch A Record">Patch A Record</a>
             </h2>
             <div class="action-content">
                 <p class="description">
@@ -210,12 +206,16 @@
 
                 <table>
                     <thead>
+                        <th>Direction</th>
                         <th>Client</th>
                         <th>Action</th>
                         <th>Message</th>
                     <thead/>
                     <tbody>
-                        <tr class="ClientA">
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -226,7 +226,10 @@
                                 <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -237,31 +240,12 @@
                                 <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
                             <td>
                                 ClientA
-                            </td>
-                            <td>
-                                 <a href="./structure.html#subscribe">Susbcribe</a>
-                            </td>
-                            <td>
-                                <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA">
-                            <td>
-                                ClientA
-                            </td>
-                            <td>
-                                 <a href="./structure.html#subscribe">Susbcribe Ack</a>
-                            </td>
-                            <td>
-                                <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">S</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientB">
-                            <td>
-                                ClientB
                             </td>
                             <td>
                                  <a href="./structure.html#patch">Patch Record</a>
@@ -270,9 +254,12 @@
                                 <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">P</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">2</span><span class="message-format-pipe">|</span><span class="message-format-part-4">path</span><span class="message-format-pipe">|</span><span class="message-format-part-5">value</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientB">
+                        <tr class="ClientA In">
                             <td>
-                                ClientB
+                                In
+                            </td>
+                            <td>
+                                ClientA
                             </td>
                             <td>
                                  <a href="./structure.html#patch">Patch Record Ack</a>
@@ -281,44 +268,15 @@
                                 <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">P</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
-                            <td>
-                                ClientA
-                            </td>
-                            <td>
-                                 <a href="./structure.html#recieveupdate">Receive Record Update</a>
-                            </td>
-                            <td>
-                                <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">R</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">versionNumber</span><span class="message-format-pipe">|</span><span class="message-format-part-4">JSON</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA">
-                            <td>
-                                ClientA
-                            </td>
-                            <td>
-                                 <a href="./structure.html#unsubscribe">Unsubscribe</a>
-                            </td>
-                            <td>
-                                <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">US</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA">
-                            <td>
-                                ClientA
-                            </td>
-                            <td>
-                                 <a href="./structure.html#unsubscribe">Unsubscribe Ack</a>
-                            </td>
-                            <td>
-                                <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">US</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
     </div>
-        <div class="section with-nav">    
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
             <h2>
                 <a name="Update A Record">Update A Record</a>
             </h2>
@@ -329,12 +287,16 @@
 
                 <table>
                     <thead>
+                        <th>Direction</th>
                         <th>Client</th>
                         <th>Action</th>
                         <th>Message</th>
                     <thead/>
                     <tbody>
-                        <tr class="ClientA">
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -345,7 +307,10 @@
                                 <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -356,7 +321,10 @@
                                 <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -367,7 +335,10 @@
                                 <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">U</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">versionNumber</span><span class="message-format-pipe">|</span><span class="message-format-part-4">JSON</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -382,9 +353,13 @@
                 </table>
             </div>
     </div>
-        <div class="section with-nav">    
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
             <h2>
-                <a name="Patch A Record">Patch A Record</a>
+                <a name="Subscribe And Unsubscribe">Subscribe And Unsubscribe</a>
             </h2>
             <div class="action-content">
                 <p class="description">
@@ -393,12 +368,16 @@
 
                 <table>
                     <thead>
+                        <th>Direction</th>
                         <th>Client</th>
                         <th>Action</th>
                         <th>Message</th>
                     <thead/>
                     <tbody>
-                        <tr class="ClientA">
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -409,7 +388,10 @@
                                 <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -420,9 +402,40 @@
                                 <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
                             <td>
                                 ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#subscribe">Susbcribe</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#subscribe">Susbcribe Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">S</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientB
                             </td>
                             <td>
                                  <a href="./structure.html#patch">Patch Record</a>
@@ -431,9 +444,12 @@
                                 <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">P</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">2</span><span class="message-format-pipe">|</span><span class="message-format-part-4">path</span><span class="message-format-pipe">|</span><span class="message-format-part-5">value</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientB In">
                             <td>
-                                ClientA
+                                In
+                            </td>
+                            <td>
+                                ClientB
                             </td>
                             <td>
                                  <a href="./structure.html#patch">Patch Record Ack</a>
@@ -442,13 +458,59 @@
                                 <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">P</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#recieveupdate">Receive Record Update</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">R</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">versionNumber</span><span class="message-format-pipe">|</span><span class="message-format-part-4">JSON</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#unsubscribe">Unsubscribe</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">US</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#unsubscribe">Unsubscribe Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">US</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
     </div>
-        <div class="section with-nav">    
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
             <h2>
-                <a name="Listen To Record Subscriptions">Listen To Record Subscriptions</a>
+                <a name="Listen And Unlisten">Listen And Unlisten</a>
             </h2>
             <div class="action-content">
                 <p class="description">
@@ -457,12 +519,16 @@
 
                 <table>
                     <thead>
+                        <th>Direction</th>
                         <th>Client</th>
                         <th>Action</th>
                         <th>Message</th>
                     <thead/>
                     <tbody>
-                        <tr class="ClientA">
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -473,7 +539,10 @@
                                 <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">L</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordPrefix\/.*</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -484,7 +553,10 @@
                                 <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">L</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordPrefix\/.*</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientB">
+                        <tr class="ClientB Out">
+                            <td>
+                                Out
+                            </td>
                             <td>
                                 ClientB
                             </td>
@@ -495,7 +567,10 @@
                                 <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientB">
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
                             <td>
                                 ClientB
                             </td>
@@ -506,7 +581,10 @@
                                 <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -517,7 +595,10 @@
                                 <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">SP</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordPrefix\/.*</span><span class="message-format-pipe">|</span><span class="message-format-part-3">/A</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -528,7 +609,10 @@
                                 <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">UL</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordPrefix\/.*</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
-                        <tr class="ClientA">
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
                             <td>
                                 ClientA
                             </td>
@@ -537,6 +621,143 @@
                             </td>
                             <td>
                                 <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">UL</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordPrefix\/.*</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
+            <h2>
+                <a name="Delete A Record">Delete A Record</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th>Direction</th>
+                        <th>Client</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#create">Read/Create</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#create">Read/Create Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#create">Read/Create</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#create">Read/Create Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">CR</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#delete">Delete Record</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">D</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#delete">Delete Record Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">D</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#delete">Delete Record</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">D</span><span class="message-format-pipe">|</span><span class="message-format-part-2">recordName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#delete">Delete Record Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">R</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">D</span><span class="message-format-pipe">|</span><span class="message-format-part-3">recordName</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
                     </tbody>

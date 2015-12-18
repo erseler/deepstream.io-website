@@ -124,6 +124,319 @@
 
 <link rel="stylesheet" type="text/css" href="../../../assets/css/message-format.css" />
 
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
+            <h2>
+                <a name="Publish">Publish</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th>Direction</th>
+                        <th>Client</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#publish">Publish</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">JSON</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#publish">Publish Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
+            <h2>
+                <a name="Subscribe And Unsubscribe">Subscribe And Unsubscribe</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th>Direction</th>
+                        <th>Client</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#subscribe">Susbcribe</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#subscribe">Susbcribe Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">S</span><span class="message-format-pipe">|</span><span class="message-format-part-3">eventName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#publish">Publish</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">JSON</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#publish">Publish Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#publish">Publish</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">JSON</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#publish">Publish Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#unsubscribe">Unsubscribe</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">US</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#unsubscribe">Unsubscribe Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">US</span><span class="message-format-pipe">|</span><span class="message-format-part-3">eventName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
+            <h2>
+                <a name="Listen And Unlisten">Listen And Unlisten</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th>Direction</th>
+                        <th>Client</th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#listen">Listen</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">L</span><span class="message-format-pipe">|</span><span class="message-format-part-2">event\/.*</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#listen">Listen Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">L</span><span class="message-format-pipe">|</span><span class="message-format-part-3">event\/.*</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#subscribe">Susbcribe</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientB In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientB
+                            </td>
+                            <td>
+                                 <a href="./structure.html#subscribe">Susbcribe Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">S</span><span class="message-format-pipe">|</span><span class="message-format-part-3">eventName</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#listenmatch">Listen Match</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">SP</span><span class="message-format-pipe">|</span><span class="message-format-part-2">event\/.*</span><span class="message-format-pipe">|</span><span class="message-format-part-3">event/A</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA Out">
+                            <td>
+                                Out
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#unlisten">Unlisten</a>
+                            </td>
+                            <td>
+                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">UL</span><span class="message-format-pipe">|</span><span class="message-format-part-2">event\/.*</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td>
+                                In
+                            </td>
+                            <td>
+                                ClientA
+                            </td>
+                            <td>
+                                 <a href="./structure.html#unlisten">Unlisten Ack</a>
+                            </td>
+                            <td>
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">UL</span><span class="message-format-pipe">|</span><span class="message-format-part-3">event\/.*</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
 
 			</div>
 		</div>

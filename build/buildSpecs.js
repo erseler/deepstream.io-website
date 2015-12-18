@@ -14,10 +14,10 @@ function readMessageStructures( next ) {
 			if( !loadedSpec[ entry.type ] ) {
 				loadedSpec[ entry.type ] = {
 					name: entry.type,
-					data: []
+					structures: []
 				};	
 			} 
-			loadedSpec[ entry.type ].data.push( entry );
+			loadedSpec[ entry.type ].structures.push( entry );
 		} )
 		module.exports = loadedSpec;
 		readMessagePaths( loadedSpec, next );
@@ -25,33 +25,44 @@ function readMessageStructures( next ) {
 }
 
 function readMessagePaths( loadedSpec, next ) {
-	var content = fs.readFileSync( 'data/paths.csv' ).toString('utf8');
+	var content = fs.readFileSync( 'data/scenarios.csv' ).toString('utf8');
 	
 	parse(content, { 
 		columns: true,
 		skip_empty_lines: true,
 		trim: true
 	}, function( err, output ) {
-		output.forEach( function( path ) {
-			var pathParts = path.path.split( '|' );
+		output.forEach( function( scenario ) {
+			var loadedType = loadedSpec[ scenario.type ];
+			var pathParts = scenario.path.split( '|' );
 			var parts;
 			var temp = [];
+			scenario.happy = scenario.happy === 'true';
 
-			if( !loadedSpec[ path.type ].paths ) {
-				loadedSpec[ path.type ].paths = {};
+			if( !loadedType.scenarios ) {
+				loadedType.scenarios = [];
 			}
 			
 			for( var i=0; i < pathParts.length; i++ ) {
 				parts = pathParts[ i ].split( '_' );
-				var spec = getSpec( loadedSpec[ path.type ].data, parts[ 1 ] );
-				
+				var spec = getSpec( loadedSpec[ scenario.type ].structures, parts[ 1 ] );
+				if( !spec ) {
+					console.log( 'Error! Missing SPEC: ', pathParts[ 1 ], 'in', scenario, i );
+				}
 
-				temp.push( createMessage( parts, spec ) );
-				spec.ack && temp.push( createMessage( parts, spec, true ) );
+				if( scenario.happy ) {
+					temp.push( createMessage( parts, spec ) );
+					spec.ack && temp.push( createMessage( parts, spec, true ) );
+				} else if( parts[ 2 ] === 'ack' ) {
+					parts.splice( 2, 1 );
+					temp.push( createMessage( parts, spec, true ) );
+				} else {
+					temp.push( createMessage( parts, spec ) );
+				}
 			}
 
-			loadedSpec[ path.type ].paths[ path.name ] = temp;
-			loadedSpec[ path.type ].data.push( path );
+			scenario.paths = temp;
+			loadedType.scenarios.push( scenario );
 		} )
 		module.exports = loadedSpec;
 		next();
@@ -62,8 +73,12 @@ function createMessage( parts, spec, isAck ) {
 	var message = {
 		clientName: parts[ 0 ] == 1 ? 'ClientA' : 'ClientB',
 		client: parts[ 0 ],
-		id: parts[ 1 ]
+		id: parts[ 1 ],
+		outgoing: !isAck && parts[ 2 ] !== 'in' ,
+		incoming: isAck || parts[ 2 ] === 'in'
 	};
+
+	message.direction = message.incoming ? 'In' : 'Out';
 
 	if( isAck ) {
 		message.label = spec.action + ' Ack';
@@ -82,7 +97,6 @@ function getSpec( types, id, isAck ) {
 			return types[ i ];		
 		}
 	}
-	console.log( 'Error! Missing SPEC ' + id );
 }
 
 exports.action = readMessageStructures;

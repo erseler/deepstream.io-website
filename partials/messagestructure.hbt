@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="{{link 'asset' 'css/message-format.css'}}" />
 
-{{#each data}}
+{{#each structures}}
     <div class="section">
         <h2>
             <a name="{{id}}">{{action}}</a>
