@@ -50,7 +50,7 @@ function readMessagePaths( loadedSpec, next ) {
 					console.log( 'Error! Missing SPEC: ', pathParts[ 1 ], 'in', scenario, i );
 				}
 
-				if( scenario.happy ) {
+				if( scenario.happy && parts[ 2 ] !== 'in' ) {
 					temp.push( createMessage( parts, spec ) );
 					spec.ack && temp.push( createMessage( parts, spec, true ) );
 				} else if( parts[ 2 ] === 'ack' ) {

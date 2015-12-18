@@ -1,20 +1,16 @@
 type,happy,name,path
-
 auth,true,Login,1_login
 auth,false,Invalid Login,1_login|1_invalidlogin_in
 auth,false,Multiple Invalid Logins,1_login|1_invalidlogin_in|1_login|1_invalidlogin_in|1_login|1_toomanyauthattempts_in
-
 record,true,Request Record,1_create|1_recieveupdate_in
 record,true,Patch A Record,1_create|1_patch
 record,true,Update A Record,1_create|1_update
 record,true,Subscribe And Unsubscribe,1_create|1_subscribe|2_patch|1_recieveupdate_in|1_unsubscribe
 record,true,Listen And Unlisten,1_listen|2_create|1_listenmatch_in|1_unlisten
 record,true,Delete A Record,1_create|2_create|1_delete|2_delete_in
-
 event,true,Publish,1_publish
 event,true,Subscribe And Unsubscribe,1_subscribe|2_publish|1_publish_in|1_unsubscribe
 event,true,Listen And Unlisten,1_listen|2_subscribe|1_listenmatch_in|1_unlisten
-
 rpc,true,Registers and unregisters an RPC,1_register|1_unregister
 rpc,true,Gets a request and processes it succesfully,2_send|1_send_in|1_success|2_success_in
 rpc,false,Rejects an rpc,2_send|2_send_ack|1_send_in|1_reject|3_send_in|3_success|2_success_in
