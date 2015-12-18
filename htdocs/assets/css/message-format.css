@@ -64,3 +64,11 @@ table td {
 td {
 	font-size: 14px;
 }
+
+@media print {
+	#subnav, #header, #footer { display: none}
+	#wrapper > #content {
+    	margin-left: 0;
+    	width: 650px;
+	}
+}
