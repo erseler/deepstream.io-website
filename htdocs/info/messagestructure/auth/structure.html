@@ -64,57 +64,78 @@
 			<ul id="subnav">
 	<li class="head first">Performance</li>
 	<li >
-		<a href="performance-overview.html">Overview</a>
+		<a href="../../../performance-overview.html">Overview</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>	
 	<li >
-		<a href="performance-single-node-vs-cluster.html">Single Node vs Cluster</a>
+		<a href="../../../info/performance-single-node-vs-cluster.html">Single Node vs Cluster</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>
 
 	<li class="head first">Message Specification</li>
 	<li >
-		<a href="messagestructure/index.html">Overview</a>
+		<a href="../../../info/messagestructure/index.html">Overview</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>	
-	<li class="de-emphasized">Auth</li>
-	<li >
-		<a href="messagestructure/auth/paths.html">Paths</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="messagestructure/auth/structure.html">Spec</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li class="de-emphasized">Record</li>
-	<li >
-		<a href="messagestructure/record/paths.html">Paths</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="messagestructure/record/structure.html">Spec</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li class="de-emphasized">Event</li>
-	<li >
-		<a href="messagestructure/event/paths.html">Paths</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="messagestructure/event/structure.html">Spec</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li class="de-emphasized">RPC</li>
-	<li >
-		<a href="messagestructure/rpc/paths.html">Paths</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
-	<li >
-		<a href="messagestructure/rpc/structure.html">Spec</a>
-		<div class="isActiveIndicator orangeGradient"></div>
-	</li>
 
-
+		<li class="de-emphasized">auth</li>
+	
+		<li >
+			<a href="../../../info/messagestructure/auth/scenarios.html">Scenarios</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+		<li class="active">
+			<a href="../../../info/messagestructure/auth/structure.html">Spec</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+				<ul class="overview">
+					<li><a href="#login">login</a></li>
+					<li><a href="#invalidlogin">invalidlogin</a></li>
+					<li><a href="#toomanyauthattempts">toomanyauthattempts</a></li>
+					<li><a href="#invalidmessage">invalidmessage</a></li>
+					<li><a href="#unknownaction">unknownaction</a></li>
+				</ul>
+		</li>
+		<li class="de-emphasized">event</li>
+	
+		<li >
+			<a href="../../../info/messagestructure/event/scenarios.html">Scenarios</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+		<li >
+			<a href="../../../info/messagestructure/event/structure.html">Spec</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+		<li class="de-emphasized">webrtc</li>
+	
+		<li >
+			<a href="../../../info/messagestructure/webrtc/scenarios.html">Scenarios</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+		<li >
+			<a href="../../../info/messagestructure/webrtc/structure.html">Spec</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+		<li class="de-emphasized">record</li>
+	
+		<li >
+			<a href="../../../info/messagestructure/record/scenarios.html">Scenarios</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+		<li >
+			<a href="../../../info/messagestructure/record/structure.html">Spec</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+		<li class="de-emphasized">rpc</li>
+	
+		<li >
+			<a href="../../../info/messagestructure/rpc/scenarios.html">Scenarios</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+		<li >
+			<a href="../../../info/messagestructure/rpc/structure.html">Spec</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+	
 </ul>
 
 			<div id="content">
@@ -215,6 +236,66 @@
                         </td>
                         <td>
                             <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">TOO_MANY_AUTH_ATTEMPTS</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="invalidmessage">Invalid Message</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format error-message-format"><span class="message-format-part-0">X</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_MESSAGE_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">invalidMessage</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="unknownaction">Unknown Action</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format error-message-format"><span class="message-format-part-0">X</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">UNKNOWN_ACTION</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown action actionName</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
                 </tbody>

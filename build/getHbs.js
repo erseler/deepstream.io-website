@@ -3,9 +3,9 @@ var hbs = require( 'handlebars' );
 var path = require( 'path' );
 
 
-hbs.registerHelper( 'link', function( type, target ) {
-
+hbs.registerHelper( 'link', function( type, target, yes ) {
 	var url, folder;
+	target = hbs.compile( target )( this );
 
 	if( type === 'page' ) {
 		folder = module.exports.outputDir;
@@ -101,6 +101,11 @@ hbs.registerHelper( 'debug', function(){
 	delete this.blogPosts;
 	var val = JSON.stringify( this, null, '    ' );
 	return new hbs.SafeString( '<pre>' + val + '</pre>' );
+});
+
+hbs.registerHelper( 'activeSpecPage', function( name, type, options ) {
+    var fnTrue=options.fn, fnFalse=options.inverse;
+    return options.data.root.pagePath.indexOf( name + '\\' + type ) > -1 ? fnTrue() : fnFalse();
 });
 
 /**

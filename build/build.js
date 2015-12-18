@@ -24,7 +24,6 @@ var communityEvents = require( '../events.json' );
 exports.action = function( done ) {
 	async.waterfall([
 		readTemplate,
-		buildNav,
 		walkTree
 	], done );
 };
@@ -92,35 +91,40 @@ var createTargetFile = function( root, stats, next ) {
 		return;
 	}
 
-	var contextVars = {
-		versions: CONFIG.versions,
-		latest: CONFIG.latest,
-		isDef: CONFIG.isDevelopment,
-		isNotStart: folder.length > 0,
-		category: folder,
-		isDocs: pagesWithNav.indexOf( folder ) !== -1
-	};
+	buildNav( function() {
 
-	contextVars[ 'pageIs_' + folder ] = true;
-	contextVars[ 'fileIs_' + page.replace( '.', '_' ) ] = true;
+		var contextVars = {
+			versions: CONFIG.versions,
+			latest: CONFIG.latest,
+			isDef: CONFIG.isDevelopment,
+			isNotStart: folder.length > 0,
+			category: folder,
+			isDocs: pagesWithNav.indexOf( folder ) !== -1
+		};
 
-	var data = {
-		srcFilePath: srcFilePath,
-		targetFilePath: targetFilePath,
-		outputDir: outputDir,
-		contextVars: contextVars
-	};
+		contextVars[ 'pageIs_' + folder ] = true;
+		contextVars[ 'fileIs_' + page.replace( '.', '_' ) ] = true;
+		contextVars.pagePath = targetFilePath.replace( outputDir, '' );
 
-	if( navs[ folder ] !== undefined ) {
-		contextVars.hasNav = true;
-		data.nav = navs[ folder ];
-	}
+		var data = {
+			srcFilePath: srcFilePath,
+			targetFilePath: targetFilePath,
+			outputDir: outputDir,
+			contextVars: contextVars
+		};
 
-	async.waterfall([
-		readFile.bind( {}, srcFilePath ),
-		buildFile.bind( {}, fileExtension, data ),
-		writeFile.bind( {}, targetFilePath )
-	], next );
+		if( navs[ folder ] !== undefined ) {
+			contextVars.hasNav = true;
+			data.nav = navs[ folder ];
+		}
+
+		async.waterfall([
+			readFile.bind( {}, srcFilePath ),
+			buildFile.bind( {}, fileExtension, data ),
+			writeFile.bind( {}, targetFilePath )
+		], next );
+
+	} );
 };
 
 /**

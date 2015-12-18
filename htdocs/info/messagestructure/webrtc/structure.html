@@ -104,9 +104,24 @@
 			<a href="../../../info/messagestructure/webrtc/scenarios.html">Scenarios</a>
 			<div class="isActiveIndicator orangeGradient"></div>
 		</li>
-		<li >
+		<li class="active">
 			<a href="../../../info/messagestructure/webrtc/structure.html">Spec</a>
 			<div class="isActiveIndicator orangeGradient"></div>
+				<ul class="overview">
+					<li><a href="#listen">listen</a></li>
+					<li><a href="#unlisten">unlisten</a></li>
+					<li><a href="#register">register</a></li>
+					<li><a href="#unregister">unregister</a></li>
+					<li><a href="#make">make</a></li>
+					<li><a href="#accept">accept</a></li>
+					<li><a href="#decline">decline</a></li>
+					<li><a href="#end">end</a></li>
+					<li><a href="#calleelist">calleelist</a></li>
+					<li><a href="#calleeadded">calleeadded</a></li>
+					<li><a href="#calleeremoved">calleeremoved</a></li>
+					<li><a href="#invalidmessage">invalidmessage</a></li>
+					<li><a href="#unknownaction">unknownaction</a></li>
+				</ul>
 		</li>
 		<li class="de-emphasized">record</li>
 	
@@ -124,176 +139,22 @@
 			<a href="../../../info/messagestructure/rpc/scenarios.html">Scenarios</a>
 			<div class="isActiveIndicator orangeGradient"></div>
 		</li>
-		<li class="active">
+		<li >
 			<a href="../../../info/messagestructure/rpc/structure.html">Spec</a>
 			<div class="isActiveIndicator orangeGradient"></div>
-				<ul class="overview">
-					<li><a href="#register">register</a></li>
-					<li><a href="#unregister">unregister</a></li>
-					<li><a href="#send">send</a></li>
-					<li><a href="#reject">reject</a></li>
-					<li><a href="#error">error</a></li>
-					<li><a href="#success">success</a></li>
-					<li><a href="#invalidmessage">invalidmessage</a></li>
-					<li><a href="#unknownaction">unknownaction</a></li>
-				</ul>
 		</li>
 	
 </ul>
 
 			<div id="content">
 				<h1>
-    RPC
+    webRTC
 </h1>
 <link rel="stylesheet" type="text/css" href="../../../assets/css/message-format.css" />
 
     <div class="section">
         <h2>
-            <a name="register">Register as provider</a>
-        </h2>
-        <div class="action-content">
-            <p class="description">
-                Sent when client can recieve RPC events
-            </p>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            Direction
-                        </td>
-                        <td>
-                            Client
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Message
-                        </td>
-                        <td>
-                            <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Ack
-                        </td>
-                        <td>
-                            <span class="message-format ack-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">S</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="section">
-        <h2>
-            <a name="unregister">Unregister as provider</a>
-        </h2>
-        <div class="action-content">
-            <p class="description">
-                Sent when client no longer wishes to recieve RPC events
-            </p>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            Direction
-                        </td>
-                        <td>
-                            Client
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Message
-                        </td>
-                        <td>
-                            <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">US</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Ack
-                        </td>
-                        <td>
-                            <span class="message-format ack-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">US</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="section">
-        <h2>
-            <a name="send">Send RPC request</a>
-        </h2>
-        <div class="action-content">
-            <p class="description">
-                Send/Recieve when RPC requested
-            </p>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            Direction
-                        </td>
-                        <td>
-                            Client/Server
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Message
-                        </td>
-                        <td>
-                            <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Arguments</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Ack
-                        </td>
-                        <td>
-                            <span class="message-format ack-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-4">rpcID</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="section">
-        <h2>
-            <a name="reject">Reject RPC request</a>
-        </h2>
-        <div class="action-content">
-            <p class="description">
-                Send if client does not want to execute RPC
-            </p>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            Direction
-                        </td>
-                        <td>
-                            Client
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Message
-                        </td>
-                        <td>
-                            <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REJ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-end">+</span></span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="section">
-        <h2>
-            <a name="error">Error RPC request</a>
+            <a name="listen">Listen to callee changes</a>
         </h2>
         <div class="action-content">
             <p class="description">
@@ -306,7 +167,7 @@
                             Direction
                         </td>
                         <td>
-                            Send if error occurs during execution
+                            
                         </td>
                     </tr>
                     <tr>
@@ -314,7 +175,15 @@
                             Message
                         </td>
                         <td>
-                            <span class="message-format error-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">ErrorMessage</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-4">123</span><span class="message-format-end">+</span></span>
+                            <span class="message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">LC</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ack
+                        </td>
+                        <td>
+                            <span class="message-format ack-message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">LC</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
                 </tbody>
@@ -323,7 +192,7 @@
     </div>
     <div class="section">
         <h2>
-            <a name="success">Respond to RPC request</a>
+            <a name="unlisten">Unlisten to callee changes</a>
         </h2>
         <div class="action-content">
             <p class="description">
@@ -336,7 +205,7 @@
                             Direction
                         </td>
                         <td>
-                            Send if error occurs when trying to execute rpc
+                            
                         </td>
                     </tr>
                     <tr>
@@ -344,7 +213,301 @@
                             Message
                         </td>
                         <td>
-                            <span class="message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">RES</span><span class="message-format-pipe">|</span><span class="message-format-part-2">rpcName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">rpcID</span><span class="message-format-pipe">|</span><span class="message-format-part-4">Result</span><span class="message-format-end">+</span></span>
+                            <span class="message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">ULC</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ack
+                        </td>
+                        <td>
+                            <span class="message-format ack-message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">ULC</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="register">Register callee</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">RC</span><span class="message-format-pipe">|</span><span class="message-format-part-2">calleeA</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ack
+                        </td>
+                        <td>
+                            <span class="message-format ack-message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">RC</span><span class="message-format-pipe">|</span><span class="message-format-part-3">calleeA</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="unregister">Unregister callee</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">URC</span><span class="message-format-pipe">|</span><span class="message-format-part-2">calleeA</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ack
+                        </td>
+                        <td>
+                            <span class="message-format ack-message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">URC</span><span class="message-format-pipe">|</span><span class="message-format-part-3">calleeA</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="make">Make call</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">OF</span><span class="message-format-pipe">|</span><span class="message-format-part-2">O{sdp:sdp,type:type,meta:metaData}</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="accept">Accept call</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">-</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="decline">Decline call</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">CD</span><span class="message-format-pipe">|</span><span class="message-format-part-2">localId</span><span class="message-format-pipe">|</span><span class="message-format-part-3">remoteId</span><span class="message-format-pipe">|</span><span class="message-format-part-4">reason</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="end">End Call</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">CE</span><span class="message-format-pipe">|</span><span class="message-format-part-2">localId</span><span class="message-format-pipe">|</span><span class="message-format-part-3">remoteId</span><span class="message-format-pipe">|</span><span class="message-format-part-4">null</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="calleelist">Initial callee list update received</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">WAC</span><span class="message-format-pipe">|</span><span class="message-format-part-2">calleeA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">calleeB</span><span class="message-format-pipe">|</span><span class="message-format-part-4">calleeC</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="calleeadded">Callee added message received</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">WCA</span><span class="message-format-pipe">|</span><span class="message-format-part-2">calleeName</span><span class="message-format-end">+</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="section">
+        <h2>
+            <a name="calleeremoved">Callee removed message received</a>
+        </h2>
+        <div class="action-content">
+            <p class="description">
+                
+            </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            Direction
+                        </td>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Message
+                        </td>
+                        <td>
+                            <span class="message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">WCR</span><span class="message-format-pipe">|</span><span class="message-format-part-2">calleeName</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
                 </tbody>
@@ -374,7 +537,7 @@
                             Message
                         </td>
                         <td>
-                            <span class="message-format error-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_MESSAGE_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">invalidMessage</span><span class="message-format-end">+</span></span>
+                            <span class="message-format error-message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_MESSAGE_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">invalidMessage</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
                 </tbody>
@@ -404,7 +567,7 @@
                             Message
                         </td>
                         <td>
-                            <span class="message-format error-message-format"><span class="message-format-part-0">P</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">UNKNOWN_ACTION</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown action actionName</span><span class="message-format-end">+</span></span>
+                            <span class="message-format error-message-format"><span class="message-format-part-0">W</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">UNKNOWN_ACTION</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown action actionName</span><span class="message-format-end">+</span></span>
                         </td>
                     </tr>
                 </tbody>
