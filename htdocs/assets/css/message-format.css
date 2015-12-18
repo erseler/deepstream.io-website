@@ -1,7 +1,7 @@
 table {
 	width: 100%;
 }
-table td {
+table td, table th {
 	padding: 10px;
 	border: 1px solid #eee;
 	vertical-align: top;
@@ -61,7 +61,7 @@ table td {
 	background-color: rgba(246, 77, 77, 0.55);
 }
 
-td {
+td, th{
 	font-size: 14px;
 }
 
