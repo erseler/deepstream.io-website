@@ -1,7 +1,7 @@
 <ul id="subnav">
 	<li class="head first">Performance</li>
 	<li {{#if fileIs_performance-overview}}class="active"{{/if}}>
-		<a href="{{link 'page' 'performance-overview.html'}}">Overview</a>
+		<a href="{{link 'page' 'info/performance-overview.html'}}">Overview</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>	
 	<li {{#if fileIs_performance-single-node-vs-cluster}}class="active"{{/if}}>
@@ -14,25 +14,12 @@
 		<a href="{{link 'page' 'info/messagestructure/index.html'}}">Overview</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>	
-
-	{{#each messageSpecs}}
-		<li class="de-emphasized">{{@key}}</li>
 	
-		<li {{#activeSpecPage name 'scenarios'}}class="active"{{/activeSpecPage}}>
-			<a href="{{link 'page' 'info/messagestructure/{{name}}/scenarios.html'}}">Scenarios</a>
+	{{#each messageSpecs}}	
+		<li {{#activeSpecPage name}}class="active"{{/activeSpecPage}}>
+			<a href="{{link 'page' 'info/messagestructure/{{name}}.html'}}">{{name}} Secenarios</a>
 			<div class="isActiveIndicator orangeGradient"></div>
-			{{#activeSpecPage name 'scenarios'}}
-				<ul class="overview">
-					{{#each ../../subNav}}
-					<li><a href="#{{this}}">{{this}}</a></li>
-					{{/each}}
-				</ul>
-			{{/activeSpecPage}}
-		</li>
-		<li {{#activeSpecPage name 'structure'}}class="active"{{/activeSpecPage}}>
-			<a href="{{link 'page' 'info/messagestructure/{{name}}/structure.html'}}">Spec</a>
-			<div class="isActiveIndicator orangeGradient"></div>
-			{{#activeSpecPage name 'structure'}}
+			{{#activeSpecPage name}}
 				<ul class="overview">
 					{{#each ../../subNav}}
 					<li><a href="#{{this}}">{{this}}</a></li>
@@ -42,6 +29,21 @@
 		</li>
 	{{/each}}
 	
+	<li {{#activeSpecPage 'spec'}}class="active"{{/activeSpecPage}}>
+		<a href="{{link 'page' 'info/messagestructure/specs.html'}}">Detailed Specs</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+		{{#activeSpecPage 'spec'}}
+			<ul class="overview">
+				{{#each messageSpecs}}
+					<li class="de-emphasized">{{@key}}</li>
+					{{#each structures}}
+						<li><a href="#{{id}}">{{action}}</a></li>
+					{{/each}}
+				{{/each}}
+			</ul>
+		{{/activeSpecPage}}
+	</li>
+
 {{!--
 	<li class="head first">Release Notes</li>
 	<li {{#if fileIs_server-release-notes}}class="active"{{/if}}>

@@ -65,6 +65,10 @@ td, th{
 	font-size: 14px;
 }
 
+#subnav li a {
+    text-transform: capitalize;
+}
+
 @media print {
 	#subnav, #header, #footer { display: none}
 	#wrapper > #content {

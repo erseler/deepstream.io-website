@@ -103,9 +103,13 @@ hbs.registerHelper( 'debug', function(){
 	return new hbs.SafeString( '<pre>' + val + '</pre>' );
 });
 
-hbs.registerHelper( 'activeSpecPage', function( name, type, options ) {
+hbs.registerHelper( 'prettyifySpecName', function( name ) {
+	return name;
+});
+
+hbs.registerHelper( 'activeSpecPage', function( name, options ) {
     var fnTrue=options.fn, fnFalse=options.inverse;
-    return options.data.root.pagePath.indexOf( name + '\\' + type ) > -1 ? fnTrue() : fnFalse();
+    return options.data.root.pagePath.indexOf( name ) > -1 ? fnTrue( this ) : fnFalse( this );
 });
 
 /**

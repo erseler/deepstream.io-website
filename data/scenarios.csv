@@ -12,6 +12,6 @@ event,true,Publish,1_publish
 event,true,Subscribe And Unsubscribe,1_subscribe|2_publish|1_publish_in|1_unsubscribe
 event,true,Listen And Unlisten,1_listen|2_subscribe|1_listenmatch_in|1_unlisten
 rpc,true,Registers and unregisters an RPC,1_register|1_unregister
-rpc,true,Gets a request and processes it succesfully,2_send|1_send_in|1_success|2_success_in
-rpc,false,Rejects an rpc,2_send|2_send_ack|1_send_in|1_reject|3_send_in|3_success|2_success_in
-rpc,false,Notifies client RPC errored during execution,2_send|2_send_ack|1_send_in|1_error|2_error_in
+rpc,true,Gets a request,2_send|1_send_in|1_success|2_success_in
+rpc,false,Rejects an RPC,2_send|2_send_ack|1_send_in|1_reject|3_send_in|3_success|2_success_in
+rpc,false,RPC errored during execution,2_send|2_send_ack|1_send_in|1_error|2_error_in
