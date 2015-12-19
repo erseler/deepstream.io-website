@@ -1,4 +1,33 @@
-<link rel="stylesheet" type="text/css" href="{{link 'asset' 'css/message-format.css'}}" />
+<link rel="stylesheet" type="text/css" href="{{link 'asset' 'css/messagestructure.css'}}" />
+<script type="text/javascript" src="{{link 'asset' 'js/messagestructure.js'}}"></script>
+
+<div class="message-in-depth">
+     <table>
+        <tbody>
+            <tr>
+                <td>Event</td>
+                <td class="event"> C.BLA.BLA </td>
+            </tr>
+            <tr>
+                <td>Action</td>
+                <td class="action"> C.BLA.BLA </td>
+            </tr>
+            <tr>
+                <td>Data</td>
+                <td class="data">['dljnnjvj','dcdjnkjnvfjkvn']</td>
+            </tr>
+            <tr>
+                <td>Message Spec</td>
+                <td class="messageSpec">
+
+<span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">JSON</span><span class="message-format-end">+</span></span>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="down-arrow"></div>
+</div>
 
 {{#each scenarios}}
         <div class="section">  
@@ -23,17 +52,17 @@
                     <tbody>
                         {{#each paths}}
                         <tr class="{{clientName}} {{direction}}">
-                            <td>
+                            <td class="direction">
                                 {{#if incoming}}
                                     <i class="fa fa-server" tooltip="Recieved from server"></i>
                                 {{else}}
                                     <i class="fa fa-user" tooltip="Sent to server"></i>
                                 {{/if}}
                             </td>
-                            <td>
+                            <td class="action">
                                  <a href="./structure.html#{{id}}">{{label}}</a>
                             </td>
-                            <td>
+                            <td class="message">
                                 {{message message}}
                             </td>
                         </tr>

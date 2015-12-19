@@ -112,7 +112,36 @@
 				<h1>
     Auth
 </h1>
-<link rel="stylesheet" type="text/css" href="../../assets/css/message-format.css" />
+<link rel="stylesheet" type="text/css" href="../../assets/css/messagestructure.css" />
+<script type="text/javascript" src="../../assets/js/messagestructure.js"></script>
+
+<div class="message-in-depth">
+     <table>
+        <tbody>
+            <tr>
+                <td>Event</td>
+                <td class="event"> C.BLA.BLA </td>
+            </tr>
+            <tr>
+                <td>Action</td>
+                <td class="action"> C.BLA.BLA </td>
+            </tr>
+            <tr>
+                <td>Data</td>
+                <td class="data">['dljnnjvj','dcdjnkjnvfjkvn']</td>
+            </tr>
+            <tr>
+                <td>Message Spec</td>
+                <td class="messageSpec">
+
+<span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">JSON</span><span class="message-format-end">+</span></span>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="down-arrow"></div>
+</div>
 
         <div class="section">  
             <div class="message-type happy">
@@ -135,24 +164,24 @@
                     <thead/>
                     <tbody>
                         <tr class="ClientA Out">
-                            <td>
+                            <td class="direction">
                                     <i class="fa fa-user" tooltip="Sent to server"></i>
                             </td>
-                            <td>
+                            <td class="action">
                                  <a href="./structure.html#login">Login</a>
                             </td>
-                            <td>
+                            <td class="message">
                                 <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
                         <tr class="ClientA In">
-                            <td>
+                            <td class="direction">
                                     <i class="fa fa-server" tooltip="Recieved from server"></i>
                             </td>
-                            <td>
+                            <td class="action">
                                  <a href="./structure.html#login">Login Ack</a>
                             </td>
-                            <td>
+                            <td class="message">
                                 <span class="message-format ack-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
@@ -181,24 +210,24 @@
                     <thead/>
                     <tbody>
                         <tr class="ClientA Out">
-                            <td>
+                            <td class="direction">
                                     <i class="fa fa-user" tooltip="Sent to server"></i>
                             </td>
-                            <td>
+                            <td class="action">
                                  <a href="./structure.html#login">Login</a>
                             </td>
-                            <td>
+                            <td class="message">
                                 <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
                         <tr class="ClientA In">
-                            <td>
+                            <td class="direction">
                                     <i class="fa fa-server" tooltip="Recieved from server"></i>
                             </td>
-                            <td>
+                            <td class="action">
                                  <a href="./structure.html#invalidlogin">Invalid Login</a>
                             </td>
-                            <td>
+                            <td class="message">
                                 <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_AUTH_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown user</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
@@ -227,68 +256,68 @@
                     <thead/>
                     <tbody>
                         <tr class="ClientA Out">
-                            <td>
+                            <td class="direction">
                                     <i class="fa fa-user" tooltip="Sent to server"></i>
                             </td>
-                            <td>
+                            <td class="action">
                                  <a href="./structure.html#login">Login</a>
                             </td>
-                            <td>
+                            <td class="message">
                                 <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
                         <tr class="ClientA In">
-                            <td>
+                            <td class="direction">
                                     <i class="fa fa-server" tooltip="Recieved from server"></i>
                             </td>
-                            <td>
+                            <td class="action">
                                  <a href="./structure.html#invalidlogin">Invalid Login</a>
                             </td>
-                            <td>
+                            <td class="message">
                                 <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_AUTH_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown user</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
                         <tr class="ClientA Out">
-                            <td>
+                            <td class="direction">
                                     <i class="fa fa-user" tooltip="Sent to server"></i>
                             </td>
-                            <td>
+                            <td class="action">
                                  <a href="./structure.html#login">Login</a>
                             </td>
-                            <td>
+                            <td class="message">
                                 <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
                         <tr class="ClientA In">
-                            <td>
+                            <td class="direction">
                                     <i class="fa fa-server" tooltip="Recieved from server"></i>
                             </td>
-                            <td>
+                            <td class="action">
                                  <a href="./structure.html#invalidlogin">Invalid Login</a>
                             </td>
-                            <td>
+                            <td class="message">
                                 <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_AUTH_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown user</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
                         <tr class="ClientA Out">
-                            <td>
+                            <td class="direction">
                                     <i class="fa fa-user" tooltip="Sent to server"></i>
                             </td>
-                            <td>
+                            <td class="action">
                                  <a href="./structure.html#login">Login</a>
                             </td>
-                            <td>
+                            <td class="message">
                                 <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>
                         <tr class="ClientA In">
-                            <td>
+                            <td class="direction">
                                     <i class="fa fa-server" tooltip="Recieved from server"></i>
                             </td>
-                            <td>
+                            <td class="action">
                                  <a href="./structure.html#toomanyauthattempts">Too many login attempts</a>
                             </td>
-                            <td>
+                            <td class="message">
                                 <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">TOO_MANY_AUTH_ATTEMPTS</span><span class="message-format-end">+</span></span>
                             </td>
                         </tr>

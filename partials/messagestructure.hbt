@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="{{link 'asset' 'css/message-format.css'}}" />
+<link rel="stylesheet" type="text/css" href="{{link 'asset' 'css/messagestructure.css'}}" />
 
 {{#each structures}}
     <div class="section">

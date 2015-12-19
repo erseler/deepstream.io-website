@@ -65,8 +65,47 @@ td, th{
 	font-size: 14px;
 }
 
+tr .direction {
+    width: 10px;
+}
+
+tr .action {
+    width: 125px;
+}
+
+
 #subnav li a {
     text-transform: capitalize;
+}
+
+.message-in-depth {
+	position: absolute;
+	background-color: #fff;
+	z-index: 2;
+	border-radius: 2px;
+	height: 122px;
+	border: 2px solid #D3D3D3;
+}
+
+.message-in-depth .down-arrow {
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	
+	border-top: 10px solid #D3D3D3;
+	position: absolute;
+	left: 50%;
+	margin-left: -10px;
+}
+
+.message-in-depth td, .message-in-depth th {
+	padding: 5px;
+	border: 1px solid #eee;
+}
+
+.message-in-depth td:first-child {
+	width: 100px;
 }
 
 @media print {
