@@ -2,7 +2,7 @@ table {
 	width: 100%;
 }
 table td, table th {
-	padding: 10px;
+	padding: 5px;
 	border: 1px solid #eee;
 	vertical-align: top;
 }
@@ -67,6 +67,7 @@ td, th{
 
 tr .direction {
     width: 10px;
+    text-align: center;
 }
 
 tr .action {
@@ -79,6 +80,7 @@ tr .action {
 }
 
 .message-in-depth {
+	display: none;
 	position: absolute;
 	background-color: #fff;
 	z-index: 2;
@@ -100,7 +102,6 @@ tr .action {
 }
 
 .message-in-depth td, .message-in-depth th {
-	padding: 5px;
 	border: 1px solid #eee;
 }
 
