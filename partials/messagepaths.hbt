@@ -16,8 +16,7 @@
 
                 <table>
                     <thead>
-                        <th>Direction</th>
-                        <th>Client</th>
+                        <th></th>
                         <th>Action</th>
                         <th>Message</th>
                     <thead/>
@@ -25,10 +24,11 @@
                         {{#each paths}}
                         <tr class="{{clientName}} {{direction}}">
                             <td>
-                                {{direction}}
-                            </td>
-                            <td>
-                                {{clientName}}
+                                {{#if incoming}}
+                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
+                                {{else}}
+                                    <i class="fa fa-user" tooltip="Sent to server"></i>
+                                {{/if}}
                             </td>
                             <td>
                                  <a href="./structure.html#{{id}}">{{label}}</a>

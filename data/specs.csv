@@ -1,7 +1,7 @@
 type,id,action,message,ack,direction,description
-auth,login,Sending auth paramters,A|REQ|loginData+,A|A,Client,Sent to authenticate user
-auth,invalidlogin,Invalid Auth,A|E|INVALID_AUTH_DATA|unknown user+,,Server,Recieved if login fails
-auth,toomanyauthattempts,Too many auth attempts,A|E|TOO_MANY_AUTH_ATTEMPTS+,,Server,Recieved if login fails more than the maximum allowed attempts and closes the client connection
+auth,login,Login,A|REQ|loginData+,A|A,Client,Sent to authenticate user
+auth,invalidlogin,Invalid Login,A|E|INVALID_AUTH_DATA|unknown user+,,Server,Recieved if login fails
+auth,toomanyauthattempts,Too many login attempts,A|E|TOO_MANY_AUTH_ATTEMPTS+,,Server,Recieved if login fails more than the maximum allowed attempts and closes the client connection
 auth,invalidmessage,Invalid Message,X|E|INVALID_MESSAGE_DATA|invalidMessage+,,,
 auth,unknownaction,Unknown Action,X|E|UNKNOWN_ACTION|unknown action actionName+,,,
 event,listen,Listen,E|L|event\/.*+,E|A|L|event\/.*+,Client,Send when listening to event matching regex
