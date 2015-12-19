@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>deepstream.io | Events and RPCs</title>
+	<title>deepstream.io | How to use the deepstream client in NodeJS</title>
 
 	
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="deepstream, deepstream.io, streaming, realtime, server, socket" />
-	<meta name="description" content="a quick overview over deepstream&#x27;s event and rpc features" />
+	<meta name="description" content="Learn how deepstream&#x27;s javascript client can be used in NodeJS" />
 	<meta name="author" content="Wolfram Hempel" />
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -103,7 +103,7 @@
 	</li>
 
 	<li class="head">Client</li>
-	<li >
+	<li class="active">
 		<a href="node-js-client.html">Using the client in NodeJS</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>
@@ -118,7 +118,7 @@
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>
 
-	<li class="active">
+	<li >
 		<a href="events-and-rpcs.html">Events & RPCs</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>
@@ -150,36 +150,21 @@
 </ul>
 
 			<div id="content">
-				<h1>Events &amp; RPCs</h1><p>In addition to records, deepstream provides means of messaging and request-response communication: events and rpcs.</p><h3>Events</h3><p>Events work just like a common event-emitter, but distributed across all connected clients</p><pre><code><span class="token comment" spellcheck="true">//subscribe to an event
-</span>ds<span class="token punctuation" >.</span>event<span class="token punctuation" >.</span><span class="token function" >subscribe<span class="token punctuation" >(</span></span> <span class="token string" >'someEvent'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> data <span class="token punctuation" >)</span><span class="token punctuation" >{</span> <span class="token comment" spellcheck="true">/****/</span> <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+				<h1>Using the deepstream client in NodeJs</h1><p><img class="center" src="../assets/images/nodejs.png" alt="Node Js logo" /></p><p>Deepstream&#39;s client works exactly the same in browsers and in NodeJS. (It is in fact written and tested in NodeJs and compiled for browsers using <a href="http://browserify.org/">browserify</a>). The only difference: Browsers connect using the exquisite <a href="https://github.com/Automattic/engine.io">engine.io</a> <strong><em>whereas NodeJS connects directly via TCP</em></strong>.</p><h3>Connect via TCP</h3><p>The deepstream server listens for incoming connections on two ports, one for http and websocket communication using engine.io, one for tcp connections from NodeJS clients. These can be configured using deepstream&#39;s <code>set()</code> method.</p><pre><code><span class="token keyword" >var</span> DeepstreamServer <span class="token operator" >=</span> <span class="token function" >require<span class="token punctuation" >(</span></span> <span class="token string" >'deepstream.io'</span> <span class="token punctuation" >)</span><span class="token punctuation" >,</span>
+    server <span class="token operator" >=</span> <span class="token keyword" >new</span> <span class="token class-name" >DeepstreamServer</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token comment" spellcheck="true">
-//emit an event
-</span>ds<span class="token punctuation" >.</span>event<span class="token punctuation" >.</span><span class="token function" >emit<span class="token punctuation" >(</span></span> <span class="token string" >'someEvent'</span><span class="token punctuation" >,</span> <span class="token string" >'someData'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//unsubscribe from an event
-</span>ds<span class="token punctuation" >.</span>event<span class="token punctuation" >.</span><span class="token function" >unsubscribe<span class="token punctuation" >(</span></span> <span class="token string" >'someEvent'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-</code></pre><h3>RPCs</h3><p>Remote Procedure Calls allow for Request-Reponse communication. If multiple clients are able to provide the same
-rpc, deepstream will distribute requests evenly between them.</p><pre><code><span class="token comment" spellcheck="true">//register as a provider for a rpc
-</span>ds<span class="token punctuation" >.</span>rpc<span class="token punctuation" >.</span><span class="token function" >provide<span class="token punctuation" >(</span></span> <span class="token string" >'addTwoNumbers'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> data<span class="token punctuation" >,</span> response <span class="token punctuation" >)</span><span class="token punctuation" >{</span>
-
-   <span class="token comment" spellcheck="true"> //you can now either send a response
-</span>    response<span class="token punctuation" >.</span><span class="token function" >send<span class="token punctuation" >(</span></span> data<span class="token punctuation" >.</span>numA <span class="token operator" >+</span> data<span class="token punctuation" >.</span>numB <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-
-   <span class="token comment" spellcheck="true"> //reject the response so that it gets
-</span>   <span class="token comment" spellcheck="true"> //re-routed to another provider
-</span>    response<span class="token punctuation" >.</span><span class="token function" >reject<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-
-   <span class="token comment" spellcheck="true"> //or send an error back
-</span>    response<span class="token punctuation" >.</span><span class="token function" >error<span class="token punctuation" >(</span></span> <span class="token string" >'Something went wrong'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//other clients can now call this function using
-</span>ds<span class="token punctuation" >.</span>rpc<span class="token punctuation" >.</span><span class="token function" >make<span class="token punctuation" >(</span></span> <span class="token string" >'addTwoNumbers'</span><span class="token punctuation" >,</span> <span class="token punctuation" >{</span> numA<span class="token punctuation" >:</span> <span class="token number" >4</span><span class="token punctuation" >,</span> numB<span class="token punctuation" >:</span> <span class="token number" >7</span> <span class="token punctuation" >}</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> error<span class="token punctuation" >,</span> response <span class="token punctuation" >)</span><span class="token punctuation" >{</span>
-   <span class="token comment" spellcheck="true"> //response is 11 now
-</span><span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//you can also de-register your provider
-</span>ds<span class="token punctuation" >.</span>rpc<span class="token punctuation" >.</span><span class="token function" >unprovide<span class="token punctuation" >(</span></span> <span class="token string" >'addTwoNumbers'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+// Set host and port for browser / engine.io communication
+</span>server<span class="token punctuation" >.</span><span class="token keyword" >set</span><span class="token punctuation" >(</span> <span class="token string" >'host'</span><span class="token punctuation" >,</span> <span class="token string" >'0.0.0.0'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span><span class="token comment" spellcheck="true"> //default 0.0.0.0
+</span>server<span class="token punctuation" >.</span><span class="token keyword" >set</span><span class="token punctuation" >(</span> <span class="token string" >'port'</span><span class="token punctuation" >,</span> <span class="token number" >6020</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span><span class="token comment" spellcheck="true"> //default 6020
+</span><span class="token comment" spellcheck="true">
+// Set host and port for TCP connections
+</span>server<span class="token punctuation" >.</span><span class="token keyword" >set</span><span class="token punctuation" >(</span> <span class="token string" >'tcpHost'</span><span class="token punctuation" >,</span> <span class="token string" >'localhost'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span><span class="token comment" spellcheck="true"> //default 0.0.0.0
+</span>server<span class="token punctuation" >.</span><span class="token keyword" >set</span><span class="token punctuation" >(</span> <span class="token string" >'tcpPort'</span><span class="token punctuation" >,</span> <span class="token number" >6021</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span><span class="token comment" spellcheck="true"> //default 6021
+</span>
+server<span class="token punctuation" >.</span><span class="token function" >start<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+</code></pre><p>So to use the deepstream client in node, just install it via npm</p><pre><code>npm install deepstream<span class="token punctuation" >.</span>io<span class="token operator" >-</span>client<span class="token operator" >-</span>js
+</code></pre><p>and point it to the tcp host and port</p><pre><code><span class="token keyword" >var</span> deepstream <span class="token operator" >=</span> <span class="token function" >require<span class="token punctuation" >(</span></span> <span class="token string" >'deepstream.io-client-js'</span> <span class="token punctuation" >)</span><span class="token punctuation" >,</span>
+    ds <span class="token operator" >=</span> <span class="token function" >deepstream<span class="token punctuation" >(</span></span> <span class="token string" >'localhost:6021'</span> <span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >login<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 </code></pre>
 			</div>
 		</div>

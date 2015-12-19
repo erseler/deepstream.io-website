@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>deepstream.io | Events and RPCs</title>
+	<title>deepstream.io | Simple app using KnockoutJs</title>
 
 	
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="deepstream, deepstream.io, streaming, realtime, server, socket" />
-	<meta name="description" content="a quick overview over deepstream&#x27;s event and rpc features" />
+	<meta name="description" content="Learn how to build a simple address manager using deepstream and KnockoutJs" />
 	<meta name="author" content="Wolfram Hempel" />
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -118,12 +118,12 @@
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>
 
-	<li class="active">
+	<li >
 		<a href="events-and-rpcs.html">Events & RPCs</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>
 
-	<li >
+	<li class="active">
 		<a href="simple-app-using-ko.html">Simple App using Knockout</a>
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>
@@ -150,37 +150,44 @@
 </ul>
 
 			<div id="content">
-				<h1>Events &amp; RPCs</h1><p>In addition to records, deepstream provides means of messaging and request-response communication: events and rpcs.</p><h3>Events</h3><p>Events work just like a common event-emitter, but distributed across all connected clients</p><pre><code><span class="token comment" spellcheck="true">//subscribe to an event
-</span>ds<span class="token punctuation" >.</span>event<span class="token punctuation" >.</span><span class="token function" >subscribe<span class="token punctuation" >(</span></span> <span class="token string" >'someEvent'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> data <span class="token punctuation" >)</span><span class="token punctuation" >{</span> <span class="token comment" spellcheck="true">/****/</span> <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//emit an event
-</span>ds<span class="token punctuation" >.</span>event<span class="token punctuation" >.</span><span class="token function" >emit<span class="token punctuation" >(</span></span> <span class="token string" >'someEvent'</span><span class="token punctuation" >,</span> <span class="token string" >'someData'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//unsubscribe from an event
-</span>ds<span class="token punctuation" >.</span>event<span class="token punctuation" >.</span><span class="token function" >unsubscribe<span class="token punctuation" >(</span></span> <span class="token string" >'someEvent'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-</code></pre><h3>RPCs</h3><p>Remote Procedure Calls allow for Request-Reponse communication. If multiple clients are able to provide the same
-rpc, deepstream will distribute requests evenly between them.</p><pre><code><span class="token comment" spellcheck="true">//register as a provider for a rpc
-</span>ds<span class="token punctuation" >.</span>rpc<span class="token punctuation" >.</span><span class="token function" >provide<span class="token punctuation" >(</span></span> <span class="token string" >'addTwoNumbers'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> data<span class="token punctuation" >,</span> response <span class="token punctuation" >)</span><span class="token punctuation" >{</span>
+				<h1>Building a simple app with deepstream and knockout js</h1><p><a href="http://knockoutjs.com/">KnockoutJs</a> works well with deepstream. Its two way bindings, atomic updates and overall speed make it a great fit for realtime applications. So well in fact, that we developed a tool that makes using it even easier.</p><h3>KoTools</h3><table class="mini space">
+    <thead>
+        <tr>
+            <th><i class="fa fa-github"></i>Github</th>
+            <th><i class="fa fa-cube"></i>Bower / Npm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <a href="https://github.com/hoxton-one/deepstream.io-tools-ko">
+                    https://github.com/hoxton-one/deepstream.io-tools-ko
+                </a>
+            </td>
+            <td><code>deepstream.io-tools-ko</code></td>
+        </tr>
+    </tbody>
+</table>
 
-   <span class="token comment" spellcheck="true"> //you can now either send a response
-</span>    response<span class="token punctuation" >.</span><span class="token function" >send<span class="token punctuation" >(</span></span> data<span class="token punctuation" >.</span>numA <span class="token operator" >+</span> data<span class="token punctuation" >.</span>numB <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-
-   <span class="token comment" spellcheck="true"> //reject the response so that it gets
-</span>   <span class="token comment" spellcheck="true"> //re-routed to another provider
-</span>    response<span class="token punctuation" >.</span><span class="token function" >reject<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-
-   <span class="token comment" spellcheck="true"> //or send an error back
-</span>    response<span class="token punctuation" >.</span><span class="token function" >error<span class="token punctuation" >(</span></span> <span class="token string" >'Something went wrong'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<p>Knockout has observable properties and observable arrays. Deepstream has observable lists and records with path bindings. Our tool maps the two together.</p><pre><code><span class="token comment" spellcheck="true">// Create a list that's two-way bound to a ko.observableArray
+</span>AppViewModel <span class="token operator" >=</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >var</span> userList <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getList<span class="token punctuation" >(</span></span> <span class="token string" >'users'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span>users <span class="token operator" >=</span> koTools<span class="token punctuation" >.</span><span class="token function" >getViewList<span class="token punctuation" >(</span></span>  UserViewModel<span class="token punctuation" >,</span> userList <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >;</span>
 <span class="token comment" spellcheck="true">
-//other clients can now call this function using
-</span>ds<span class="token punctuation" >.</span>rpc<span class="token punctuation" >.</span><span class="token function" >make<span class="token punctuation" >(</span></span> <span class="token string" >'addTwoNumbers'</span><span class="token punctuation" >,</span> <span class="token punctuation" >{</span> numA<span class="token punctuation" >:</span> <span class="token number" >4</span><span class="token punctuation" >,</span> numB<span class="token punctuation" >:</span> <span class="token number" >7</span> <span class="token punctuation" >}</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> error<span class="token punctuation" >,</span> response <span class="token punctuation" >)</span><span class="token punctuation" >{</span>
-   <span class="token comment" spellcheck="true"> //response is 11 now
-</span><span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//you can also de-register your provider
-</span>ds<span class="token punctuation" >.</span>rpc<span class="token punctuation" >.</span><span class="token function" >unprovide<span class="token punctuation" >(</span></span> <span class="token string" >'addTwoNumbers'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-</code></pre>
+// Create a record and create two-way bound ko.observables
+</span>UserViewModel <span class="token operator" >=</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> userRecordName<span class="token punctuation" >,</span> viewList <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span>record <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord<span class="token punctuation" >(</span></span> userRecordName <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span>viewList <span class="token operator" >=</span> viewList<span class="token punctuation" >;</span>
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span>firstname <span class="token operator" >=</span> koTools<span class="token punctuation" >.</span><span class="token function" >getObservable<span class="token punctuation" >(</span></span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>record<span class="token punctuation" >,</span> <span class="token string" >'firstname'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span>lastname <span class="token operator" >=</span> koTools<span class="token punctuation" >.</span><span class="token function" >getObservable<span class="token punctuation" >(</span></span> <span class="token keyword" >this</span><span class="token punctuation" >.</span>record<span class="token punctuation" >,</span> <span class="token string" >'lastname'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+    <span class="token keyword" >this</span><span class="token punctuation" >.</span>isActive <span class="token operator" >=</span> ko<span class="token punctuation" >.</span><span class="token function" >observable<span class="token punctuation" >(</span></span> <span class="token keyword" >false</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token punctuation" >}</span><span class="token punctuation" >;</span>
+</code></pre><h3>Example App</h3><div class="img-container">
+    <img class="tutorial" width="602" height="302" src="../assets/images/simple-app.png" alt="Simple App Screenshot" />
+</div>
+
+<p>Please find an example application using deepstream, KnockoutJs and deepstream.io-ko-tools here:</p><p><a class="mega" href="https://github.com/hoxton-one/ds-demo-simple-app-ko"><i class="fa fa-github"></i>Knockout.js example app</a></p>
 			</div>
 		</div>
 		<script type="text/javascript" src="../assets/js/docs.js"></script>

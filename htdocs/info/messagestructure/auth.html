@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>deepstream.io | A Scalable Server for Realtime Web Apps</title>
+
+	
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="deepstream, deepstream.io, streaming, realtime, server, socket" />
+	<meta name="description" content="A node.js realtime server, supporting data-sync, RPCs, events and WebRTC" />
+	<meta name="author" content="Wolfram Hempel" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../../assets/css/navigation.css" />
+	<link rel="stylesheet" type="text/css" href="../../assets/css/screen.css" />
+	<link rel="stylesheet" type="text/css" href="../../assets/css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../../assets/css/syntaxhighlighter.css" />
+	<script type="text/javascript">
+	document.createElement( 'header' );
+	document.createElement( 'nav' );
+	</script>
+	<script type="text/javascript" src="../../assets/js/jquery.js"></script>
+	<script type="text/javascript" src="../../assets/js/menu.js"></script>
+
+	<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+<body class="category_info ">
+	<div class="mobile-menu">
+		<div class="nav mobile-nav">
+			<ul>
+				<li ><a href="../..">Home</a></li>
+				<li ><a href="../../download/">Downloads</a></li>
+				<li ><a href="../../tutorials/getting-started.html">Tutorials</a></li>
+				<li ><a href="../../docs/deepstream.html">Documentation</a></li>
+				<li ><a href="../../blog/">Blog</a></li>
+				<li class="active"><a href="../../info/">Info</a></li>				
+			</ul>		</div>
+	</div>
+
+	<div id="outer-wrapper">
+		<div id="header" class="compact-header">
+			<div class="header-tiny-logo">
+				<h1><a href="../..">deepstream.io - a scalable server for realtime web apps</a></h1>
+			</div>
+			<div class="nav desktop-nav">
+				<ul>
+					<li ><a href="../..">Home</a></li>
+					<li ><a href="../../download/">Downloads</a></li>
+					<li ><a href="../../tutorials/getting-started.html">Tutorials</a></li>
+					<li ><a href="../../docs/deepstream.html">Documentation</a></li>
+					<li ><a href="../../blog/">Blog</a></li>
+					<li class="active"><a href="../../info/">Info</a></li>				
+				</ul>			</div>
+			<span class="menu-button menu-icon">
+				<i class="fa fa-bars"></i>
+			</span>
+		</div>
+		<div id="wrapper" class="main">
+			<ul id="subnav">
+	<li class="head first">Performance</li>
+	<li >
+		<a href="../../info/performance-overview.html">Overview</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>	
+	<li >
+		<a href="../../info/performance-single-node-vs-cluster.html">Single Node vs Cluster</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+	<li class="head first">Message Specification</li>
+	<li >
+		<a href="../../info/messagestructure/index.html">Overview</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>	
+	
+		<li class="active">
+			<a href="../../info/messagestructure/auth.html">auth Secenarios</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+				<ul class="overview">
+				</ul>
+		</li>
+		<li >
+			<a href="../../info/messagestructure/event.html">event Secenarios</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+		<li >
+			<a href="../../info/messagestructure/record.html">record Secenarios</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+		<li >
+			<a href="../../info/messagestructure/rpc.html">rpc Secenarios</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+		<li >
+			<a href="../../info/messagestructure/webRTC.html">webRTC Secenarios</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+	
+	<li >
+		<a href="../../info/messagestructure/specs.html">Detailed Specs</a>
+		<div class="isActiveIndicator orangeGradient"></div>
+	</li>
+
+</ul>
+
+			<div id="content">
+				<h1>
+    Auth
+</h1>
+<link rel="stylesheet" type="text/css" href="../../assets/css/messagestructure.css" />
+<script type="text/javascript" src="../../assets/js/messagestructure.js"></script>
+
+<div class="message-in-depth">
+     <table>
+        <tbody>
+            <tr>
+                <td>Event</td>
+                <td class="event"> C.BLA.BLA </td>
+            </tr>
+            <tr>
+                <td>Action</td>
+                <td class="action"> C.BLA.BLA </td>
+            </tr>
+            <tr>
+                <td>Data</td>
+                <td class="data">['dljnnjvj','dcdjnkjnvfjkvn']</td>
+            </tr>
+            <tr>
+                <td>Message Spec</td>
+                <td class="messageSpec">
+
+<span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">JSON</span><span class="message-format-end">+</span></span>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="down-arrow"></div>
+</div>
+
+        <div class="section">  
+            <div class="message-type happy">
+                happy path
+            </div>
+
+            <h2>
+                <a name="Login">Login</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th></th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientA Out">
+                            <td class="direction">
+                                    <i class="fa fa-user" tooltip="Sent to server"></i>
+                            </td>
+                            <td class="action">
+                                 <a href="./structure.html#login">Login</a>
+                            </td>
+                            <td class="message">
+                                <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td class="direction">
+                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
+                            </td>
+                            <td class="action">
+                                 <a href="./structure.html#login">Login Ack</a>
+                            </td>
+                            <td class="message">
+                                <span class="message-format ack-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+        <div class="section">  
+            <div class="message-type unhappy">
+                unhappy path
+            </div>
+
+            <h2>
+                <a name="Invalid Login">Invalid Login</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th></th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientA Out">
+                            <td class="direction">
+                                    <i class="fa fa-user" tooltip="Sent to server"></i>
+                            </td>
+                            <td class="action">
+                                 <a href="./structure.html#login">Login</a>
+                            </td>
+                            <td class="message">
+                                <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td class="direction">
+                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
+                            </td>
+                            <td class="action">
+                                 <a href="./structure.html#invalidlogin">Invalid Login</a>
+                            </td>
+                            <td class="message">
+                                <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_AUTH_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown user</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+        <div class="section">  
+            <div class="message-type unhappy">
+                unhappy path
+            </div>
+
+            <h2>
+                <a name="Multiple Invalid Logins">Multiple Invalid Logins</a>
+            </h2>
+            <div class="action-content">
+                <p class="description">
+                    
+                </p>
+
+                <table>
+                    <thead>
+                        <th></th>
+                        <th>Action</th>
+                        <th>Message</th>
+                    <thead/>
+                    <tbody>
+                        <tr class="ClientA Out">
+                            <td class="direction">
+                                    <i class="fa fa-user" tooltip="Sent to server"></i>
+                            </td>
+                            <td class="action">
+                                 <a href="./structure.html#login">Login</a>
+                            </td>
+                            <td class="message">
+                                <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td class="direction">
+                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
+                            </td>
+                            <td class="action">
+                                 <a href="./structure.html#invalidlogin">Invalid Login</a>
+                            </td>
+                            <td class="message">
+                                <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_AUTH_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown user</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA Out">
+                            <td class="direction">
+                                    <i class="fa fa-user" tooltip="Sent to server"></i>
+                            </td>
+                            <td class="action">
+                                 <a href="./structure.html#login">Login</a>
+                            </td>
+                            <td class="message">
+                                <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td class="direction">
+                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
+                            </td>
+                            <td class="action">
+                                 <a href="./structure.html#invalidlogin">Invalid Login</a>
+                            </td>
+                            <td class="message">
+                                <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">INVALID_AUTH_DATA</span><span class="message-format-pipe">|</span><span class="message-format-part-3">unknown user</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA Out">
+                            <td class="direction">
+                                    <i class="fa fa-user" tooltip="Sent to server"></i>
+                            </td>
+                            <td class="action">
+                                 <a href="./structure.html#login">Login</a>
+                            </td>
+                            <td class="message">
+                                <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">REQ</span><span class="message-format-pipe">|</span><span class="message-format-part-2">loginData</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                        <tr class="ClientA In">
+                            <td class="direction">
+                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
+                            </td>
+                            <td class="action">
+                                 <a href="./structure.html#toomanyauthattempts">Too many login attempts</a>
+                            </td>
+                            <td class="message">
+                                <span class="message-format error-message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">TOO_MANY_AUTH_ATTEMPTS</span><span class="message-format-end">+</span></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+			</div>
+		</div>
+		<script type="text/javascript" src="../../assets/js/docs.js"></script>
+	</div>
+	<div id="footer">
+		<ul class="footer-items">
+
+			<li class="footer-right">
+				<ul class="social">
+					<li class="twitter">
+						<a href="https://twitter.com/deepstreamIO">
+							<i class="fa fa-twitter"></i>  Twitter
+						</a>
+					</li>
+					<li class="github">
+						<a href="https://github.com/hoxton-one">
+							<i class="fa fa-github"></i>  Github
+						</a>
+					</li>
+					<li class="stack-overflow">
+						<a href="http://stackoverflow.com/questions/tagged/deepstream.io">
+							<i class="fa fa-stack-overflow"></i>  Stack Overflow
+						</a>
+					</li>
+					<li>
+						<a href="https://deepstream-slack.herokuapp.com/">
+							<i class="fa fa-slack"></i>  Slack
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="footer-middle">
+				<h4>Browse</h4>
+				<ul>
+					<li ><a href="../..">Home</a></li>
+					<li ><a href="../../download/">Downloads</a></li>
+					<li ><a href="../../tutorials/getting-started.html">Tutorials</a></li>
+					<li ><a href="../../docs/deepstream.html">Documentation</a></li>
+					<li ><a href="../../blog/">Blog</a></li>
+					<li class="active"><a href="../../info/">Info</a></li>				
+				</ul>			</li>
+
+			<li class="footer-left">
+				<h4>Contact us</h4>
+				<p>
+					Email us <a href="mailto:info@deepstreamhub.com">info@deepstreamhub.com</a>.<br><br>
+				</p>
+
+				<h4>Star this project on github!</h4>
+				<p>
+					<a class="github-button" href="https://github.com/hoxton-one/deepstream.io" data-icon="octicon-star" data-style="mega" data-count-href="/hoxton-one/deepstream.io/stargazers" data-count-api="/repos/hoxton-one/deepstream.io#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star hoxton-one/deepstream.io on GitHub">Star</a>
+				</p>
+			</li>
+
+		</ul>
+	</div>
+
+
+	<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>
