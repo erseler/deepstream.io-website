@@ -192,7 +192,7 @@ var buildFile = function( fileExtension, data, fileContent, next ) {
 	data.contextVars.blogPosts = blogPosts;
 	data.contextVars.communityEvents = communityEvents;
 
-	var messageSpecs =  require( './buildSpecs' );
+	var messageSpecs =  require( './buildSpecs' ).loadedSpec;
 	if( !messageSpecs ) {
 		console.log( 'Message specs missing' );
 	}

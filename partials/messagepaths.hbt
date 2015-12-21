@@ -29,46 +29,28 @@
     <div class="down-arrow"></div>
 </div>
 
-{{#each scenarios}}
-        <div class="section">  
-            <div class="message-type {{#unless happy}}unhappy{{/unless}}{{#if happy}}happy{{/if}}">
-                {{#unless happy}}unhappy path{{/unless}}{{#if happy}}happy path{{/if}}
-            </div>
+{{#each this}}
 
-            <h2>
-                <a name="{{name}}">{{name}}</a>
-            </h2>
-            <div class="action-content">
-                <p class="description">
-                    {{description}}
-                </p>
+    <h3>
+        <a name="{{name}}">{{name}}</a>
+    </h3>
 
-                <table>
-                    <thead>
-                        <th></th>
-                        <th>Action</th>
-                        <th>Message</th>
-                    <thead/>
-                    <tbody>
-                        {{#each paths}}
-                        <tr class="{{clientName}} {{direction}}">
-                            <td class="direction">
-                                {{#if incoming}}
-                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
-                                {{else}}
-                                    <i class="fa fa-user" tooltip="Sent to server"></i>
-                                {{/if}}
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#{{id}}">{{label}}</a>
-                            </td>
-                            <td class="message">
-                                {{message message}}
-                            </td>
-                        </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-            </div>
+    <div>
+        {{description}}
     </div>
+
+    {{#each scenarioDefinitions}}
+        <div class="section">  
+            <div class="action-content">
+                <h2>{{name}}</h2>
+                {{#each steps}}
+                    <div class="step {{keyword}}">
+                        <span class="keyword">{{keyword}}</span>
+                        <span class="text">{{{highlightFeatureMessage text}}}</span>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    {{/each}}
+
 {{/each}}

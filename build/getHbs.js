@@ -74,11 +74,7 @@ hbs.registerHelper( 'viewport', function(){
 	}
 });
 
-hbs.registerHelper( 'message', function( message ) {
-	if( !message ) {
-		return '';
-	}
-	
+function formatSpecMessage( message ) {
 	var parts = message.split( '|' );
 	var messageClass = 'message-format';
 	messageClass += parts[ 1 ] !== 'A' ? '' : ' ack-message-format';
@@ -95,6 +91,13 @@ hbs.registerHelper( 'message', function( message ) {
 	html += '<span class="message-format-end">+</span>';
 	html += '</span>';
 	return new hbs.SafeString( html );
+}
+
+hbs.registerHelper( 'message', function( message ) {
+	if( !message ) {
+		return '';
+	}
+	return formatSpecMessage( message );
 } );
 
 hbs.registerHelper( 'debug', function(){
@@ -103,8 +106,12 @@ hbs.registerHelper( 'debug', function(){
 	return new hbs.SafeString( '<pre>' + val + '</pre>' );
 });
 
-hbs.registerHelper( 'prettyifySpecName', function( name ) {
-	return name;
+hbs.registerHelper( 'highlightFeatureMessage', function( step ) {
+	var message = step.match(/.\|.+.*\+/);
+	if( message ) {
+		return step.replace( message, formatSpecMessage( message[ 0 ] ) );
+	}
+	return step;
 });
 
 hbs.registerHelper( 'activeSpecPage', function( name, options ) {

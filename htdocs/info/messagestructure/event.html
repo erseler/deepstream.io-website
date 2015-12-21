@@ -79,25 +79,19 @@
 	</li>	
 	
 		<li >
-			<a href="../../info/messagestructure/auth.html">auth Secenarios</a>
-			<div class="isActiveIndicator orangeGradient"></div>
-		</li>
-		<li class="active">
-			<a href="../../info/messagestructure/event.html">event Secenarios</a>
-			<div class="isActiveIndicator orangeGradient"></div>
-				<ul class="overview">
-				</ul>
-		</li>
-		<li >
-			<a href="../../info/messagestructure/record.html">record Secenarios</a>
+			<a href="../../info/messagestructure/.html">connectivity Secenarios</a>
 			<div class="isActiveIndicator orangeGradient"></div>
 		</li>
 		<li >
-			<a href="../../info/messagestructure/rpc.html">rpc Secenarios</a>
+			<a href="../../info/messagestructure/.html">events Secenarios</a>
 			<div class="isActiveIndicator orangeGradient"></div>
 		</li>
 		<li >
-			<a href="../../info/messagestructure/webRTC.html">webRTC Secenarios</a>
+			<a href="../../info/messagestructure/.html">parsing Secenarios</a>
+			<div class="isActiveIndicator orangeGradient"></div>
+		</li>
+		<li >
+			<a href="../../info/messagestructure/.html">rpc Secenarios</a>
 			<div class="isActiveIndicator orangeGradient"></div>
 		</li>
 	
@@ -144,254 +138,167 @@
     <div class="down-arrow"></div>
 </div>
 
-        <div class="section">  
-            <div class="message-type happy">
-                happy path
-            </div>
 
-            <h2>
-                <a name="Publish">Publish</a>
-            </h2>
-            <div class="action-content">
-                <p class="description">
-                    
-                </p>
+    <h3>
+        <a name="Events">Events</a>
+    </h3>
 
-                <table>
-                    <thead>
-                        <th></th>
-                        <th>Action</th>
-                        <th>Message</th>
-                    <thead/>
-                    <tbody>
-                        <tr class="ClientA Out">
-                            <td class="direction">
-                                    <i class="fa fa-user" tooltip="Sent to server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#publish">Publish</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">JSON</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA In">
-                            <td class="direction">
-                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#publish">Publish Ack</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-3">eventName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <div>
+        	Events are deepstream&#x27;s publish-subscribe pattern. Everytime a client subscribes to
+	or unsubscribes from an event the server replies with an acknowledgment message
     </div>
+
         <div class="section">  
-            <div class="message-type happy">
-                happy path
-            </div>
-
-            <h2>
-                <a name="Subscribe And Unsubscribe">Subscribe And Unsubscribe</a>
-            </h2>
             <div class="action-content">
-                <p class="description">
-                    
-                </p>
-
-                <table>
-                    <thead>
-                        <th></th>
-                        <th>Action</th>
-                        <th>Message</th>
-                    <thead/>
-                    <tbody>
-                        <tr class="ClientA Out">
-                            <td class="direction">
-                                    <i class="fa fa-user" tooltip="Sent to server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#subscribe">Susbcribe</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA In">
-                            <td class="direction">
-                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#subscribe">Susbcribe Ack</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">S</span><span class="message-format-pipe">|</span><span class="message-format-part-3">eventName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientB Out">
-                            <td class="direction">
-                                    <i class="fa fa-user" tooltip="Sent to server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#publish">Publish</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">JSON</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientB In">
-                            <td class="direction">
-                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#publish">Publish Ack</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-3">eventName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA In">
-                            <td class="direction">
-                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#publish">Publish</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-pipe">|</span><span class="message-format-part-3">JSON</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA Out">
-                            <td class="direction">
-                                    <i class="fa fa-user" tooltip="Sent to server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#unsubscribe">Unsubscribe</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">US</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA In">
-                            <td class="direction">
-                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#unsubscribe">Unsubscribe Ack</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">US</span><span class="message-format-pipe">|</span><span class="message-format-part-3">eventName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h2>The client is connected</h2>
+                    <div class="step Given ">
+                        <span class="keyword">Given </span>
+                        <span class="text">the test server is ready</span>
+                    </div>
+                    <div class="step And ">
+                        <span class="keyword">And </span>
+                        <span class="text">the client is initialised</span>
+                    </div>
+                    <div class="step And ">
+                        <span class="keyword">And </span>
+                        <span class="text">the client logs in with username XXX and password YYY</span>
+                    </div>
+                    <div class="step And ">
+                        <span class="keyword">And </span>
+                        <span class="text">the server sends the message <span class="message-format"><span class="message-format-part-0">A</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-end">+</span></span></span>
+                    </div>
             </div>
-    </div>
+        </div>
         <div class="section">  
-            <div class="message-type happy">
-                happy path
-            </div>
-
-            <h2>
-                <a name="Listen And Unlisten">Listen And Unlisten</a>
-            </h2>
             <div class="action-content">
-                <p class="description">
-                    
-                </p>
-
-                <table>
-                    <thead>
-                        <th></th>
-                        <th>Action</th>
-                        <th>Message</th>
-                    <thead/>
-                    <tbody>
-                        <tr class="ClientA Out">
-                            <td class="direction">
-                                    <i class="fa fa-user" tooltip="Sent to server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#listen">Listen</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">L</span><span class="message-format-pipe">|</span><span class="message-format-part-2">event\/.*</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA In">
-                            <td class="direction">
-                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#listen">Listen Ack</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">L</span><span class="message-format-pipe">|</span><span class="message-format-part-3">event\/.*</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientB Out">
-                            <td class="direction">
-                                    <i class="fa fa-user" tooltip="Sent to server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#subscribe">Susbcribe</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">eventName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientB In">
-                            <td class="direction">
-                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#subscribe">Susbcribe Ack</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">S</span><span class="message-format-pipe">|</span><span class="message-format-part-3">eventName</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA In">
-                            <td class="direction">
-                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#listenmatch">Listen Match</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">SP</span><span class="message-format-pipe">|</span><span class="message-format-part-2">event\/.*</span><span class="message-format-pipe">|</span><span class="message-format-part-3">event/A</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA Out">
-                            <td class="direction">
-                                    <i class="fa fa-user" tooltip="Sent to server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#unlisten">Unlisten</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">UL</span><span class="message-format-pipe">|</span><span class="message-format-part-2">event\/.*</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                        <tr class="ClientA In">
-                            <td class="direction">
-                                    <i class="fa fa-server" tooltip="Recieved from server"></i>
-                            </td>
-                            <td class="action">
-                                 <a href="./structure.html#unlisten">Unlisten Ack</a>
-                            </td>
-                            <td class="message">
-                                <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">UL</span><span class="message-format-pipe">|</span><span class="message-format-part-3">event\/.*</span><span class="message-format-end">+</span></span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h2>The client subscribes to an event</h2>
+                    <div class="step Given ">
+                        <span class="keyword">Given </span>
+                        <span class="text">the client subscribes to an event named test1</span>
+                    </div>
+                    <div class="step Then ">
+                        <span class="keyword">Then </span>
+                        <span class="text">the server received the message <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">test1</span><span class="message-format-end">+</span></span></span>
+                    </div>
             </div>
-    </div>
+        </div>
+        <div class="section">  
+            <div class="action-content">
+                <h2>The server sends an ACK message for test1</h2>
+                    <div class="step Given ">
+                        <span class="keyword">Given </span>
+                        <span class="text">the server sends the message <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">S</span><span class="message-format-pipe">|</span><span class="message-format-part-3">test1</span><span class="message-format-end">+</span></span></span>
+                    </div>
+            </div>
+        </div>
+        <div class="section">  
+            <div class="action-content">
+                <h2>The client receives an event</h2>
+                    <div class="step When ">
+                        <span class="keyword">When </span>
+                        <span class="text">the server sends the message <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">test1</span><span class="message-format-pipe">|</span><span class="message-format-part-3">SsomeValue</span><span class="message-format-end">+</span></span></span>
+                    </div>
+                    <div class="step Then ">
+                        <span class="keyword">Then </span>
+                        <span class="text">the client received the event test1 with data someValue</span>
+                    </div>
+            </div>
+        </div>
+        <div class="section">  
+            <div class="action-content">
+                <h2>The client receives another event</h2>
+                    <div class="step When ">
+                        <span class="keyword">When </span>
+                        <span class="text">the server sends the message <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">test1</span><span class="message-format-pipe">|</span><span class="message-format-part-3">SanotherValue</span><span class="message-format-end">+</span></span></span>
+                    </div>
+                    <div class="step Then ">
+                        <span class="keyword">Then </span>
+                        <span class="text">the client received the event test1 with data anotherValue</span>
+                    </div>
+            </div>
+        </div>
+        <div class="section">  
+            <div class="action-content">
+                <h2>The client publishes an event</h2>
+                    <div class="step When ">
+                        <span class="keyword">When </span>
+                        <span class="text">the client publishes an event named test1 with data yetAnotherValue</span>
+                    </div>
+                    <div class="step Then ">
+                        <span class="keyword">Then </span>
+                        <span class="text">the server received the message <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">EVT</span><span class="message-format-pipe">|</span><span class="message-format-part-2">test1</span><span class="message-format-pipe">|</span><span class="message-format-part-3">SyetAnotherValue</span><span class="message-format-end">+</span></span></span>
+                    </div>
+            </div>
+        </div>
+        <div class="section">  
+            <div class="action-content">
+                <h2>The client unsubscribes from an event</h2>
+                    <div class="step When ">
+                        <span class="keyword">When </span>
+                        <span class="text">the client unsubscribes from an event named test1</span>
+                    </div>
+                    <div class="step Then ">
+                        <span class="keyword">Then </span>
+                        <span class="text">the server received the message <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">US</span><span class="message-format-pipe">|</span><span class="message-format-part-2">test1</span><span class="message-format-end">+</span></span></span>
+                    </div>
+            </div>
+        </div>
+        <div class="section">  
+            <div class="action-content">
+                <h2>The server sends an ACK message for test1 unsubscribe</h2>
+                    <div class="step Given ">
+                        <span class="keyword">Given </span>
+                        <span class="text">the server sends the message <span class="message-format ack-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">A</span><span class="message-format-pipe">|</span><span class="message-format-part-2">US</span><span class="message-format-pipe">|</span><span class="message-format-part-3">test1</span><span class="message-format-end">+</span></span></span>
+                    </div>
+            </div>
+        </div>
+        <div class="section">  
+            <div class="action-content">
+                <h2>The client attempts to subscribe to the same event multiple times. This should still</h2>
+                    <div class="step Given ">
+                        <span class="keyword">Given </span>
+                        <span class="text">the server resets its message count</span>
+                    </div>
+                    <div class="step When ">
+                        <span class="keyword">When </span>
+                        <span class="text">the client subscribes to an event named test2</span>
+                    </div>
+                    <div class="step And ">
+                        <span class="keyword">And </span>
+                        <span class="text">the client subscribes to an event named test2</span>
+                    </div>
+                    <div class="step Then ">
+                        <span class="keyword">Then </span>
+                        <span class="text">the server received the message <span class="message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">S</span><span class="message-format-pipe">|</span><span class="message-format-part-2">test2</span><span class="message-format-end">+</span></span></span>
+                    </div>
+                    <div class="step And ">
+                        <span class="keyword">And </span>
+                        <span class="text">the server has received 1 messages</span>
+                    </div>
+            </div>
+        </div>
+        <div class="section">  
+            <div class="action-content">
+                <h2>The client tries to unsubscribe from an event it wasn&#x27;t previously subscribed to</h2>
+                    <div class="step Given ">
+                        <span class="keyword">Given </span>
+                        <span class="text">the server resets its message count</span>
+                    </div>
+                    <div class="step When ">
+                        <span class="keyword">When </span>
+                        <span class="text">the client unsubscribes from an event named test3</span>
+                    </div>
+                    <div class="step And ">
+                        <span class="keyword">And </span>
+                        <span class="text">the server sends the message <span class="message-format error-message-format"><span class="message-format-part-0">E</span><span class="message-format-pipe">|</span><span class="message-format-part-1">E</span><span class="message-format-pipe">|</span><span class="message-format-part-2">NOT_SUBSCRIBED</span><span class="message-format-pipe">|</span><span class="message-format-part-3">test3</span><span class="message-format-end">+</span></span></span>
+                    </div>
+                    <div class="step Then ">
+                        <span class="keyword">Then </span>
+                        <span class="text">the client throws a E error with message NOT_SUBSCRIBED</span>
+                    </div>
+            </div>
+        </div>
+
 
 			</div>
 		</div>

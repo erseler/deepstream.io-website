@@ -15,11 +15,11 @@
 		<div class="isActiveIndicator orangeGradient"></div>
 	</li>	
 	
-	{{#each messageSpecs}}	
-		<li {{#activeSpecPage name}}class="active"{{/activeSpecPage}}>
-			<a href="{{link 'page' 'info/messagestructure/{{name}}.html'}}">{{name}} Secenarios</a>
+	{{#each messageSpecs.features}}	
+		<li {{#activeSpecPage @key}}class="active"{{/activeSpecPage}}>
+			<a href="{{link 'page' 'info/messagestructure/{{@key}}.html'}}">{{@key}} Secenarios</a>
 			<div class="isActiveIndicator orangeGradient"></div>
-			{{#activeSpecPage name}}
+			{{#activeSpecPage @key}}
 				<ul class="overview">
 					{{#each ../../subNav}}
 					<li><a href="#{{this}}">{{this}}</a></li>
@@ -34,7 +34,7 @@
 		<div class="isActiveIndicator orangeGradient"></div>
 		{{#activeSpecPage 'spec'}}
 			<ul class="overview">
-				{{#each messageSpecs}}
+				{{#each messageSpecs.specs}}
 					<li class="de-emphasized">{{@key}}</li>
 					{{#each structures}}
 						<li><a href="#{{id}}">{{action}}</a></li>
