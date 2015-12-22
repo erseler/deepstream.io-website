@@ -207,7 +207,7 @@
     </tbody>
 </table>
 
-<p>Transform-functions are registered using <code>server.set( &#39;dataTransforms&#39;, [...])</code></p><pre><code><span class="token keyword" >var</span> Deepstream <span class="token operator" >=</span> <span class="token function" >require<span class="token punctuation" >(</span></span> <span class="token string" >'deepstream.io'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<p>Transform-functions are registered using <code>server.set( &#39;dataTransforms&#39;, [...])</code></p><pre><code><span class="token keyword" >var</span> Deepstream <span class="token operator" >=</span> <span class="token function" >require</span><span class="token punctuation" >(</span> <span class="token string" >'deepstream.io'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token keyword" >var</span> server <span class="token operator" >=</span> <span class="token keyword" >new</span> <span class="token class-name" >Deepstream</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 
 server<span class="token punctuation" >.</span><span class="token keyword" >set</span><span class="token punctuation" >(</span> <span class="token string" >'dataTransforms'</span><span class="token punctuation" >,</span> <span class="token punctuation" >[</span><span class="token punctuation" >{</span>
@@ -228,7 +228,7 @@ server<span class="token punctuation" >.</span><span class="token keyword" >set<
     <span class="token punctuation" >}</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >]</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 
-server<span class="token punctuation" >.</span><span class="token function" >start<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+server<span class="token punctuation" >.</span><span class="token function" >start</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 </code></pre><h3>Transforming record data</h3><p>Transforming outgoing record data can be a bit complex, due to the different ways that updates are sent out.</p><ul>
 <li>When a client calls <code>ds.record.getRecord( recordName )</code> the server responds with a READ action. </li>
 <li>When a record is completely updated, using <code>record.set({})</code> with a single argument, an UPDATE action is sent out. </li>
@@ -243,11 +243,11 @@ server<span class="token punctuation" >.</span><span class="token function" >sta
     <span class="token string" >'max'</span><span class="token punctuation" >:</span> <span class="token number" >0.90</span><span class="token punctuation" >,</span>
     <span class="token string" >'lisa'</span><span class="token punctuation" >:</span> <span class="token number" >0.85</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-// READ and UPDATE have the same signature,
-</span><span class="token comment" spellcheck="true">// so we can use the same function for both
-</span><span class="token keyword" >var</span> transformReadAndUpdate <span class="token operator" >=</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> data<span class="token punctuation" >,</span> metaData <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    <span class="token keyword" >if</span><span class="token punctuation" >(</span> metaData<span class="token punctuation" >.</span>recordName<span class="token punctuation" >.</span><span class="token function" >substr<span class="token punctuation" >(</span></span> <span class="token number" >0</span><span class="token punctuation" >,</span> <span class="token number" >5</span> <span class="token punctuation" >)</span> <span class="token operator" >===</span> <span class="token string" >'item/'</span> <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+
+<span class="token comment" spellcheck="true">// READ and UPDATE have the same signature,</span>
+<span class="token comment" spellcheck="true">// so we can use the same function for both</span>
+<span class="token keyword" >var</span> transformReadAndUpdate <span class="token operator" >=</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> data<span class="token punctuation" >,</span> metaData <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token keyword" >if</span><span class="token punctuation" >(</span> metaData<span class="token punctuation" >.</span>recordName<span class="token punctuation" >.</span><span class="token function" >substr</span><span class="token punctuation" >(</span> <span class="token number" >0</span><span class="token punctuation" >,</span> <span class="token number" >5</span> <span class="token punctuation" >)</span> <span class="token operator" >===</span> <span class="token string" >'item/'</span> <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
         data<span class="token punctuation" >.</span>price <span class="token operator" >*</span><span class="token operator" >=</span> userDiscounts<span class="token punctuation" >[</span> metaData<span class="token punctuation" >.</span>receiver <span class="token punctuation" >]</span><span class="token punctuation" >;</span>
     <span class="token punctuation" >}</span>
     <span class="token keyword" >return</span> data<span class="token punctuation" >;</span>
@@ -266,11 +266,11 @@ server<span class="token punctuation" >.</span><span class="token keyword" >set<
     action<span class="token punctuation" >:</span> C<span class="token punctuation" >.</span>ACTIONS<span class="token punctuation" >.</span>PATCH<span class="token punctuation" >,</span>
     transform<span class="token punctuation" >:</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> data<span class="token punctuation" >,</span> metaData <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
         <span class="token keyword" >if</span><span class="token punctuation" >(</span> 
-            metaData<span class="token punctuation" >.</span>recordName<span class="token punctuation" >.</span><span class="token function" >substr<span class="token punctuation" >(</span></span> <span class="token number" >0</span><span class="token punctuation" >,</span> <span class="token number" >5</span> <span class="token punctuation" >)</span> <span class="token operator" >===</span> <span class="token string" >'item/'</span> <span class="token operator" >&amp;&amp;</span>
+            metaData<span class="token punctuation" >.</span>recordName<span class="token punctuation" >.</span><span class="token function" >substr</span><span class="token punctuation" >(</span> <span class="token number" >0</span><span class="token punctuation" >,</span> <span class="token number" >5</span> <span class="token punctuation" >)</span> <span class="token operator" >===</span> <span class="token string" >'item/'</span> <span class="token operator" >&amp;&amp;</span>
             metaData<span class="token punctuation" >.</span>path <span class="token operator" >===</span> <span class="token string" >'price'</span>
         <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-           <span class="token comment" spellcheck="true"> //data for PATCH is just the price
-</span>            <span class="token keyword" >return</span> data <span class="token operator" >*</span> userDiscounts<span class="token punctuation" >[</span> metaData<span class="token punctuation" >.</span>receiver <span class="token punctuation" >]</span><span class="token punctuation" >;</span>
+            <span class="token comment" spellcheck="true">//data for PATCH is just the price</span>
+            <span class="token keyword" >return</span> data <span class="token operator" >*</span> userDiscounts<span class="token punctuation" >[</span> metaData<span class="token punctuation" >.</span>receiver <span class="token punctuation" >]</span><span class="token punctuation" >;</span>
         <span class="token punctuation" >}</span> <span class="token keyword" >else</span> <span class="token punctuation" >{</span>
             <span class="token keyword" >return</span> data<span class="token punctuation" >;</span>
         <span class="token punctuation" >}</span>

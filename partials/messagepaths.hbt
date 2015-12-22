@@ -30,27 +30,8 @@
 </div>
 
 {{#each this}}
-
-    <h3>
-        <a name="{{name}}">{{name}}</a>
-    </h3>
-
-    <div>
-        {{description}}
+    <div class="section">  
+        <a name="{{feature.name}}"></a>
+        <pre><code>{{{highlightFeatureMessages content}}}</code></pre>
     </div>
-
-    {{#each scenarioDefinitions}}
-        <div class="section">  
-            <div class="action-content">
-                <h2>{{name}}</h2>
-                {{#each steps}}
-                    <div class="step {{keyword}}">
-                        <span class="keyword">{{keyword}}</span>
-                        <span class="text">{{{highlightFeatureMessage text}}}</span>
-                    </div>
-                {{/each}}
-            </div>
-        </div>
-    {{/each}}
-
 {{/each}}

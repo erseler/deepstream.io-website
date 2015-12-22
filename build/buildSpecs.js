@@ -1,3 +1,4 @@
+var prism = require( './prism' );
 var fs = require( 'fs' );
 var path = require( 'path' );
 var async = require( 'async' );
@@ -54,7 +55,10 @@ function readMessageScenarios( root, stats, next ) {
 			if( !features[ tag ] ) {
 				features[ tag ] = [];
 			}
-			features[ tag ].push( feature );
+			features[ tag ].push( {
+				content: prism.highlight( content, prism.languages.gherkin ).trim(),
+				feature: feature
+			} );
 		}
 	}
 	next();

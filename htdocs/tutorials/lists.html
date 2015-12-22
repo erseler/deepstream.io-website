@@ -151,64 +151,64 @@
 
 			<div id="content">
 				<h1>Lists</h1><p><a href="../docs/list.html">Lists</a> provide a way to manage a group of <a href="../docs/record.html">Records</a>. A list is an array of record names
-that can be manipulated and observed.</p><pre><code><span class="token comment" spellcheck="true">//creating or retrieving a list is the same
-</span><span class="token keyword" >var</span> pupils <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getList<span class="token punctuation" >(</span></span> <span class="token string" >'pupils'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//You can set the entire list's records
-</span><span class="token keyword" >var</span> johnDoe <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord<span class="token punctuation" >(</span></span> <span class="token string" >'johnDoe'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token keyword" >var</span> janeDoe <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord<span class="token punctuation" >(</span></span> <span class="token string" >'janeDoe'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-pupils<span class="token punctuation" >.</span><span class="token function" >setEntries<span class="token punctuation" >(</span></span> <span class="token punctuation" >[</span><span class="token string" >'johnDoe'</span><span class="token punctuation" >,</span> <span class="token string" >'janeDoe'</span><span class="token punctuation" >]</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//And you can add an entry to a list
-</span><span class="token keyword" >var</span> jimDoe <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord<span class="token punctuation" >(</span></span> <span class="token string" >'jimDoe'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-pupils<span class="token punctuation" >.</span><span class="token function" >addEntry<span class="token punctuation" >(</span></span> <span class="token string" >'jimDoe'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//You can likewise remove entries from a list
-</span>pupils<span class="token punctuation" >.</span><span class="token function" >removeEntry<span class="token punctuation" >(</span></span> <span class="token string" >'jimDoe'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//And you can remove all entries by reinitialising
-</span><span class="token comment" spellcheck="true">//the list
-</span>pupils<span class="token punctuation" >.</span><span class="token function" >setEntries<span class="token punctuation" >(</span></span> <span class="token punctuation" >[</span><span class="token punctuation" >]</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//Getting the list of records is simple
-</span>pupils<span class="token punctuation" >.</span><span class="token function" >getEntries<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span><span class="token comment" spellcheck="true"> //['johnDoe', 'janeDoe'];
-</span><span class="token comment" spellcheck="true">
-//But be aware, if your record exists already
-</span><span class="token comment" spellcheck="true">//it needs a brief moment to receive its data
-</span>pupils<span class="token punctuation" >.</span><span class="token function" >whenReady<span class="token punctuation" >(</span></span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >{</span>
-    console<span class="token punctuation" >.</span><span class="token function" >log<span class="token punctuation" >(</span></span> <span class="token string" >'Pupils'</span><span class="token punctuation" >,</span> pupils<span class="token punctuation" >.</span><span class="token function" >getEntries<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+that can be manipulated and observed.</p><pre><code><span class="token comment" spellcheck="true">//creating or retrieving a list is the same</span>
+<span class="token keyword" >var</span> pupils <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getList</span><span class="token punctuation" >(</span> <span class="token string" >'pupils'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">//You can set the entire list's records</span>
+<span class="token keyword" >var</span> johnDoe <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord</span><span class="token punctuation" >(</span> <span class="token string" >'johnDoe'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token keyword" >var</span> janeDoe <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord</span><span class="token punctuation" >(</span> <span class="token string" >'janeDoe'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+pupils<span class="token punctuation" >.</span><span class="token function" >setEntries</span><span class="token punctuation" >(</span> <span class="token punctuation" >[</span><span class="token string" >'johnDoe'</span><span class="token punctuation" >,</span> <span class="token string" >'janeDoe'</span><span class="token punctuation" >]</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">//And you can add an entry to a list</span>
+<span class="token keyword" >var</span> jimDoe <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord</span><span class="token punctuation" >(</span> <span class="token string" >'jimDoe'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+pupils<span class="token punctuation" >.</span><span class="token function" >addEntry</span><span class="token punctuation" >(</span> <span class="token string" >'jimDoe'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">//You can likewise remove entries from a list</span>
+pupils<span class="token punctuation" >.</span><span class="token function" >removeEntry</span><span class="token punctuation" >(</span> <span class="token string" >'jimDoe'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">//And you can remove all entries by reinitialising</span>
+<span class="token comment" spellcheck="true">//the list</span>
+pupils<span class="token punctuation" >.</span><span class="token function" >setEntries</span><span class="token punctuation" >(</span> <span class="token punctuation" >[</span><span class="token punctuation" >]</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">//Getting the list of records is simple</span>
+pupils<span class="token punctuation" >.</span><span class="token function" >getEntries</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span> <span class="token comment" spellcheck="true">//['johnDoe', 'janeDoe'];</span>
+
+<span class="token comment" spellcheck="true">//But be aware, if your record exists already</span>
+<span class="token comment" spellcheck="true">//it needs a brief moment to receive its data</span>
+pupils<span class="token punctuation" >.</span><span class="token function" >whenReady</span><span class="token punctuation" >(</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >{</span>
+    console<span class="token punctuation" >.</span><span class="token function" >log</span><span class="token punctuation" >(</span> <span class="token string" >'Pupils'</span><span class="token punctuation" >,</span> pupils<span class="token punctuation" >.</span><span class="token function" >getEntries</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//So a typical workflow to print all the data
-</span><span class="token comment" spellcheck="true">//from a list would be as follows
-</span>pupils<span class="token punctuation" >.</span><span class="token function" >whenReady<span class="token punctuation" >(</span></span> <span class="token keyword" >function</span> <span class="token function" >onListReady<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    pupils<span class="token punctuation" >.</span><span class="token function" >getEntries<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >forEach<span class="token punctuation" >(</span></span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> id <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-        <span class="token keyword" >var</span> pupil <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord<span class="token punctuation" >(</span></span> id <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-        pupil<span class="token punctuation" >.</span><span class="token function" >whenReady<span class="token punctuation" >(</span></span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >{</span>
-            console<span class="token punctuation" >.</span><span class="token function" >log<span class="token punctuation" >(</span></span> pupil<span class="token punctuation" >.</span><span class="token keyword" >get</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">//So a typical workflow to print all the data</span>
+<span class="token comment" spellcheck="true">//from a list would be as follows</span>
+pupils<span class="token punctuation" >.</span><span class="token function" >whenReady</span><span class="token punctuation" >(</span> <span class="token keyword" >function</span> <span class="token function" >onListReady</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    pupils<span class="token punctuation" >.</span><span class="token function" >getEntries</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >forEach</span><span class="token punctuation" >(</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> id <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+        <span class="token keyword" >var</span> pupil <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord</span><span class="token punctuation" >(</span> id <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+        pupil<span class="token punctuation" >.</span><span class="token function" >whenReady</span><span class="token punctuation" >(</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >{</span>
+            console<span class="token punctuation" >.</span><span class="token function" >log</span><span class="token punctuation" >(</span> pupil<span class="token punctuation" >.</span><span class="token keyword" >get</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
         <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
     <span class="token punctuation" >}</span><span class="token punctuation" >)</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//The subscribe feature can be used to be updated
-</span><span class="token comment" spellcheck="true">//whenever the list changes
-</span><span class="token keyword" >var</span> onPupilChange <span class="token operator" >=</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> pupils <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    console<span class="token punctuation" >.</span><span class="token function" >log<span class="token punctuation" >(</span></span> <span class="token string" >'List of pupils is now'</span><span class="token punctuation" >,</span> pupils<span class="token punctuation" >.</span><span class="token function" >getEntries<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">//The subscribe feature can be used to be updated</span>
+<span class="token comment" spellcheck="true">//whenever the list changes</span>
+<span class="token keyword" >var</span> onPupilChange <span class="token operator" >=</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> pupils <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    console<span class="token punctuation" >.</span><span class="token function" >log</span><span class="token punctuation" >(</span> <span class="token string" >'List of pupils is now'</span><span class="token punctuation" >,</span> pupils<span class="token punctuation" >.</span><span class="token function" >getEntries</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >;</span>
 
-pupils<span class="token punctuation" >.</span><span class="token function" >subscribe<span class="token punctuation" >(</span></span> onPupilChange <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//You can remove subscriptions by unsubscribing, but please be aware 
-</span><span class="token comment" spellcheck="true">//that this only unsubscribes locally, updates will continue to be sent from the server
-</span>pupils<span class="token punctuation" >.</span><span class="token function" >unsubscribe<span class="token punctuation" >(</span></span> onPupilChange <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//Once you are no longer interested in receiving
-</span><span class="token comment" spellcheck="true">//updates for this list, call discard, which will
-</span><span class="token comment" spellcheck="true">//stop the server from sending any updates
-</span>pupils<span class="token punctuation" >.</span><span class="token function" >discard<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token comment" spellcheck="true">
-//Or delete the list entirely
-</span>pupils<span class="token punctuation" >.</span><span class="token keyword" >delete</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+pupils<span class="token punctuation" >.</span><span class="token function" >subscribe</span><span class="token punctuation" >(</span> onPupilChange <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">//You can remove subscriptions by unsubscribing, but please be aware </span>
+<span class="token comment" spellcheck="true">//that this only unsubscribes locally, updates will continue to be sent from the server</span>
+pupils<span class="token punctuation" >.</span><span class="token function" >unsubscribe</span><span class="token punctuation" >(</span> onPupilChange <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">//Once you are no longer interested in receiving</span>
+<span class="token comment" spellcheck="true">//updates for this list, call discard, which will</span>
+<span class="token comment" spellcheck="true">//stop the server from sending any updates</span>
+pupils<span class="token punctuation" >.</span><span class="token function" >discard</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+
+<span class="token comment" spellcheck="true">//Or delete the list entirely</span>
+pupils<span class="token punctuation" >.</span><span class="token keyword" >delete</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 </code></pre>
 			</div>
 		</div>

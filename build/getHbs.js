@@ -106,12 +106,14 @@ hbs.registerHelper( 'debug', function(){
 	return new hbs.SafeString( '<pre>' + val + '</pre>' );
 });
 
-hbs.registerHelper( 'highlightFeatureMessage', function( step ) {
-	var message = step.match(/.\|.+.*\+/);
-	if( message ) {
-		return step.replace( message, formatSpecMessage( message[ 0 ] ) );
+hbs.registerHelper( 'highlightFeatureMessages', function( content ) {
+	var messages = content.match(/.\|.+.*\+/g);
+	if( messages ) {
+		for( var i=0; i<messages.length; i++ ) {
+			content = content.replace( messages[ i ], formatSpecMessage( messages[ i ] ) );
+		}
 	}
-	return step;
+	return content;
 });
 
 hbs.registerHelper( 'activeSpecPage', function( name, options ) {

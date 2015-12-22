@@ -173,37 +173,37 @@ all possible updates at all times.</p><p><a class="mega" href="https://github.co
 </ul>
 <h3>Creating a Provider</h3><p>A provider works by using <strong>record.listen</strong>. This works by providing a regex of a record name that a
 provider is interested in and a callback for when the a subscription is requested or when the record is
-no longer requested. The following code will allow all matching subjects to be notified.</p><pre><code>ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >listen<span class="token punctuation" >(</span></span> <span class="token string" >'FX/.\*'</span><span class="token punctuation" >,</span> onSubscription <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+no longer requested. The following code will allow all matching subjects to be notified.</p><pre><code>ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >listen</span><span class="token punctuation" >(</span> <span class="token string" >'FX/.\*'</span><span class="token punctuation" >,</span> onSubscription <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 </code></pre><p>Once we are notified a subscription is received we will need to update the record whenever the price changes.
 We have supplied a <strong><em>fx-price-generator</em></strong> class that requests the current market prices from <strong><em>finance.yahoo.com</em></strong> and adds a small difference to the prices to simulate market movement.</p><pre><code><span class="token comment" spellcheck="true">/**
  * @param {string} recordName The name of the record that has been subscribed to
  * @param {boolean} isSubscribed Whether the subject is being subscribed too or disposed of.
  */</span>
-<span class="token keyword" >function</span> <span class="token function" >onSubscription<span class="token punctuation" >(</span></span> recordName<span class="token punctuation" >,</span> isSubscribed <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+<span class="token keyword" >function</span> <span class="token function" >onSubscription</span><span class="token punctuation" >(</span> recordName<span class="token punctuation" >,</span> isSubscribed <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
   <span class="token comment" spellcheck="true">/**
    * Get the record from your cache
    */</span>
-    <span class="token keyword" >var</span> record <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord<span class="token punctuation" >(</span></span> recordName <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+    <span class="token keyword" >var</span> record <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getRecord</span><span class="token punctuation" >(</span> recordName <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 
   <span class="token comment" spellcheck="true">/**
    * Extract the currency pair from the record name
    */</span>
-    <span class="token keyword" >var</span> currencyPair <span class="token operator" >=</span> recordName<span class="token punctuation" >.</span><span class="token function" >substr<span class="token punctuation" >(</span></span> <span class="token number" >3</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+    <span class="token keyword" >var</span> currencyPair <span class="token operator" >=</span> recordName<span class="token punctuation" >.</span><span class="token function" >substr</span><span class="token punctuation" >(</span> <span class="token number" >3</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 
   <span class="token comment" spellcheck="true">/**
    * If isSubscribed is false no clients are interested in this
    * currency pair so stop generating prices
    */</span>
-    <span class="token keyword" >if</span><span class="token punctuation" >(</span> isSubscribed <span class="token operator" >===</span> <span class="token keyword" >false</span> <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-        record<span class="token punctuation" >.</span><span class="token function" >discard<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-        priceGenerator<span class="token punctuation" >.</span><span class="token function" >discardPrices<span class="token punctuation" >(</span></span> currencyPair <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+    <span class="token keyword" >if</span><span class="token punctuation" >(</span> isSubscribed <span class="token operator" >===</span> <span class="token boolean" >false</span> <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+        record<span class="token punctuation" >.</span><span class="token function" >discard</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+        priceGenerator<span class="token punctuation" >.</span><span class="token function" >discardPrices</span><span class="token punctuation" >(</span> currencyPair <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
     <span class="token punctuation" >}</span>
   <span class="token comment" spellcheck="true">/**
    * If isSubscribed is true the currency pair has been requested by a client
    * so start generating prices accordingly
    */</span>
   <span class="token keyword" >else</span> <span class="token punctuation" >{</span>
-        priceGenerator<span class="token punctuation" >.</span><span class="token function" >getPrices<span class="token punctuation" >(</span></span> currencyPair<span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> bid<span class="token punctuation" >,</span> ask <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+        priceGenerator<span class="token punctuation" >.</span><span class="token function" >getPrices</span><span class="token punctuation" >(</span> currencyPair<span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> bid<span class="token punctuation" >,</span> ask <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
             record<span class="token punctuation" >.</span><span class="token keyword" >set</span><span class="token punctuation" >(</span> <span class="token string" >'bid'</span><span class="token punctuation" >,</span> bid <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
             record<span class="token punctuation" >.</span><span class="token keyword" >set</span><span class="token punctuation" >(</span> <span class="token string" >'ask'</span><span class="token punctuation" >,</span> ask <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
         <span class="token punctuation" >}</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
@@ -227,15 +227,15 @@ PermissionHandler<span class="token punctuation" >.</span>prototype<span class="
   <span class="token comment" spellcheck="true">/**
    * If username matches that of a provider authenticate against provided password
    */</span>
-  <span class="token keyword" >if</span><span class="token punctuation" >(</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >isProvider<span class="token punctuation" >(</span></span> authData<span class="token punctuation" >.</span>username <span class="token operator" >&amp;&amp;</span>
-      authData<span class="token punctuation" >.</span>password <span class="token operator" >!</span><span class="token operator" >==</span> <span class="token string" >'complicatedProviderPassword'</span> <span class="token punctuation" >)</span> <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-    <span class="token function" >callback<span class="token punctuation" >(</span></span> <span class="token string" >'Invalid credentials.'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+  <span class="token keyword" >if</span><span class="token punctuation" >(</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >isProvider</span><span class="token punctuation" >(</span> authData<span class="token punctuation" >.</span>username <span class="token operator" >&amp;&amp;</span>
+      authData<span class="token punctuation" >.</span>password <span class="token operator" >!==</span> <span class="token string" >'complicatedProviderPassword'</span> <span class="token punctuation" >)</span> <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+    <span class="token function" >callback</span><span class="token punctuation" >(</span> <span class="token string" >'Invalid credentials.'</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
   <span class="token punctuation" >}</span>
   <span class="token comment" spellcheck="true">/**
    * Otherwise the username will be valid, to allow any client to login
    */</span>
   <span class="token keyword" >else</span> <span class="token punctuation" >{</span>
-    <span class="token function" >callback<span class="token punctuation" >(</span></span> <span class="token keyword" >null</span><span class="token punctuation" >,</span> authData<span class="token punctuation" >.</span>username <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+    <span class="token function" >callback</span><span class="token punctuation" >(</span> <span class="token keyword" >null</span><span class="token punctuation" >,</span> authData<span class="token punctuation" >.</span>username <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
   <span class="token punctuation" >}</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >;</span>
 
@@ -250,57 +250,57 @@ PermissionHandler<span class="token punctuation" >.</span>prototype<span class="
   <span class="token comment" spellcheck="true">/**
    * If the user is a provider, it has all permissions
    */</span>
-  <span class="token keyword" >if</span><span class="token punctuation" >(</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >isProvider<span class="token punctuation" >(</span></span> username <span class="token punctuation" >)</span> <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-        <span class="token function" >callback<span class="token punctuation" >(</span></span> <span class="token keyword" >null</span><span class="token punctuation" >,</span> <span class="token keyword" >true</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+  <span class="token keyword" >if</span><span class="token punctuation" >(</span> <span class="token keyword" >this</span><span class="token punctuation" >.</span><span class="token function" >isProvider</span><span class="token punctuation" >(</span> username <span class="token punctuation" >)</span> <span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+        <span class="token function" >callback</span><span class="token punctuation" >(</span> <span class="token keyword" >null</span><span class="token punctuation" >,</span> <span class="token boolean" >true</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
     <span class="token punctuation" >}</span>
   <span class="token comment" spellcheck="true">/**
    * Otherwise the client request is valid unless it's trying to make a change to a #
    * price record
    */</span>
    <span class="token keyword" >else</span> <span class="token punctuation" >{</span>
-        <span class="token keyword" >var</span> messageObj <span class="token operator" >=</span> <span class="token function" >readMessage<span class="token punctuation" >(</span></span> message <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-        <span class="token keyword" >var</span> isAllowed <span class="token operator" >=</span> <span class="token operator" >!</span>fxRecordNameRegex<span class="token punctuation" >.</span><span class="token function" >test<span class="token punctuation" >(</span></span> messageObj<span class="token punctuation" >.</span>name <span class="token punctuation" >)</span> <span class="token operator" >||</span> <span class="token operator" >!</span>messageObj<span class="token punctuation" >.</span>isChange<span class="token punctuation" >;</span>
+        <span class="token keyword" >var</span> messageObj <span class="token operator" >=</span> <span class="token function" >readMessage</span><span class="token punctuation" >(</span> message <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+        <span class="token keyword" >var</span> isAllowed <span class="token operator" >=</span> <span class="token operator" >!</span>fxRecordNameRegex<span class="token punctuation" >.</span><span class="token function" >test</span><span class="token punctuation" >(</span> messageObj<span class="token punctuation" >.</span>name <span class="token punctuation" >)</span> <span class="token operator" >||</span> <span class="token operator" >!</span>messageObj<span class="token punctuation" >.</span>isChange<span class="token punctuation" >;</span>
         <span class="token keyword" >var</span> errorMessage <span class="token operator" >=</span> isAllowed <span class="token operator" >?</span> <span class="token keyword" >null</span> <span class="token punctuation" >:</span> <span class="token string" >'Can\'t update FX prices from client'</span><span class="token punctuation" >;</span>
-        <span class="token function" >callback<span class="token punctuation" >(</span></span> errorMessage<span class="token punctuation" >,</span> isAllowed <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+        <span class="token function" >callback</span><span class="token punctuation" >(</span> errorMessage<span class="token punctuation" >,</span> isAllowed <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
     <span class="token punctuation" >}</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >;</span>
 </code></pre><h3>Create a user to request the data</h3><p>Now that we have both a permissioned price provider we can request the record from a client
 and view streaming prices!</p><pre><code><span class="token comment" spellcheck="true">/**
 * Login to deepstream as Frank
 */</span>
-<span class="token keyword" >var</span> ds <span class="token operator" >=</span> <span class="token function" >deepstream<span class="token punctuation" >(</span></span> <span class="token string" >'localhost:6020'</span> <span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >login<span class="token punctuation" >(</span></span><span class="token punctuation" >{</span> username<span class="token punctuation" >:</span> <span class="token string" >'Frank'</span><span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token keyword" >var</span> ds <span class="token operator" >=</span> <span class="token function" >deepstream</span><span class="token punctuation" >(</span> <span class="token string" >'localhost:6020'</span> <span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >login</span><span class="token punctuation" >(</span><span class="token punctuation" >{</span> username<span class="token punctuation" >:</span> <span class="token string" >'Frank'</span><span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 
 <span class="token comment" spellcheck="true">/**
 * Request an anonymous record, as we will be changing the currency pair
 * dynamically
 */</span>
-<span class="token keyword" >var</span> currencyPairRecord <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getAnonymousRecord<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token keyword" >var</span> currencyPairRecord <span class="token operator" >=</span> ds<span class="token punctuation" >.</span>record<span class="token punctuation" >.</span><span class="token function" >getAnonymousRecord</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 
-<span class="token keyword" >var</span> bid <span class="token operator" >=</span> $<span class="token punctuation" >(</span><span class="token string" >'.streaming-prices .bid'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token keyword" >var</span> ask <span class="token operator" >=</span> $<span class="token punctuation" >(</span><span class="token string" >'.streaming-prices .ask'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-<span class="token keyword" >var</span> currencyPair <span class="token operator" >=</span> $<span class="token punctuation" >(</span><span class="token string" >'.streaming-prices .currency-pair'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token keyword" >var</span> bid <span class="token operator" >=</span> <span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'.streaming-prices .bid'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token keyword" >var</span> ask <span class="token operator" >=</span> <span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'.streaming-prices .ask'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+<span class="token keyword" >var</span> currencyPair <span class="token operator" >=</span> <span class="token function" >$</span><span class="token punctuation" >(</span><span class="token string" >'.streaming-prices .currency-pair'</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 
 <span class="token comment" spellcheck="true">/**
 * Update bid price whenever it changes
 */</span>
-currencyPairRecord<span class="token punctuation" >.</span><span class="token function" >subscribe<span class="token punctuation" >(</span></span> <span class="token string" >'bid'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> bidPrice <span class="token punctuation" >)</span><span class="token punctuation" >{</span>
-  bid<span class="token punctuation" >.</span><span class="token function" >text<span class="token punctuation" >(</span></span> bidPrice <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+currencyPairRecord<span class="token punctuation" >.</span><span class="token function" >subscribe</span><span class="token punctuation" >(</span> <span class="token string" >'bid'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> bidPrice <span class="token punctuation" >)</span><span class="token punctuation" >{</span>
+  bid<span class="token punctuation" >.</span><span class="token function" >text</span><span class="token punctuation" >(</span> bidPrice <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 
 <span class="token comment" spellcheck="true">/**
 * Update ask price whenever it changes
 */</span>
-currencyPairRecord<span class="token punctuation" >.</span><span class="token function" >subscribe<span class="token punctuation" >(</span></span> <span class="token string" >'ask'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> askPrice <span class="token punctuation" >)</span><span class="token punctuation" >{</span>
-  ask<span class="token punctuation" >.</span><span class="token function" >text<span class="token punctuation" >(</span></span> askPrice <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+currencyPairRecord<span class="token punctuation" >.</span><span class="token function" >subscribe</span><span class="token punctuation" >(</span> <span class="token string" >'ask'</span><span class="token punctuation" >,</span> <span class="token keyword" >function</span><span class="token punctuation" >(</span> askPrice <span class="token punctuation" >)</span><span class="token punctuation" >{</span>
+  ask<span class="token punctuation" >.</span><span class="token function" >text</span><span class="token punctuation" >(</span> askPrice <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 
 <span class="token comment" spellcheck="true">/**
 * Set the new record name whenever the currency pair changes
 */</span>
-currencyPair<span class="token punctuation" >.</span><span class="token function" >change<span class="token punctuation" >(</span></span><span class="token keyword" >function</span> <span class="token function" >updateCurrencyPair<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
-  currencyPairRecord<span class="token punctuation" >.</span><span class="token function" >setName<span class="token punctuation" >(</span></span> <span class="token string" >'FX/'</span> <span class="token operator" >+</span> $<span class="token punctuation" >(</span> <span class="token keyword" >this</span> <span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >val<span class="token punctuation" >(</span></span><span class="token punctuation" >)</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+currencyPair<span class="token punctuation" >.</span><span class="token function" >change</span><span class="token punctuation" >(</span><span class="token keyword" >function</span> <span class="token function" >updateCurrencyPair</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >{</span>
+  currencyPairRecord<span class="token punctuation" >.</span><span class="token function" >setName</span><span class="token punctuation" >(</span> <span class="token string" >'FX/'</span> <span class="token operator" >+</span> <span class="token function" >$</span><span class="token punctuation" >(</span> <span class="token keyword" >this</span> <span class="token punctuation" >)</span><span class="token punctuation" >.</span><span class="token function" >val</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 <span class="token punctuation" >}</span><span class="token punctuation" >)</span><span class="token punctuation" >;</span>
-currencyPair<span class="token punctuation" >.</span><span class="token function" >trigger<span class="token punctuation" >(</span></span> <span class="token string" >"change"</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
+currencyPair<span class="token punctuation" >.</span><span class="token function" >trigger</span><span class="token punctuation" >(</span> <span class="token string" >"change"</span> <span class="token punctuation" >)</span><span class="token punctuation" >;</span>
 </code></pre><div class="hint-box fa fa-lightbulb-o">
 
     <h3>Some considerations when using a provider</h3>
